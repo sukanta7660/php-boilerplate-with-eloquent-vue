@@ -2,7 +2,7 @@ printError = (elementId, message) => {
     document.getElementById(elementId).innerHTML = message;
 }
 
-validateForm = () => {
+validateForm = (e) => {
     let name = document.getElementById('name').value
     let email = document.getElementById('email').value
     let contact = document.getElementById('contactNo').value
@@ -71,6 +71,8 @@ validateForm = () => {
     }
 
     if((nameError || emailError || contactError || passwordError || confirmPasswordError) === true) {
+        return false;
+    }else {
         return false;
     }
 }
