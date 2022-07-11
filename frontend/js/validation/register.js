@@ -72,7 +72,5 @@ validateForm = () => {
 
     if((nameError || emailError || contactError || passwordError || confirmPasswordError) === true) {
         return false;
-    }else {
-        return false;
     }
 }
