@@ -70,9 +70,7 @@ validateForm = (e) => {
         }
     }
 
-    if((nameError || emailError || contactError || passwordError || confirmPasswordError) == true) {
-        return false;
-    }else {
+    if((nameError || emailError || contactError || passwordError || confirmPasswordError) === true) {
         return false;
     }
 }
