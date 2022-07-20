@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="This tool helps to build a simple project with object oriented php.">
-    <meta name="author" content="Sukanta Purkayastha">
+    <meta name="description" content="Online library">
+    <meta name="author" content="Online Library">
     <title>OOP STARTER KIT</title>
     <link href="<?= public_path('css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?= public_path('css/pricing.css') ?>" rel="stylesheet">
