@@ -9,7 +9,10 @@ Capsule::schema()->create('books', function (Blueprint $table) {
 
   $table->increments('id');
   $table->integer('category_id')->unsigned()->index();
-  $table->foreign('category_id')->references('id')->on('categories');
+  $table->foreign('category_id')
+    ->references('id')
+    ->on('categories')
+  ;
   $table->string('name');
   $table->string('author');
   $table->string('image')->default('default.jpg');
