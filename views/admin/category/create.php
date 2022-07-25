@@ -37,7 +37,7 @@
                                       <option value="0">Disable</option>
                                   </select>
                               </div>
-                              <a href="category.html" class="btn btn-sm btn-danger">
+                              <a href="<?= URI('/admin/category') ?>" class="btn btn-sm btn-danger">
                                   <i class="fa fa-arrow-alt-circle-left"></i>
                                   Back to the list
                               </a>
