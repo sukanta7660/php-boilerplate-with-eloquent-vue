@@ -79,7 +79,7 @@
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Categories</h6>
         <a class="collapse-item" href="create-category.html">Add Category</a>
-        <a class="collapse-item" href="category.html">All Category</a>
+        <a class="collapse-item" href="<?= URI('/admin/category') ?>">All Category</a>
       </div>
     </div>
   </li>

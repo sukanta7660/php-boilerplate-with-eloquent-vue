@@ -9,13 +9,50 @@
     <div id="content">
 
       <?= include_page('shared/admin/header') ?>
+      
       <div class="container-fluid">
 
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          <h1 class="h3 mb-0 text-gray-800">Category Page</h1>
-        </div>
-
+      <h1 class="h3 mb-2 text-gray-800">Categories</h1>
+      
+      <div class="card shadow mb-4">
+          <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">All Categories</h6>
+          </div>
+          <div class="card-body">
+              <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                          <tr>
+                              <th>S/N</th>
+                              <th>Name</th>
+                              <th>status</th>
+                              <th class="text-right">Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>1</td>
+                              <td>
+                                  name
+                              </td>
+                              <td>
+                                  <span class="badge badge-danger">
+                                      enabled
+                                  </span>
+                              </td>
+                              <td class="text-right">
+                                  <a href="update-category.html" class="btn btn-sm btn-success">Edit</a>
+                                  <a onclick="return confirm('Are you sure to delete this category ?')" href="#" class="btn btn-sm btn-danger">Delete </a>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
       </div>
+
+    </div>
+
 
     </div>
 
