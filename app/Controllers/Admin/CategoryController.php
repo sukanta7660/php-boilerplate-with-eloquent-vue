@@ -12,8 +12,19 @@ class CategoryController extends Controller
     return view('admin/category/index', ['categories' => $categories]);
   }
 
-  public function delete(Category $category)
+  public function create()
   {
+    return view('admin/category/create');
+  }
+
+  public function delete($id = null)
+  {
+
+    if($id == null){
+      redirect('/admin/category');
+    }
+
+    $category = Category::find($id);
     $category->delete();
 
     redirect('/admin/category');
