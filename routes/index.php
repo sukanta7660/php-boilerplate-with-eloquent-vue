@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\Admin\DashboardController;
+use App\Controllers\Admin\CategoryController;
 use App\Controllers\Auth\LoginController;
 use App\Controllers\Auth\RegisterController;
 use App\Controllers\HomeController;
@@ -25,6 +26,12 @@ $route->get('/', [HomeController::class, 'index']);
 /*-------Admin Routes---------*/
 $route->group(['prefix' => 'admin'], function (RouteCollector $route) {
     $route->get('dashboard', [DashboardController::class, 'index']);
+
+    /*---------- Category ----------*/
+    $route->group(['prefix' => 'category'], function (RouteCollector $route) {
+        $route->get('/', [CategoryController::class, 'index']);
+    });
+    /*---------- Category ----------*/
 });
 /*-------Admin Routes---------*/
 
