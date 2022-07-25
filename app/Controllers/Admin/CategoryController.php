@@ -25,6 +25,14 @@ class CategoryController extends Controller
     $errors = [];
     $request = user_inputs();
 
+    if ($validate::alpha(' ')->validate($request->name) === false) {
+      $errors['name'] = 'Name can only contains alphabets or space.';
+    }
+
+    if (!empty($errors)) {
+      return view('admin/category/create', ['errors' => $errors]);
+    }
+
     Category::create([
       'name' => $request->name,
       'status' => $request->status
