@@ -31,6 +31,7 @@ $route->group(['prefix' => 'admin'], function (RouteCollector $route) {
     $route->group(['prefix' => 'category'], function (RouteCollector $route) {
         $route->get('/', [CategoryController::class, 'index']);
         $route->get('/create', [CategoryController::class, 'create']);
+        $route->post('/store', [CategoryController::class, 'store']);
         $route->get('/delete/{id}', [CategoryController::class, 'delete']);
     });
     /*---------- Category ----------*/

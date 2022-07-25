@@ -21,7 +21,7 @@
                           <h6 class="m-0 font-weight-bold text-primary">Add Category</h6>
                       </div>
                       <div class="card-body">
-                          <form class="user" name="store" method="post" onsubmit="valid()">
+                          <form class="user" name="store" method="post" action="<?= URI('/admin/category/store') ?>">
                               <div class="form-group">
                                   <label>Category Name</label>
                                   <input

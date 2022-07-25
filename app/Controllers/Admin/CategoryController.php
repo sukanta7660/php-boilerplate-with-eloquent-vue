@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 use App\Category;
 use App\Controllers\Controller;
+use Respect\Validation\Validator;
 
 class CategoryController extends Controller
 {
@@ -15,6 +16,24 @@ class CategoryController extends Controller
   public function create()
   {
     return view('admin/category/create');
+  }
+
+  public function store()
+  {
+    $validate = new Validator();
+
+    $errors = [];
+    $request = user_inputs();
+    $name = $request->name;
+    $status = $request->status;
+
+    Category::create([
+      'name' => $request->name,
+      'status' => $request->status
+    ]);
+
+    redirect('/admin/category');
+    return true;
   }
 
   public function delete($id = null)
