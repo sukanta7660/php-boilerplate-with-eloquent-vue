@@ -30,14 +30,15 @@
                           </tr>
                       </thead>
                       <tbody>
+                        <?php foreach ($categories as $key => $value) {?>
                           <tr>
-                              <td>1</td>
+                              <td><?= $key+1 ?></td>
                               <td>
-                                  name
+                                  <?= $value->name ?>
                               </td>
                               <td>
-                                  <span class="badge badge-danger">
-                                      enabled
+                                  <span class="badge <?= $value->status ? 'badge-success' : 'badge-danger' ?>">
+                                  <?= $value->status ? 'Enabled' : 'Disabled' ?>
                                   </span>
                               </td>
                               <td class="text-right">
@@ -45,6 +46,7 @@
                                   <a onclick="return confirm('Are you sure to delete this category ?')" href="#" class="btn btn-sm btn-danger">Delete </a>
                               </td>
                           </tr>
+                          <?php } ?>
                       </tbody>
                   </table>
               </div>
