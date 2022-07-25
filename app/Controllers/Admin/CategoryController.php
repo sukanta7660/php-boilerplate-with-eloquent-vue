@@ -11,4 +11,12 @@ class CategoryController extends Controller
     $categories = Category::all();
     return view('admin/category/index', ['categories' => $categories]);
   }
+
+  public function delete(Category $category)
+  {
+    $category->delete();
+
+    redirect('/admin/category');
+    return true;
+  }
 }

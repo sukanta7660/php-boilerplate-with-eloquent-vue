@@ -30,6 +30,7 @@ $route->group(['prefix' => 'admin'], function (RouteCollector $route) {
     /*---------- Category ----------*/
     $route->group(['prefix' => 'category'], function (RouteCollector $route) {
         $route->get('/', [CategoryController::class, 'index']);
+        $route->get('/delete/{category}', [CategoryController::class, 'delete']);
     });
     /*---------- Category ----------*/
 });

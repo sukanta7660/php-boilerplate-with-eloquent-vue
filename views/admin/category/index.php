@@ -43,7 +43,7 @@
                               </td>
                               <td class="text-right">
                                   <a href="update-category.html" class="btn btn-sm btn-success">Edit</a>
-                                  <a onclick="return confirm('Are you sure to delete this category ?')" href="#" class="btn btn-sm btn-danger">Delete </a>
+                                  <a onclick="return confirm('Are you sure to delete this category ?')" href="<?= URI(`/admin/category/delete/$value->id`) ?>" class="btn btn-sm btn-danger">Delete </a>
                               </td>
                           </tr>
                           <?php } ?>
