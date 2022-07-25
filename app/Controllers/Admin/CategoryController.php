@@ -24,10 +24,35 @@ class CategoryController extends Controller
 
     $errors = [];
     $request = user_inputs();
-    $name = $request->name;
-    $status = $request->status;
 
     Category::create([
+      'name' => $request->name,
+      'status' => $request->status
+    ]);
+
+    redirect('/admin/category');
+    return true;
+  }
+
+  public function edit($id = null)
+  {
+    if($id == null) {
+      redirect('/admin/category');
+    }
+
+    $category = Category::find($id);
+    
+    return view('admin/category/edit', ['category' => $category]);
+  }
+
+  public function update()
+  {
+    $validate = new Validator();
+
+    $errors = [];
+    $request = user_inputs();
+
+    Category::where('id', $request->id)->update([
       'name' => $request->name,
       'status' => $request->status
     ]);

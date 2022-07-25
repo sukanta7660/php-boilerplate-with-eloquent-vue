@@ -32,6 +32,8 @@ $route->group(['prefix' => 'admin'], function (RouteCollector $route) {
         $route->get('/', [CategoryController::class, 'index']);
         $route->get('/create', [CategoryController::class, 'create']);
         $route->post('/store', [CategoryController::class, 'store']);
+        $route->get('/edit/{id}', [CategoryController::class, 'edit']);
+        $route->post('/update', [CategoryController::class, 'update']);
         $route->get('/delete/{id}', [CategoryController::class, 'delete']);
     });
     /*---------- Category ----------*/
@@ -42,4 +44,3 @@ $route->group(['prefix' => 'admin'], function (RouteCollector $route) {
 $route->group(['before' => 'auth'], function (RouteCollector $route) {
     //
 });
-
