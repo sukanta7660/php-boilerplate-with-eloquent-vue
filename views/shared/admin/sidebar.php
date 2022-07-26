@@ -92,8 +92,8 @@
     <div id="books" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Book</h6>
-        <a class="collapse-item" href="add-book.html">Add Book</a>
-        <a class="collapse-item" href="book.html">All Books</a>
+        <a class="collapse-item" href="<?= URI('/admin/book/create') ?>">Add Book</a>
+        <a class="collapse-item" href="<?= URI('/admin/book') ?>">All Books</a>
       </div>
     </div>
   </li>

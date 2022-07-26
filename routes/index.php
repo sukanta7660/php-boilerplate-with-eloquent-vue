@@ -2,6 +2,7 @@
 
 use App\Controllers\Admin\DashboardController;
 use App\Controllers\Admin\CategoryController;
+use App\Controllers\Admin\BookController;
 use App\Controllers\Auth\LoginController;
 use App\Controllers\Auth\RegisterController;
 use App\Controllers\HomeController;
@@ -37,6 +38,18 @@ $route->group(['prefix' => 'admin'], function (RouteCollector $route) {
         $route->get('/delete/{id}', [CategoryController::class, 'delete']);
     });
     /*---------- Category ----------*/
+
+    /*---------- Book ----------*/
+    $route->group(['prefix' => 'book'], function (RouteCollector $route) {
+        $route->get('/', [BookController::class, 'index']);
+        $route->get('/create', [BookController::class, 'create']);
+        $route->post('/store', [BookController::class, 'store']);
+        $route->get('/edit/{id}', [BookController::class, 'edit']);
+        $route->post('/update', [BookController::class, 'update']);
+        $route->get('/delete/{id}', [BookController::class, 'delete']);
+    });
+    /*---------- Book ----------*/
+
 });
 /*-------Admin Routes---------*/
 
