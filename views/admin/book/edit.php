@@ -22,22 +22,62 @@
                             </div>
                             <div class="card-body">
                                 <form class="user" name="store" method="post"
-                                    action="<?= URI('/admin/category/update') ?>">
-                                    <input type="hidden" name="id" value="<?= $category->id ?>">
+                                    action="<?= URI('/admin/book/update') ?>"
+                                    enctype="multipart/form-data">
+                                    <input type="hidden" name="id" value="<?= $book->id ?>">
                                     <div class="form-group">
-                                        <label>Category Name</label>
-                                        <input type="text" class="form-control" value="<?= $category->name ?>"
-                                            placeholder="Enter category name" name="name" required>
+                                        <label>Category</label>
+                                        <select name="category_id" class="form-control" required>
+                                            <option value="">Select a category</option>
+                                            <?php foreach ($categories as $key => $value) { ?>
+                                            <option 
+                                                value="<?= $value->id ?>"
+                                                <?= $value->id == $book->category_id ? 'selected' : '' ?>>
+                                                <?= $value->name ?>
+                                            </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Book Name</label>
+                                        <input type="text" 
+                                            name="name"
+                                            value="<?= $book->name ?>"  
+                                            class="form-control" 
+                                            placeholder="Book Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Author</label>
+                                        <input type="text" 
+                                            name="author"
+                                            value="<?= $book->author ?>"  
+                                            class="form-control" 
+                                            placeholder="Book Author">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quantity</label>
+                                        <input type="number" 
+                                            name="quantity" 
+                                            class="form-control" 
+                                            placeholder="Book quantity" 
+                                            value="<?= $book->quantity ?>"  
+                                            min="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <input type="file" 
+                                            name="image"
+                                            class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label>Status</label>
                                         <select name="status" class="form-control">
-                                            <option value="1" <?= $category->status ? 'selected' : '' ?>>Enable</option>
-                                            <option value="0" <?= !$category->status ? 'selected' : '' ?>>Disable
+                                            <option value="1" <?= $book->status ? 'selected' : '' ?>>Enable</option>
+                                            <option value="0" <?= !$book->status ? 'selected' : '' ?>>Disable
                                             </option>
                                         </select>
                                     </div>
-                                    <a href="<?= URI('/admin/category') ?>" class="btn btn-sm btn-danger">
+                                    <a href="<?= URI('/admin/book') ?>" class="btn btn-sm btn-danger">
                                         <i class="fa fa-arrow-alt-circle-left"></i>
                                         Back to the list
                                     </a>
