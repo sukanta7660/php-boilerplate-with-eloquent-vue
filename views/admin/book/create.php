@@ -33,9 +33,35 @@
                                     <?php } ?>
 
                                     <div class="form-group">
-                                        <label>Category Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter category name"
-                                            name="name">
+                                        <label>Category</label>
+                                        <select name="category_id" class="form-control">
+                                            <option value="">Select a category</option>
+                                            <?php foreach ($categories as $key => $value) { ?>
+                                            <option value="<?= $value->id ?>"><?= $value->name ?></option></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Book Name</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Book Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Author</label>
+                                        <input type="text" name="author" class="form-control" placeholder="Book Author">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quantity</label>
+                                        <input type="number" 
+                                            name="quantity" 
+                                            class="form-control" 
+                                            placeholder="Book quantity" 
+                                            value="0" min="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <input type="file" 
+                                            name="quantity" 
+                                            class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label>Status</label>

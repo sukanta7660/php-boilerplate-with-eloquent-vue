@@ -34,7 +34,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($categories as $key => $value) {?>
+                                    <?php foreach ($books as $key => $value) {?>
                                     <tr>
                                         <td><?= $key+1 ?></td>
                                         <td></td>

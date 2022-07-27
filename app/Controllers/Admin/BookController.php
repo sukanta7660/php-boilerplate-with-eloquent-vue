@@ -17,7 +17,7 @@ class BookController extends Controller
   public function create()
   {
     $categories = Category::where('status', 1)->get();
-    return view('admin/category/create', ['categories' => $categories]);
+    return view('admin/book/create', ['categories' => $categories]);
   }
 
   public function store()
