@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 use App\Category;
+use App\Book;
 use App\Controllers\Controller;
 use Respect\Validation\Validator;
 
@@ -9,13 +10,14 @@ class BookController extends Controller
 {
   public function index()
   {
-    $categories = Category::all();
-    return view('admin/book/index', ['categories' => $categories]);
+    $books = Book::all();
+    return view('admin/book/index', ['books' => $books]);
   }
 
   public function create()
   {
-    return view('admin/category/create');
+    $categories = Category::where('status', 1)->get();
+    return view('admin/category/create', ['categories' => $categories]);
   }
 
   public function store()

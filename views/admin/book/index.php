@@ -12,11 +12,11 @@
 
             <div class="container-fluid">
 
-                <h1 class="h3 mb-2 text-gray-800">Categories</h1>
+                <h1 class="h3 mb-2 text-gray-800">Books</h1>
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">All Categories</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">All Books</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -24,7 +24,11 @@
                                 <thead>
                                     <tr>
                                         <th>S/N</th>
+                                        <th></th>
                                         <th>Name</th>
+                                        <th>Author</th>
+                                        <th>Availability</th>
+                                        <th>Quantity</th>
                                         <th>status</th>
                                         <th class="text-right">Action</th>
                                     </tr>
@@ -33,8 +37,18 @@
                                     <?php foreach ($categories as $key => $value) {?>
                                     <tr>
                                         <td><?= $key+1 ?></td>
+                                        <td></td>
                                         <td>
                                             <?= $value->name ?>
+                                        </td>
+                                        <td>
+                                            <?= $value->author ?>
+                                        </td>
+                                        <td>
+                                            <?= $value->availability ?>
+                                        </td>
+                                        <td>
+                                            <?= $value->quantity ?>
                                         </td>
                                         <td>
                                             <span
