@@ -22,22 +22,44 @@ class BookController extends Controller
 
   public function store()
   {
+    // dd(user_inputs());
     $validate = new Validator();
 
     $errors = [];
     $request = user_inputs();
 
     if ($validate::alpha(' ')->validate($request->name) === false) {
-      $errors['name'] = 'Name can only contains alphabets or space.';
+      $errors['name'] = 'Book Name can only contains alphabets or space.';
+    }
+
+    if ($validate::alpha(' ')->validate($request->author) === false) {
+      $errors['author'] = 'Author Name can only contains alphabets or space.';
+    }
+
+    if ($validate::intVal()->validate($request->quantity) === false) {
+      $errors['quantity'] = 'Quantity must be an integer';
     }
 
     if (!empty($errors)) {
       return view('admin/book/create', ['errors' => $errors]);
     }
 
-    Category::create([
+    $image = 'default.jpg';
+
+    if ($request->hasFile('image')) {
+      $extension = $request->image->extension();
+      $image = rand(11111, 9999).'_'.time().'.'.$extension;
+      $path = 'public/uploads/books/'.$image;
+      move_uploaded_file($request->image, $path);
+    }
+
+    Book::create([
+      'category_id' => $request->category_id,
       'name' => $request->name,
-      'status' => $request->status
+      'author' => $request->author,
+      'quantity' => $request->quantity,
+      'status' => $request->status,
+      'image' => $image
     ]);
 
     redirect('/admin/book');
@@ -50,9 +72,9 @@ class BookController extends Controller
       redirect('/admin/book');
     }
 
-    $category = Category::find($id);
+    $book = Book::find($id);
     
-    return view('admin/book/edit', ['category' => $category]);
+    return view('admin/book/edit', ['book' => $book]);
   }
 
   public function update()
@@ -78,7 +100,7 @@ class BookController extends Controller
       redirect('/admin/book');
     }
 
-    $category = Category::find($id);
+    $category = Book::find($id);
     $category->delete();
 
     redirect('/admin/book');

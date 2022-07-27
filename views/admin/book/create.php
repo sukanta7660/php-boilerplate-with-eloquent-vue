@@ -12,17 +12,17 @@
 
             <div class="container-fluid">
 
-                <h1 class="h3 mb-2 text-gray-800">Categories</h1>
+                <h1 class="h3 mb-2 text-gray-800">Books</h1>
 
                 <div class="row justify-content-center">
                     <div class="col-md-6">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Add Category</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Add Book</h6>
                             </div>
                             <div class="card-body">
                                 <form class="user" name="store" method="post"
-                                    action="<?= URI('/admin/category/store') ?>">
+                                    action="<?= URI('/admin/book/store') ?>" enctype="multipart/form-data">
 
                                     <?php if (isset($errors)) { ?>
                                     <ul>
@@ -34,10 +34,10 @@
 
                                     <div class="form-group">
                                         <label>Category</label>
-                                        <select name="category_id" class="form-control">
+                                        <select name="category_id" class="form-control" required>
                                             <option value="">Select a category</option>
                                             <?php foreach ($categories as $key => $value) { ?>
-                                            <option value="<?= $value->id ?>"><?= $value->name ?></option></option>
+                                            <option value="<?= $value->id ?>"><?= $value->name ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
@@ -60,7 +60,7 @@
                                     <div class="form-group">
                                         <label>Image</label>
                                         <input type="file" 
-                                            name="quantity" 
+                                            name="image" 
                                             class="form-control">
                                     </div>
                                     <div class="form-group">

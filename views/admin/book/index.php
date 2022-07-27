@@ -57,12 +57,12 @@
                                             </span>
                                         </td>
                                         <td class="text-right">
-                                            <a href="<?= URI('/admin/category/edit/'.$value->id) ?>"
+                                            <a href="<?= URI('/admin/book/edit/'.$value->id) ?>"
                                                 class="btn btn-sm btn-success">
                                                 Edit
                                             </a>
                                             <a onclick="return confirm('Are you sure to delete this category ?')"
-                                                href="/admin/category/delete/<?= $value->id ?>"
+                                                href="/admin/book/delete/<?= $value->id ?>"
                                                 class="btn btn-sm btn-danger">
                                                 Delete
                                             </a>
