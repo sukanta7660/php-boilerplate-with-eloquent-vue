@@ -7,95 +7,23 @@
       <div class="container ">
         <div class="heading_container heading_center">
           <h2>
-            Books Categories
+            Book Lists
           </h2>
         </div>
         <div class="row">
-          <div class="col-sm-6 col-md-4 ">
-            <a href="">
-              <div class="box ">
-                <div class="img-box">
-                  <img src="<?= public_path('user/images/cat1.png') ?>" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Textbooks
-                  </h5>
-                </div>
-              </div>
-            </a>
+          <div class="col-sm-4 col-md-3 sidebar">
+            <div class="list-group">
+                <span href="#" class="list-group-item active">
+                    Categories
+                </span>
+                <?php foreach ($categories as $key => $value) { ?>
+                  <a href="#" class="list-group-item">
+                    <i class="fa fa-folder"></i> <?= $value->name ?> <span class="badge pull-right"><?= count($value->books) ?></span>
+                  </a>
+                <?php } ?>
+            </div>        
           </div>
-          <div class="col-sm-6 col-md-4 ">
-            <a href="">
-              <div class="box ">
-                <div class="img-box">
-                  <img src="<?= public_path('user/images/cat2.png') ?>" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Science
-                  </h5>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-4 ">
-            <a href="">
-              <div class="box ">
-                <div class="img-box">
-                  <img src="<?= public_path('user/images/cat3.png') ?>" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    History
-                  </h5>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-4 ">
-            <a href="">
-              <div class="box ">
-                <div class="img-box">
-                  <img src="<?= public_path('user/images/cat4.png') ?>" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Biography
-                  </h5>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-4 ">
-            <a href="">
-              <div class="box ">
-                <div class="img-box">
-                  <img src="<?= public_path('user/images/cat5.png') ?>" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Adventure
-                  </h5>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-4 ">
-            <a href="">
-              <div class="box ">
-                <div class="img-box">
-                  <img src="<?= public_path('user/images/cat6.png') ?>" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Fantasy
-                  </h5>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
+	      </div>
       </div>
     </div>
   </section>
