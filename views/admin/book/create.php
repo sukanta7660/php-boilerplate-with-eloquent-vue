@@ -70,13 +70,13 @@
                                             <option value="0">Disable</option>
                                         </select>
                                     </div>
-                                    <a href="<?= URI('/admin/category') ?>" class="btn btn-sm btn-danger">
+                                    <a href="<?= URI('/admin/book') ?>" class="btn btn-sm btn-danger">
                                         <i class="fa fa-arrow-alt-circle-left"></i>
                                         Back to the list
                                     </a>
                                     <button type="submit" name="store"
                                         class="btn btn-primary btn-sm float-right border-0">
-                                        Save Category
+                                        Save Book
                                         <i class="fa fa-arrow-alt-circle-right"></i>
                                     </button>
                                 </form>

@@ -83,7 +83,7 @@
                                     </a>
                                     <button type="submit" name="store"
                                         class="btn btn-primary btn-sm float-right border-0">
-                                        Save Category
+                                        Save Book
                                         <i class="fa fa-arrow-alt-circle-right"></i>
                                     </button>
                                 </form>
