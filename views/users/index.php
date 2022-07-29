@@ -23,6 +23,23 @@
                 <?php } ?>
             </div>        
           </div>
+          <div class="col-md-9 col-sm-8">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card" style="width: 300px;">
+                  <img src="images/thumbnail.svg" class="w-100 border-bottom" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Here is some example text to make up the card's content. Replace it with your own text anytime.</p>
+                  </div>
+                  <div class="card-body">
+                      <a href="#" class="card-link">Card link</a>
+                      <a href="#" class="card-link">Another link</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 	      </div>
       </div>
     </div>
