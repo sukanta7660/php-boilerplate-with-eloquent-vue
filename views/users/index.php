@@ -25,19 +25,35 @@
           </div>
           <div class="col-md-9 col-sm-8">
             <div class="row">
-              <div class="col-md-4">
-                <div class="card" style="width: 300px;">
-                  <img src="images/thumbnail.svg" class="w-100 border-bottom" alt="...">
+                <?php 
+                  foreach ($books as $key => $value) {
+                    $image =  
+                          $value->image == 'default.jpg' ? 
+                          'https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png' : 
+                          public_path('uploads/books/'.$value->image)
+                        ;
+                ?>
+                <div class="col-md-4">
+                  <div class="card h-100 shadow-sm">
+                  <img src="<?= $image ?>" class="card-img-top" alt="..." />
                   <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Here is some example text to make up the card's content. Replace it with your own text anytime.</p>
-                  </div>
-                  <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
+                      <div class="clearfix mb-3">
+                        <span class="float-start badge rounded-pill bg-primary text-white">
+                          Available Book: 
+                          <?= $value->availability ?>
+                        </span> 
+                        <!-- <span class="float-right price-hp">12354.00&euro;</span> -->
+                      </div>
+                      <h5 class="card-title">
+                          <small><b class="text-bold">Title:</b> <?= $value->name ?></small><br>
+                          <small><b>Category:</b> <?= $value->category->name ?></small><br>
+                        <small><b>Author:</b> <?= $value->author ?></small>
+                      </h5>
+                      <div class="text-center my-4"><a href="#" class="btn btn-primary btn-sm">Send a book request</a></div>
                   </div>
                 </div>
               </div>
+              <?php } ?>
             </div>
           </div>
 	      </div>
