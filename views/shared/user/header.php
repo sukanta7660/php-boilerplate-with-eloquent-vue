@@ -16,13 +16,13 @@
   <link href="<?= public_path('user/css/responsive.css') ?>" rel="stylesheet" />
 </head>
 
-<body>
+<body class="<?= $_SERVER['REQUEST_URI'] == '/' ? '' : 'sub_page' ?>">
 
 <div class="hero_area">
   <header class="header_section">
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="<?= URI('/') ?>">
             <span>
               Book Store
             </span>
@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link pl-lg-0" href="index.html">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link pl-lg-0" href="<?= URI('/') ?>">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html"> About</a>
@@ -59,7 +59,10 @@
   </header>
   <!-- end header section -->
   <!-- slider section -->
-  <section class="slider_section ">
+  <?php 
+    if ($_SERVER['REQUEST_URI'] == '/') {
+  ?>
+    <section class="slider_section ">
     <div id="customCarousel1" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -151,5 +154,6 @@
       </div>
     </div>
   </section>
+  <?php } ?>
   <!-- end slider section -->
 </div>
