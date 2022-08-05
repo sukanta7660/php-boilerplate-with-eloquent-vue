@@ -41,7 +41,7 @@
               <a class="nav-link" href="about.html"> About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="categories.html">Categories</a>
+              <a class="nav-link" href="<?= URI('/books') ?>">Books</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact Us</a>

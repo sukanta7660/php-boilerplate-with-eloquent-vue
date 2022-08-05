@@ -1,12 +1,13 @@
 <?php
 
-use App\Controllers\Admin\DashboardController;
-use App\Controllers\Admin\CategoryController;
+use App\Controllers\HomeController;
+use Phroute\Phroute\RouteCollector;
 use App\Controllers\Admin\BookController;
 use App\Controllers\Auth\LoginController;
 use App\Controllers\Auth\RegisterController;
-use App\Controllers\HomeController;
-use Phroute\Phroute\RouteCollector;
+use App\Controllers\Admin\CategoryController;
+use App\Controllers\Admin\DashboardController;
+use App\Controllers\BookController as UserBookController;
 
 $route->get('/login', [LoginController::class, 'index']);
 $route->get('/register', [RegisterController::class, 'index']);
@@ -23,6 +24,7 @@ $route->filter('auth', function(){
 
 // welcome page
 $route->get('/', [HomeController::class, 'index']);
+$route->get('/books', [UserBookController::class, 'index']);
 
 /*-------Admin Routes---------*/
 $route->group(['prefix' => 'admin'], function (RouteCollector $route) {
