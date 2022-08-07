@@ -29,7 +29,7 @@ class BookController extends Controller
             ->with('category')
             ->get()
         ;
-        $selectedCategory = Category::find($id);
+        $selectedCategory = Category::where('id', $id)->with('books')->first();
         $categories = Category::where('status', 1)->with('books')->get();
         return view('users/category-wise-books', [
             'categories' => $categories, 

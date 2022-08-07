@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
       <div class="container ">
         <div class="heading_container heading_center">
           <h2>
-            Book Lists
+            <?= $selectedCategory->name ?> [<?= count($selectedCategory->books) ?>]
           </h2>
         </div>
         <div class="row">
