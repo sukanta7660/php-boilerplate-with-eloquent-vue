@@ -1,3 +1,6 @@
+<?php
+use Illuminate\Support\Str;
+?>
 <?= include_page('shared/user/header') ?>
 
 
@@ -17,7 +20,7 @@
                     Categories
                 </span>
                 <?php foreach ($categories as $key => $value) { ?>
-                  <a href="#" class="list-group-item">
+                  <a href="<?= URI('/category/'.$value->id.'/books/'.Str::slug($value->name)) ?>" class="list-group-item">
                     <i class="fa fa-folder"></i> <?= $value->name ?> <span class="badge pull-right"><?= count($value->books) ?></span>
                   </a>
                 <?php } ?>

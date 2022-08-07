@@ -18,9 +18,9 @@ class BookController extends Controller
         ]);
     }
 
-    public function categoryWiseBooks($id = null)
+    public function categoryWiseBooks($id = null, $slug = null)
     {
-        if ($id == null) {
+        if ($id == null && $slug == null) {
             return false;
         }
 
@@ -31,7 +31,7 @@ class BookController extends Controller
         ;
         $selectedCategory = Category::find($id);
         $categories = Category::where('status', 1)->with('books')->get();
-        return view('user/category-wise-books', [
+        return view('users/category-wise-books', [
             'categories' => $categories, 
             'books' => $books,
             'selectedCategory' => $selectedCategory

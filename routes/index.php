@@ -25,6 +25,7 @@ $route->filter('auth', function(){
 // welcome page
 $route->get('/', [HomeController::class, 'index']);
 $route->get('/books', [UserBookController::class, 'index']);
+$route->get('/category/{id}/books/{slug}', [UserBookController::class, 'categoryWiseBooks']);
 
 /*-------Admin Routes---------*/
 $route->group(['prefix' => 'admin'], function (RouteCollector $route) {
