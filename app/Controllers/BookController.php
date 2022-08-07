@@ -17,4 +17,25 @@ class BookController extends Controller
             'books' => $books
         ]);
     }
+
+    public function categoryWiseBooks($id = null)
+    {
+        if ($id == null) {
+            return false;
+        }
+
+        $books = Book::where('category_id', $id)
+            ->where('status', 1)
+            ->with('category')
+            ->get()
+        ;
+        $selectedCategory = Category::find($id);
+        $categories = Category::where('status', 1)->with('books')->get();
+        return view('user/category-wise-books', [
+            'categories' => $categories, 
+            'books' => $books,
+            'selectedCategory' => $selectedCategory
+
+        ]);
+    }
 }
