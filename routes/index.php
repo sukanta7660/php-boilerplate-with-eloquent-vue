@@ -2,6 +2,7 @@
 
 use App\Controllers\HomeController;
 use Phroute\Phroute\RouteCollector;
+use App\Controllers\ContactController;
 use App\Controllers\Admin\BookController;
 use App\Controllers\Auth\LoginController;
 use App\Controllers\Auth\RegisterController;
@@ -24,6 +25,10 @@ $route->filter('auth', function(){
 
 // welcome page
 $route->get('/', [HomeController::class, 'index']);
+
+// Store user message
+$route->post('/store-messages', [ContactController::class, 'storeContactMessage']);
+
 $route->get('/books', [UserBookController::class, 'index']);
 $route->get('/category/{id}/books/{slug}', [UserBookController::class, 'categoryWiseBooks']);
 
