@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Conatct extends Model
+class Contact extends Model
 {
   protected $table = 'contacts';
 
