@@ -77,21 +77,21 @@ use Illuminate\Support\Str;
               Contact Us
             </h2>
           </div>
-          <form action="#">
+          <form action="<?= URI('/store-messages') ?>" method="post">
             <div>
-              <input type="text" placeholder="Name" />
+              <input type="text" placeholder="Name" name="name"/>
             </div>
             <div>
-              <input type="email" placeholder="Email" />
+              <input type="email" placeholder="Email" name="email"/>
             </div>
             <div>
-              <input type="text" placeholder="Pone Number" />
+              <input type="text" placeholder="subject" name="subject"/>
             </div>
             <div>
-              <input type="text" class="message-box" placeholder="Message" />
+              <input type="text" class="message-box" placeholder="Message" name="messages"/>
             </div>
             <div class="btn-box">
-              <button>
+              <button type="submit">
                 SEND
               </button>
             </div>
