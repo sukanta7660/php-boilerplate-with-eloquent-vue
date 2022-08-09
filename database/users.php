@@ -12,7 +12,7 @@ Capsule::schema()->create('users', function (Blueprint $table) {
     $table->string('email')->unique();
     $table->string('password');
     $table->boolean('is_approved')->default(true);
-    $table->integer('role')->default(1);
+    $table->enum('role', ['admin', 'user'])->default('user');
     $table->rememberToken();
     $table->timestamps();
 

@@ -9,7 +9,7 @@
               Login
             </h2>
           </div>
-          <form action="#">
+          <form action="<?= URI('/login') ?>" method="post">
             <div>
             <input
                     type="email"
@@ -20,7 +20,7 @@
             </div>
             <div>
             <input
-                    type="text"
+                    type="password"
                     id="password"
                     name="password"
                     placeholder="Password">

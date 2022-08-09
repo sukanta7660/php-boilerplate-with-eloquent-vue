@@ -71,15 +71,15 @@ if(!function_exists('auth_user')) {
 
     function auth_user(){
 
-        if(!isset($_SESSION['auth_user'])) {
+        if(!isset($_SESSION['user'])) {
             return null;
         }
 
-        $sessionUserId = $_SESSION['auth_user']['id'];
+        $sessionUserId = $_SESSION['user']['id'];
         $user = \App\User::where('id', $sessionUserId)->first();
 
         if(!$user) {
-            unset($_SESSION['auth_user']);
+            unset($_SESSION['user']);
             return null;
         }
 

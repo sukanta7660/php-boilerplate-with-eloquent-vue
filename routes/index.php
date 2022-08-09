@@ -11,16 +11,17 @@ use App\Controllers\Admin\DashboardController;
 use App\Controllers\BookController as UserBookController;
 
 $route->get('/login', [LoginController::class, 'index']);
+$route->post('/login', [LoginController::class, 'loginAction']);
 $route->get('/register', [RegisterController::class, 'index']);
 $route->post('/register', [RegisterController::class, 'register']);
 
 $route->filter('auth', function(){
+
     if(!isset($_SESSION['user']))
     {
         header('Location: /login');
         return false;
     }
-    return true;
 });
 
 // welcome page
@@ -33,7 +34,7 @@ $route->get('/books', [UserBookController::class, 'index']);
 $route->get('/category/{id}/books/{slug}', [UserBookController::class, 'categoryWiseBooks']);
 
 /*-------Admin Routes---------*/
-$route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollector $route) {
+$route->group(['prefix' => 'admin'], function (RouteCollector $route) {
     $route->get('dashboard', [DashboardController::class, 'index']);
 
     /*---------- Category ----------*/
