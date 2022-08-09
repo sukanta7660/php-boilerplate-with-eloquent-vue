@@ -11,10 +11,19 @@
           </div>
           <form action="#">
             <div>
-              <input type="email" placeholder="Email" />
+            <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    required>
             </div>
             <div>
-              <input type="password" placeholder="password"/>
+            <input
+                    type="text"
+                    id="password"
+                    name="password"
+                    placeholder="Password">
             </div>
             <div class="btn-box">
               <button class="btn btn-success" type="submit">

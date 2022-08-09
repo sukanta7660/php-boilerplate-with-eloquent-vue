@@ -1,90 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>OOP Starter Kits</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+<?= include_page('shared/user/header') ?>
 
-    <!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-    </style>
-</head>
-<body>
-<div class="flex-center position-ref full-height">
-    <div class="content">
-        <form action="/register" method="post">
+<section class="contact_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="heading_container ">
+            <h2 class="">
+              Register
+            </h2>
+          </div>
+          <form action="/register" method="post">
+            <div>
             <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Name"><br><br>
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Name">
+            </div>
+            <div>
             <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    required><br><br>
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required>
+            </div>
+            <div>
             <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Password"><br><br>
-            <input type="submit" value="Register">
-        </form>
-        <small>Already have an account? <a href="/login">Please login</a></small>
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password">
+            </div>
+            <div class="btn-box">
+              <button class="btn btn-success" type="submit">
+                Register
+              </button>
+            </div>
+            <a href="<?= URI('/login') ?>" class="">
+                <small>Already have an account? please login</small>
+              </a>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="<?= public_path('user/images/contact-img.png') ?>" alt="">
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-</body>
-</html>
+  </section>
+
+<?= include_page('shared/user/footer') ?>
