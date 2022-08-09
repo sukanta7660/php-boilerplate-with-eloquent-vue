@@ -5,6 +5,7 @@ use Phroute\Phroute\RouteCollector;
 use App\Controllers\ContactController;
 use App\Controllers\Admin\BookController;
 use App\Controllers\Auth\LoginController;
+use App\Controllers\Auth\LogoutController;
 use App\Controllers\Auth\RegisterController;
 use App\Controllers\Admin\CategoryController;
 use App\Controllers\Admin\DashboardController;
@@ -14,6 +15,7 @@ $route->get('/login', [LoginController::class, 'index']);
 $route->post('/login', [LoginController::class, 'loginAction']);
 $route->get('/register', [RegisterController::class, 'index']);
 $route->post('/register', [RegisterController::class, 'register']);
+$route->get('/logout', [LogoutController::class, 'logout']);
 
 $route->filter('auth', function(){
 
@@ -34,7 +36,7 @@ $route->get('/books', [UserBookController::class, 'index']);
 $route->get('/category/{id}/books/{slug}', [UserBookController::class, 'categoryWiseBooks']);
 
 /*-------Admin Routes---------*/
-$route->group(['prefix' => 'admin'], function (RouteCollector $route) {
+$route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollector $route) {
     $route->get('dashboard', [DashboardController::class, 'index']);
 
     /*---------- Category ----------*/
