@@ -32,9 +32,12 @@
             </div>
             <div>
               <small class="text-danger" id="emailError"></small>
+              <span id="user-availability-status" style="font-size: 12px;"></span>
               <input
                   type="email"
                   id="email"
+                  data-url="<?= URI('/email-availability') ?>"
+                  onblur="checkAvailability()"
                   name="email"
                   placeholder="Email" />
             </div>
@@ -56,7 +59,7 @@
                   placeholder="Confirm password"/>
             </div>
             <div class="btn-box">
-              <button type="submit">
+              <button id="submit" type="submit">
                 Register
               </button>
             </div>

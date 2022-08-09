@@ -49,10 +49,34 @@ class RegisterController extends Controller
         User::create([
             'name' => $name,
             'email' => $email,
+            'contact_no' => $request->contact_no,
             'password' => md5($password)
         ]);
 
         redirect('/login');
         return true;
+    }
+
+    public function checkEligibility()
+    {
+        $request = user_inputs();
+
+        $email = $request->email;
+
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)===false) {
+
+            echo "error : You did not enter a valid email.";
+        }
+
+        $isExist = User::where('email', $email)->first();
+
+        if ($isExist) {
+            echo "<span style='color:red'> Email already exists .</span>";
+            echo "<script>$('#submit').prop('disabled',true);</script>";
+        } else{
+
+            echo "<span style='color:green'> Email available for Registration .</span>";
+            echo "<script>$('#submit').prop('disabled',false);</script>";
+        }
     }
 }
