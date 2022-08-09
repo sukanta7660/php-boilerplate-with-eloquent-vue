@@ -84,9 +84,9 @@ use Illuminate\Support\Str;
                                     />
                                 </div>
                                 <div class="">
-                                    <button type="submit" class="btn btn-sm btn-danger" id="btnContactUs">
+                                    <a href="<?= URI('/books') ?>" class="btn btn-sm btn-danger" id="btnContactUs">
                                         Cancel
-                                    </button>
+                                    </a>
                                     <button type="submit" class="btn btn-sm btn-primary pull-right" id="btnContactUs">
                                         Send Request
                                     </button>
