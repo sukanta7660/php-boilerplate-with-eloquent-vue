@@ -38,4 +38,20 @@ class BookController extends Controller
 
         ]);
     }
+
+    public function checkBookPage($id = null, $slug = null)
+    {
+        if ($id == null && $slug == null) {
+            return false;
+        }
+
+        $book = Book::where('id', $id)
+            ->with('category')
+            ->first()
+        ;
+
+        $books = Book::where('status', 1)->get();
+
+        return view('users/send-request', ['book' => $book, 'books' => $books]);
+    } 
 }

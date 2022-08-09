@@ -36,6 +36,12 @@ $route->post('/store-messages', [ContactController::class, 'storeContactMessage'
 $route->get('/books', [UserBookController::class, 'index']);
 $route->get('/category/{id}/books/{slug}', [UserBookController::class, 'categoryWiseBooks']);
 
+$route->group(['before' => 'auth'], function (RouteCollector $route) {
+
+    $route->get('/book/{id}/send-request/{slug}', [UserBookController::class, 'checkBookPage']);
+
+});
+
 /*-------Admin Routes---------*/
 $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollector $route) {
     

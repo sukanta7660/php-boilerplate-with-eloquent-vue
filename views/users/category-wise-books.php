@@ -52,7 +52,13 @@ use Illuminate\Support\Str;
                           <small><b>Category:</b> <?= $value->category->name ?></small><br>
                         <small><b>Author:</b> <?= $value->author ?></small>
                       </h5>
-                      <div class="text-center my-4"><a href="#" class="btn btn-primary btn-sm">Send a book request</a></div>
+                      <div class="text-center my-4">
+                        <a 
+                          href="<?= URI('/book/'.$value->id.'/send-request/'.Str::slug($value->name)) ?>" 
+                          class="btn btn-primary btn-sm">
+                          Send a book request
+                        </a>
+                      </div>
                   </div>
                 </div>
               </div>
