@@ -46,12 +46,18 @@
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact Us</a>
             </li>
+            <?php if(!auth_user()) { ?>
             <li class="nav-item">
-              <a class="nav-link btn btn-sm btn-danger mr-1" href="login.html">Login</a>
+              <a class="nav-link btn btn-sm btn-danger mr-1" href="<?= URI('/login') ?>">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-sm btn-danger" href="register.html">Registration</a>
+              <a class="nav-link btn btn-sm btn-danger" href="<?= URI('/register') ?>">Registration</a>
             </li>
+            <?php } else { ?>
+            <li class="nav-item">
+              <a class="nav-link btn btn-sm btn-danger mr-1" href="#">Profile</a>
+            </li>
+            <?php } ?>
           </ul>
         </div>
       </nav>
