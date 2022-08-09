@@ -117,7 +117,7 @@
               </div>
               <div class="col-md-6">
                 <div class="img-box">
-                  <img src="images/slider-img.png" alt="">
+                  <img src="<?= public_path('user/images/slider-img.png') ?>" alt="">
                 </div>
               </div>
             </div>
@@ -145,7 +145,7 @@
               </div>
               <div class="col-md-6">
                 <div class="img-box">
-                  <img src="images/slider-img.png" alt="">
+                  <img src="<?= public_path('user/images/slider-img.png') ?>" alt="">
                 </div>
               </div>
             </div>

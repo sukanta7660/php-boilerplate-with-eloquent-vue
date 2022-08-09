@@ -33,7 +33,7 @@ $route->get('/books', [UserBookController::class, 'index']);
 $route->get('/category/{id}/books/{slug}', [UserBookController::class, 'categoryWiseBooks']);
 
 /*-------Admin Routes---------*/
-$route->group(['prefix' => 'admin'], function (RouteCollector $route) {
+$route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollector $route) {
     $route->get('dashboard', [DashboardController::class, 'index']);
 
     /*---------- Category ----------*/
