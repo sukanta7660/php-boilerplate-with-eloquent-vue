@@ -11,6 +11,7 @@ Capsule::schema()->create('users', function (Blueprint $table) {
     $table->string('name');
     $table->string('email')->unique();
     $table->string('password');
+    $table->string('contact_no')->nullable();
     $table->boolean('is_approved')->default(true);
     $table->enum('role', ['admin', 'user'])->default('user');
     $table->rememberToken();
