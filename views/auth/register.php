@@ -9,31 +9,54 @@
               Register
             </h2>
           </div>
-          <form action="/register" method="post">
+          <form
+              action="<?= URI('/register') ?>"
+              id="registrationForm"
+              method="post"
+              onsubmit="return validateForm()">
             <div>
-            <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Name">
+              <small class="text-danger" id="nameError"></small>
+               <input
+                   type="text"
+                   placeholder="Name"
+                   id="name"
+                   name="name"/>
             </div>
             <div>
-            <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Email"
-                required>
+              <small class="text-danger" id="contactError"></small>
+               <input
+                   type="text"
+                   placeholder="Contact No"
+                   id="contactNo"
+                   name="contact_no"/>
             </div>
             <div>
-            <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Password">
+              <small class="text-danger" id="emailError"></small>
+              <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email" />
+            </div>
+            <div>
+              <small class="text-danger" id="passwordError"></small>
+              <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="password"/>
+            </div>
+            <div>
+              <small class="text-danger" id="confirmPasswordError"></small>
+              <input
+                  type="password"
+                  class="form-control"
+                  name="confirm_password"
+                  id="confirmPassword"
+                  placeholder="Confirm password"/>
             </div>
             <div class="btn-box">
-              <button class="btn btn-success" type="submit">
+              <button type="submit">
                 Register
               </button>
             </div>

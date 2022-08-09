@@ -84,6 +84,7 @@
 <script src="<?= public_path('user/js/jquery-3.4.1.min.js') ?>"></script>
 <script src="<?= public_path('user/js/bootstrap.js') ?>"></script>
 <script src="<?= public_path('user/js/custom.js') ?>"></script>
+<script src="<?= public_path('user/js/validation/register.js') ?>"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
 </script>
 
