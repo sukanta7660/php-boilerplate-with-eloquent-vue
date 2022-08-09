@@ -76,3 +76,17 @@ validateForm = (e) => {
         return false;
     }
 }
+
+
+checkAvailability = () => {
+    const url = $('#email').data('url');
+    jQuery.ajax({
+        url: url,
+        data:'email='+$('#email').val(),
+        type: 'POST',
+        success:function(data){
+            $('#user-availability-status').html(data);
+        },
+        error:function (){}
+    });
+}

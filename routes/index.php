@@ -15,6 +15,7 @@ $route->get('/login', [LoginController::class, 'index']);
 $route->post('/login', [LoginController::class, 'loginAction']);
 $route->get('/register', [RegisterController::class, 'index']);
 $route->post('/register', [RegisterController::class, 'register']);
+$route->post('/email-availability', [RegisterController::class, 'checkEligibility']);
 $route->get('/logout', [LogoutController::class, 'logout']);
 
 $route->filter('auth', function(){

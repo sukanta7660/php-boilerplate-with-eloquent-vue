@@ -5,7 +5,7 @@ namespace App;
 class User extends Model
 {
     protected $fillable = [
-        'name', 'email', 'is_approved', 'role', 'password'
+        'name', 'email', 'is_approved', 'contact_no', 'role', 'password'
     ];
 
     protected $hidden = [
