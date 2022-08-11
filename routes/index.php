@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\Admin\BookRequestController;
 use App\Controllers\HomeController;
 use Phroute\Phroute\RouteCollector;
 use App\Controllers\ContactController;
@@ -70,6 +71,15 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
         $route->get('/delete/{id}', [BookController::class, 'delete']);
     });
     /*---------- Book ----------*/
+
+  /*---------- Book ----------*/
+  $route->group(['prefix' => 'requests'], function (RouteCollector $route) {
+    $route->get('/new', [BookRequestController::class, 'index']);
+    $route->get('/issued', [BookRequestController::class, 'issued']);
+    $route->get('/cancelled', [BookRequestController::class, 'cancelled']);
+    $route->get('/returned', [BookRequestController::class, 'returned']);
+  });
+  /*---------- Book ----------*/
 
 });
 /*-------Admin Routes---------*/

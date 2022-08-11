@@ -29,10 +29,10 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Requests</h6>
-        <a class="collapse-item" href="new-request.html">New Request</a>
-        <a class="collapse-item" href="issued-request.html">Accepted Request</a>
-        <a class="collapse-item" href="cancelled-request.html">Cancel Request</a>
-        <a class="collapse-item" href="returned-book.html">Returned Book</a>
+        <a class="collapse-item" href="<?= URI('/admin/requests/new') ?>">New Request</a>
+        <a class="collapse-item" href="<?= URI('/admin/requests/issued') ?>">Accepted Request</a>
+        <a class="collapse-item" href="<?= URI('/admin/requests/cancelled') ?>">Cancel Request</a>
+        <a class="collapse-item" href="<?= URI('/admin/requests/returned') ?>">Returned Book</a>
       </div>
     </div>
   </li>
