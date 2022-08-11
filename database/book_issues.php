@@ -12,6 +12,8 @@ Capsule::schema()->create('book_issues', function (Blueprint $table) {
   $table->foreign('book_id')->references('id')->on('books');
   $table->integer('user_id')->unsigned()->index();
   $table->foreign('user_id')->references('id')->on('users');
+  $table->string('contact_no')->nullable();
+  $table->string('address')->nullable();
   $table->dateTime('issue_date')->default(null);
   $table->dateTime('return_date')->default(null);
   $table->dateTime('actual_return_date')->default(null);
