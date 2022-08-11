@@ -68,7 +68,7 @@ use Illuminate\Support\Str;
                                     class="form-control" 
                                     id="contact" 
                                     placeholder="Enter Contact No"
-                                    value="<?= auth_user()['contact'] ?? "" ?>"
+                                    value="<?= auth_user()['contact_no'] ?? "" ?>"
                                     required 
                                     />
                                 </div>
@@ -79,7 +79,7 @@ use Illuminate\Support\Str;
                                     class="form-control" 
                                     id="address" 
                                     placeholder="Enter address"
-                                    value="<?= auth_user()['contact'] ?? "" ?>"
+                                    value="<?= auth_user()['address'] ?? "" ?>"
                                     required 
                                     />
                                 </div>
