@@ -14,9 +14,9 @@ Capsule::schema()->create('book_issues', function (Blueprint $table) {
   $table->foreign('user_id')->references('id')->on('users');
   $table->string('contact_no')->nullable();
   $table->string('address')->nullable();
-  $table->dateTime('issue_date')->default(null);
-  $table->dateTime('return_date')->default(null);
-  $table->dateTime('actual_return_date')->default(null);
+  $table->dateTime('issue_date')->nullable();
+  $table->dateTime('return_date')->nullable();
+  $table->dateTime('actual_return_date')->nullable();
   $table->enum('status', ['pending','accepted','issued','cancelled','returned'])
     ->default('pending')
   ;

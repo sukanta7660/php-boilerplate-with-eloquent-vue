@@ -3,7 +3,9 @@
 namespace App\Controllers;
 
 use App\Book;
+use App\BookIssue;
 use App\Category;
+use App\User;
 
 class BookController extends Controller
 {
@@ -53,5 +55,29 @@ class BookController extends Controller
         $books = Book::where('status', 1)->get();
 
         return view('users/send-request', ['book' => $book, 'books' => $books]);
-    } 
+    }
+
+  public function sendRequest()
+  {
+    $request = user_inputs();
+    $user = auth_user();
+
+    $isExist = BookIssue::where('user_id', $user->id)
+      ->first()
+    ;
+
+    if ($isExist) {
+      return "ALREADY EXIST";
+    }else {
+      BookIssue::create([
+        'book_id' => $request->book_id,
+        'user_id' => $user->id,
+        'contact_no' => $request->contact_no,
+        'address' => $request->address,
+      ]);
+
+      echo "<script>alert('Successfully request sent.')</script>";
+      return redirect('/');
+    }
+  }
 }

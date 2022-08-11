@@ -49,7 +49,8 @@ use Illuminate\Support\Str;
                             </div>
                         </div>
                         <div class="col-md-9">
-                            <form action="<?= URI('/store-messages') ?>" method="post">
+                            <form action="<?= URI('/send-request') ?>" method="post">
+                                <input type="hidden" name="book_id" value="<?= $book->id ?>">
                                 <div class="form-group">
                                     <label for="name"> Name</label>
                                     <input 
@@ -67,6 +68,7 @@ use Illuminate\Support\Str;
                                     type="text" 
                                     class="form-control" 
                                     id="contact" 
+                                    name="contact_no"
                                     placeholder="Enter Contact No"
                                     value="<?= auth_user()['contact_no'] ?? "" ?>"
                                     required 
@@ -77,7 +79,8 @@ use Illuminate\Support\Str;
                                     <input 
                                     type="text" 
                                     class="form-control" 
-                                    id="address" 
+                                    id="address"
+                                    name="address"
                                     placeholder="Enter address"
                                     value="<?= auth_user()['address'] ?? "" ?>"
                                     required 
