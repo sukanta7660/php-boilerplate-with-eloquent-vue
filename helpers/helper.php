@@ -93,3 +93,9 @@ if(!function_exists('user_inputs')) {
         return Request::capture();
     }
 }
+
+if (!function_exists('current_url')) {
+  function current_url() {
+    return $_SERVER['REQUEST_URI'];
+  }
+}

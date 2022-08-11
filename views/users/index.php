@@ -1,9 +1,23 @@
 <?php
 use Illuminate\Support\Str;
 ?>
+<?php if(isset($_SESSION['warning'])) { ?>
+    <p class="alert alert-warning text-center p-2">
+        <small><?= $_SESSION['warning'] ?></small>
+    </p>
+  <?php
+}
+unset($_SESSION['warning']);
+?>
+<?php if(isset($_SESSION['success'])) { ?>
+    <p class="alert alert-success text-center p-2">
+        <small><?= $_SESSION['success'] ?></small>
+    </p>
+  <?php
+}
+unset($_SESSION['success']);
+?>
 <?= include_page('shared/user/header') ?>
-
-
   <!-- category section -->
   <section class="catagory_section layout_padding">
     <div class="catagory_container">
