@@ -6,6 +6,7 @@ use App\Book;
 use App\BookIssue;
 use App\Category;
 use App\User;
+use Illuminate\Support\Str;
 
 class BookController extends Controller
 {
@@ -62,22 +63,34 @@ class BookController extends Controller
     $request = user_inputs();
     $user = auth_user();
 
-    $isExist = BookIssue::where('user_id', $user->id)
-      ->first()
-    ;
+    $book = Book::where('id', $request->book_id)->first();
 
-    if ($isExist) {
-      return "ALREADY EXIST";
+    $check = BookIssue::where('user_id', $user->id);
+
+    if ($check->first()) {
+      $hasTakenBook = $check->whereIn('status', ['pending', 'accepted', 'issued'])->get();
+
+      if (count($hasTakenBook) > 0) {
+        $_SESSION['warning'] = 'You already have an active book request';
+        return redirect('book/'.$book->id.'/send-request/'.Str::slug($book->name));
+      }
+      $this->createBookIssue($request, $user);
+      $_SESSION['success'] = 'Successfully request sent';
+      return redirect('/');
     }else {
-      BookIssue::create([
-        'book_id' => $request->book_id,
-        'user_id' => $user->id,
-        'contact_no' => $request->contact_no,
-        'address' => $request->address,
-      ]);
-
-      echo "<script>alert('Successfully request sent.')</script>";
+      $this->createBookIssue($request, $user);
+      $_SESSION['success'] = 'Successfully request sent';
       return redirect('/');
     }
+  }
+
+  private function createBookIssue($request, $user)
+  {
+    BookIssue::create([
+      'book_id' => $request->book_id,
+      'user_id' => $user->id,
+      'contact_no' => $request->contact_no,
+      'address' => $request->address,
+    ]);
   }
 }
