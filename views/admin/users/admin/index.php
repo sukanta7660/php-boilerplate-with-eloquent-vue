@@ -66,11 +66,13 @@
                     $class = $value->is_approved ? 'warning' : 'success';
                     ?>
                     <td class="text-right">
-                      <a onclick="return confirm('Are you sure ?')"
-                         href="/admin/users/status-change/<?= $value->id ?>"
-                         class="btn btn-sm btn-<?= $class ?>">
-                        <?= $value->is_approved ? 'Inactive' : 'Active' ?>
-                      </a>
+                      <?php if (auth_user()['id'] != $value->id){ ?>
+                          <a onclick="return confirm('Are you sure ?')"
+                             href="/admin/users/status-change/<?= $value->id ?>"
+                             class="btn btn-sm btn-<?= $class ?>">
+                            <?= $value->is_approved ? 'Inactive' : 'Active' ?>
+                          </a>
+                      <?php } ?>
                     </td>
                   </tr>
                 <?php } ?>
