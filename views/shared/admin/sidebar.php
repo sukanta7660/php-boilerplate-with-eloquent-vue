@@ -38,7 +38,7 @@
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="notifications.html">
+    <a class="nav-link" href="<?= URI('/admin/notifications') ?>">
       <i class="fas fa-fw fa-bell"></i>
       <span>Notification</span>
     </a>

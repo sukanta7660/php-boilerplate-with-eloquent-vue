@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\Admin\BookRequestController;
+use App\Controllers\Admin\NotificationController;
 use App\Controllers\HomeController;
 use Phroute\Phroute\RouteCollector;
 use App\Controllers\ContactController;
@@ -72,7 +73,7 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
     });
     /*---------- Book ----------*/
 
-  /*---------- Book ----------*/
+  /*---------- Requests ----------*/
   $route->group(['prefix' => 'requests'], function (RouteCollector $route) {
     $route->get('/new', [BookRequestController::class, 'index']);
     $route->get('/issue-book/{id}', [BookRequestController::class, 'issueRequest']);
@@ -82,7 +83,14 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
     $route->get('/cancelled', [BookRequestController::class, 'cancelled']);
     $route->get('/returned', [BookRequestController::class, 'returned']);
   });
-  /*---------- Book ----------*/
+  /*---------- Requests ----------*/
+
+  /*---------- Requests ----------*/
+  $route->group(['prefix' => 'notifications'], function (RouteCollector $route) {
+    $route->get('/', [NotificationController::class, 'index']);
+    $route->get('/delete/{id}', [NotificationController::class, 'delete']);
+  });
+  /*---------- Requests ----------*/
 
 });
 /*-------Admin Routes---------*/
