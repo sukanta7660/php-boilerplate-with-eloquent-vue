@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 
+use App\Book;
 use App\BookIssue;
 use App\Controllers\Controller;
 
@@ -11,6 +12,56 @@ class BookRequestController extends Controller
   {
     $requests = BookIssue::where('status', 'pending')->with(['book', 'user'])->get();
     return view('admin/requests/new', ['requests' => $requests]);
+  }
+
+  public function issueRequest($id = null)
+  {
+    if ($id == null) {
+      return false;
+    }
+    $issue_date = date('Y-m-d H:i:s');
+    $return_date = date('Y-m-d H:i:s', strtotime("$issue_date + 7 day"));
+
+    $request = BookIssue::where('id', $id)->first();
+    $book = Book::where('id', $request->book_id)->first();
+
+    $isSuccess = $request->update([
+      'status' => 'issued',
+      'issue_date' => $issue_date,
+      'return_date' => $return_date
+    ]);
+
+    if (!$isSuccess) {
+      $_SESSION['warning'] = 'Something went wrong';
+      return redirect('/admin/requests/new');
+    }
+
+    $book->update([
+      'availability' => $book->availability - 1
+    ]);
+
+    $_SESSION['success'] = 'Book request issued successfully';
+    return redirect('/admin/requests/new');
+  }
+
+  public function cancelRequest($id = null)
+  {
+    if ($id == null) {
+      return false;
+    }
+    $request = BookIssue::where('id', $id)->first();
+
+    $isSuccess = $request->update([
+      'status' => 'cancelled',
+    ]);
+
+    if (!$isSuccess) {
+      $_SESSION['warning'] = 'Something went wrong';
+      return redirect('/admin/requests/new');
+    }
+
+    $_SESSION['success'] = 'Book request cancelled successfully';
+    return redirect('/admin/requests/new');
   }
 
   public function issued()

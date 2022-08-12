@@ -75,6 +75,8 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
   /*---------- Book ----------*/
   $route->group(['prefix' => 'requests'], function (RouteCollector $route) {
     $route->get('/new', [BookRequestController::class, 'index']);
+    $route->get('/issue-book/{id}', [BookRequestController::class, 'issueRequest']);
+    $route->get('/cancel-book/{id}', [BookRequestController::class, 'cancelRequest']);
     $route->get('/issued', [BookRequestController::class, 'issued']);
     $route->get('/cancelled', [BookRequestController::class, 'cancelled']);
     $route->get('/returned', [BookRequestController::class, 'returned']);

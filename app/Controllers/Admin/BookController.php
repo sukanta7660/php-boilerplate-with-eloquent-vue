@@ -58,7 +58,7 @@ class BookController extends Controller
       'name' => $request->name,
       'author' => $request->author,
       'quantity' => $request->quantity,
-      'availability' => $request->availability,
+      'availability' => $request->quantity,
       'status' => $request->status,
       'image' => $image
     ]);

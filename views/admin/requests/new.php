@@ -13,7 +13,22 @@
         <div class="container-fluid">
 
           <h1 class="h3 mb-2 text-gray-800">New Requests</h1>
-
+          <?php if(isset($_SESSION['warning'])) { ?>
+              <p class="alert alert-warning text-center p-2">
+                  <small><?= $_SESSION['warning'] ?></small>
+              </p>
+            <?php
+          }
+          unset($_SESSION['warning']);
+          ?>
+          <?php if(isset($_SESSION['success'])) { ?>
+              <p class="alert alert-success text-center p-2">
+                  <small><?= $_SESSION['success'] ?></small>
+              </p>
+            <?php
+          }
+          unset($_SESSION['success']);
+          ?>
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">New Requests</h6>
@@ -50,7 +65,7 @@
                       <td class="text-right">
                         <a
                           onclick="return confirm('Do you want to accept this request ?')"
-                          href="#"
+                          href="<?= URI('/admin/requests/issue-book/'.$value->id) ?>"
                           title="Accept"
                           class="btn btn-sm btn-success">
                           Accept/Issue
@@ -58,7 +73,7 @@
                         <a
                           onclick="return confirm('Are you sure to cancel this request ?')"
                           title="cancel"
-                          href="#"
+                          href="<?= URI('/admin/requests/cancel-book/'.$value->id) ?>"
                           class="btn btn-sm btn-danger">Cancel
                         </a>
                       </td>
