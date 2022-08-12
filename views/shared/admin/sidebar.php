@@ -58,9 +58,8 @@
     <div id="users" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Users</h6>
-        <a class="collapse-item" href="active-users.html">Active Users</a>
-        <a class="collapse-item" href="inactive-users.html">Inactive Users</a>
-        <a class="collapse-item" href="all-admins.html">Admin</a>
+        <a class="collapse-item" href="<?= URI('/admin/users') ?>">Users</a>
+        <a class="collapse-item" href="<?= URI('/admin/users/admins') ?>">Admin</a>
       </div>
     </div>
   </li>

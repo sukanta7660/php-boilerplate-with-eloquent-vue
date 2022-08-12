@@ -2,6 +2,7 @@
 
 use App\Controllers\Admin\BookRequestController;
 use App\Controllers\Admin\NotificationController;
+use App\Controllers\Admin\UserController;
 use App\Controllers\HomeController;
 use Phroute\Phroute\RouteCollector;
 use App\Controllers\ContactController;
@@ -91,6 +92,14 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
     $route->get('/delete/{id}', [NotificationController::class, 'delete']);
   });
   /*---------- Requests ----------*/
+
+  /*---------- Users ----------*/
+  $route->group(['prefix' => 'users'], function (RouteCollector $route) {
+    $route->get('/', [UserController::class, 'index']);
+    $route->get('/admins', [UserController::class, 'admin']);
+    $route->get('/status-change/{id}', [UserController::class, 'activeInactive']);
+  });
+  /*---------- Users ----------*/
 
 });
 /*-------Admin Routes---------*/
