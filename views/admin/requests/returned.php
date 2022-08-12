@@ -13,7 +13,22 @@
         <div class="container-fluid">
 
           <h1 class="h3 mb-2 text-gray-800">Returned Book</h1>
-
+          <?php if(isset($_SESSION['warning'])) { ?>
+              <p class="alert alert-warning text-center p-2">
+                  <small><?= $_SESSION['warning'] ?></small>
+              </p>
+            <?php
+          }
+          unset($_SESSION['warning']);
+          ?>
+          <?php if(isset($_SESSION['success'])) { ?>
+              <p class="alert alert-success text-center p-2">
+                  <small><?= $_SESSION['success'] ?></small>
+              </p>
+            <?php
+          }
+          unset($_SESSION['success']);
+          ?>
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Returned Book</h6>

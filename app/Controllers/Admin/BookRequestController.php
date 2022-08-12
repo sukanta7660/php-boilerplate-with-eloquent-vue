@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Book;
 use App\BookIssue;
 use App\Controllers\Controller;
+use App\Notification;
 
 class BookRequestController extends Controller
 {
@@ -68,6 +69,27 @@ class BookRequestController extends Controller
   {
     $requests = BookIssue::where('status', 'issued')->with(['book', 'user'])->get();
     return view('admin/requests/issued', ['requests' => $requests]);
+  }
+
+  public function notifyUser()
+  {
+    $request = user_inputs();
+    $requestedBook = BookIssue::where('id', $request->id)->first();
+
+    $notify = Notification::create([
+      'book_issue_id' => $requestedBook->id,
+      'user_id' => $request->user_id,
+      'message' => $request->message,
+      'amount' => $request->fine
+    ]);
+
+    if (!$notify) {
+      $_SESSION['warning'] = 'Something went wrong';
+      return redirect('/admin/requests/issued');
+    }
+
+    $_SESSION['success'] = 'Notification sent';
+    return redirect('/admin/requests/issued');
   }
 
   public function returned()
