@@ -19,15 +19,17 @@
               <h6 class="m-0 font-weight-bold text-primary">Issued Requests</h6>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <div class="table-responsive text-nowrap">
+                <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                   <tr>
                     <th>S/N</th>
                     <th>User Name</th>
                     <th>Book</th>
                     <th>Author</th>
-                    <th>Requested Date</th>
+                    <th>Issue Date</th>
+                    <th>Returning Date</th>
+                    <th>Fine</th>
                     <th class="text-right">Action</th>
                   </tr>
                   </thead>
@@ -45,7 +47,13 @@
                         <?= $value->book->author ?>
                       </td>
                       <td>
-                        <?= dateFormat($value->created_at) ?>
+                        <?= dateFormat($value->issue_date) ?>
+                      </td>
+                      <td>
+                        <?= dateFormat($value->return_date) ?>
+                      </td>
+                      <td>
+                        <?= $value->fine ?>
                       </td>
                       <td class="text-right">
                         <a

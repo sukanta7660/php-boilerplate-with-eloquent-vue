@@ -34,8 +34,8 @@
               <h6 class="m-0 font-weight-bold text-primary">New Requests</h6>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <div class="table-responsive text-nowrap">
+                <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                   <tr>
                     <th>S/N</th>

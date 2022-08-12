@@ -19,8 +19,8 @@
                         <h6 class="m-0 font-weight-bold text-primary">All Books</h6>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <div class="table-responsive text-nowrap">
+                            <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>S/N</th>
@@ -34,10 +34,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($books as $key => $value) {?>
+                                    <?php
+                                    foreach ($books as $key => $value) {
+                                      $image =
+                                        $value->image == 'default.jpg' ?
+                                          'https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png' :
+                                          public_path('uploads/books/'.$value->image)
+                                      ;
+                                    ?>
                                     <tr>
                                         <td><?= $key+1 ?></td>
-                                        <td></td>
+                                        <td>
+                                            <img src="<?= $image ?>" alt="<?= $value->name ?>" width="40" height="40">
+                                        </td>
                                         <td>
                                             <?= $value->name ?>
                                         </td>
