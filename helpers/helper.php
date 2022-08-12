@@ -99,3 +99,9 @@ if (!function_exists('current_url')) {
     return $_SERVER['REQUEST_URI'];
   }
 }
+
+if (!function_exists('dateFormat')) {
+  function dateFormat($date) {
+    return date('d/m/Y', strtotime($date));
+  }
+}
