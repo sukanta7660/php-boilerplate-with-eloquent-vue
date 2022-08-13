@@ -124,7 +124,7 @@
                           </form>
                         </div>
                         <div class="tab-pane container fade" id="passwordChange">
-                          <form class="form mt-2" method="post" name="password_change" onsubmit="valid()">
+                          <form class="form mt-2" method="post" action="<?= URI('/password-change') ?>">
                             <input type="hidden" name="id" value="<?= auth_user()['id'] ?>">
                             <div class="row">
                               <div class="col-md-12 col-lg-12 col-sm-12">

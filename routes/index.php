@@ -49,6 +49,7 @@ $route->group(['before' => 'auth'], function (RouteCollector $route) {
   /*---------- Profile ----------*/
   $route->get('/profile', [ProfileController::class, 'index']);
   $route->post('/profile-update', [ProfileController::class, 'profileUpdate']);
+  $route->post('/password-change', [ProfileController::class, 'passwordChange']);
   /*---------- Profile ----------*/
 
 });
