@@ -8,6 +8,22 @@
             <h2 class="">
               Register
             </h2>
+              <?php if(isset($_SESSION['warning'])) { ?>
+                <p class="alert alert-warning text-center p-2">
+                  <small><?= $_SESSION['warning'] ?></small>
+                </p>
+                  <?php
+              }
+              unset($_SESSION['warning']);
+              ?>
+              <?php if(isset($_SESSION['success'])) { ?>
+                <p class="alert alert-success text-center p-2">
+                  <small><?= $_SESSION['success'] ?></small>
+                </p>
+                  <?php
+              }
+              unset($_SESSION['success']);
+              ?>
           </div>
           <form
               action="<?= URI('/register') ?>"

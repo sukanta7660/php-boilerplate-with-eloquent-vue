@@ -21,21 +21,23 @@ class LoginController extends Controller
             ->where('password', $password)
             ->first()
         ;
+        session_start();
 
         if (!$user) {
+            $_SESSION['warning'] = 'Credential do not matched';
             return redirect('/login');
         }
-
-        session_start();
 
         $_SESSION['user'] = $user;
 
         $userRole = $_SESSION['user']['role'];
 
         if ($userRole == 'admin') {
+            $_SESSION['success'] = 'Logged in successful';
             return redirect('/admin/dashboard');
         }else {
-            return redirect('/');
+            $_SESSION['success'] = 'Logged in successful';
+            return redirect('/profile');
         }
     }
 }

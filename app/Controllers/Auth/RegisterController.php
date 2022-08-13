@@ -14,6 +14,8 @@ class RegisterController extends Controller
 
     public function register()
     {
+        session_start();
+        
         $validate = new Validator();
 
         $errors = [];
@@ -35,14 +37,15 @@ class RegisterController extends Controller
         }
 
         if(!empty($errors)) {
-            return view('auth/register', ['errors' => $errors]);
+            $_SESSION['warning'] = 'Please fill the form with proper information';
+            return redirect('/register');
         }
 
         $exists = User::where('email', $email)->first();
 
         if ($exists) {
-
-            return 'exist';
+            $_SESSION['warning'] = 'User already exists';
+            return redirect('/register');
 
         }
 
@@ -52,9 +55,9 @@ class RegisterController extends Controller
             'contact_no' => $request->contact_no,
             'password' => md5($password)
         ]);
-
-        redirect('/login');
-        return true;
+        
+        $_SESSION['success'] = 'Registration successful. Please Login';
+        return redirect('/login');
     }
 
     public function checkEligibility()
