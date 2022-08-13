@@ -4,6 +4,7 @@ use App\Controllers\Admin\BookRequestController;
 use App\Controllers\Admin\NotificationController;
 use App\Controllers\Admin\UserController;
 use App\Controllers\HomeController;
+use App\Controllers\OwnProfileController;
 use App\Controllers\ProfileController;
 use Phroute\Phroute\RouteCollector;
 use App\Controllers\ContactController;
@@ -58,6 +59,11 @@ $route->group(['before' => 'auth'], function (RouteCollector $route) {
   $route->post('/profile-update', [ProfileController::class, 'profileUpdate']);
   $route->post('/password-change', [ProfileController::class, 'passwordChange']);
   /*---------- Profile ----------*/
+  
+  /*---------- Requests ----------*/
+    $route->get('/my-records', [OwnProfileController::class, 'bookList']);
+    $route->get('/notifications', [OwnProfileController::class, 'notifications']);
+  /*---------- Requests ----------*/
 
 });
 

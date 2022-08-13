@@ -87,6 +87,10 @@ class BookRequestController extends Controller
       $_SESSION['warning'] = 'Something went wrong';
       return redirect('/admin/requests/issued');
     }
+    
+      $requestedBook->update([
+          'fine' => $request->fine
+      ]);
 
     $_SESSION['success'] = 'Notification sent';
     return redirect('/admin/requests/issued');

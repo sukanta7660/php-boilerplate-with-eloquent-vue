@@ -24,15 +24,15 @@ use Illuminate\Support\Str;
                     <i class="fa fa-folder"></i> <?= $value->name ?> <span class="badge pull-right"><?= count($value->books) ?></span>
                   </a>
                 <?php } ?>
-            </div>        
+            </div>
           </div>
           <div class="col-md-9 col-sm-8">
             <div class="row">
-                <?php 
+                <?php
                   foreach ($books as $key => $value) {
-                    $image =  
-                          $value->image == 'default.jpg' ? 
-                          'https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png' : 
+                    $image =
+                          $value->image == 'default.jpg' ?
+                          'https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png' :
                           public_path('uploads/books/'.$value->image)
                         ;
                 ?>
@@ -42,9 +42,9 @@ use Illuminate\Support\Str;
                   <div class="card-body">
                       <div class="clearfix mb-3">
                         <span class="float-start badge rounded-pill bg-primary text-white">
-                          Available Book: 
+                          Available Book:
                           <?= $value->availability ?>
-                        </span> 
+                        </span>
                         <!-- <span class="float-right price-hp">12354.00&euro;</span> -->
                       </div>
                       <h5 class="card-title">
@@ -53,7 +53,7 @@ use Illuminate\Support\Str;
                         <small><b>Author:</b> <?= $value->author ?></small>
                       </h5>
                       <div class="text-center my-4">
-                        <a href="<?= URI('/book/'.$value->id.'/send-request/'.Str::slug($value->name)) ?>" class="btn btn-primary btn-sm">Send a book request</a>
+                        <a href="<?= URI('/book/'.$value->id.'/send-request/'.Str::slug($value->name)) ?>" class="btn btn-primary btn-sm" style="<?= $value->availability > 0 ? '' : 'pointer-events: none; cursor: default;' ?>">Send a book request</a>
                       </div>
                   </div>
                 </div>

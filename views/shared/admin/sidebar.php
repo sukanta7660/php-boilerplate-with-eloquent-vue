@@ -1,5 +1,5 @@
 <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= URI('/admin/dashboard') ?>">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= auth_user()['role'] == 'admin' ? URI('/admin/dashboard') : URI('/') ?>">
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-home"></i>
     </div>
@@ -9,9 +9,9 @@
   <hr class="sidebar-divider my-0" />
 
   <li class="nav-item active">
-    <a class="nav-link" href="<?= URI('/admin/dashboard') ?>">
+    <a class="nav-link" href="<?= auth_user()['role'] == 'admin' ? URI('/admin/dashboard') : URI('/profile') ?>">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Dashboard</span>
+      <span><?= auth_user()['role'] == 'admin' ? 'Dashboard' : 'Profile' ?></span>
     </a>
   </li>
 
@@ -99,14 +99,14 @@
   </li>
   <?php } else { ?>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="<?= URI('/my-records') ?>">
         <i class="fas fa-fw fa-cog"></i>
         <span>My Records</span>
       </a>
     </li>
     <hr class="sidebar-divider my-0" />
     <li class="nav-item">
-      <a class="nav-link" href="<?= URI('/admin/notifications') ?>">
+      <a class="nav-link" href="<?= URI('/notifications') ?>">
         <i class="fas fa-fw fa-bell"></i>
         <span>Notification</span>
       </a>
