@@ -31,9 +31,9 @@ use Illuminate\Support\Str;
             <div class="row">
                 <div class="col-md-9 col-sm-8">
                     <div class="row">
-                        <?php 
-                    $image =  
-                          $book->image == 'default.jpg' ? 'https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png' : public_path('uploads/books/'.$book->image) ; ?>
+                        <?php
+                    $image =
+                          $book->image == 'default.jpg' ? public_path('user/images/no_imiage.jpg') : public_path('uploads/books/'.$book->image) ; ?>
                         <div class="col-md-3">
                             <div class="card h-100 shadow-sm">
                                 <img src="<?= $image ?>" class="card-img-top" alt="..." />
@@ -69,37 +69,37 @@ use Illuminate\Support\Str;
                                 <input type="hidden" name="book_id" value="<?= $book->id ?>">
                                 <div class="form-group">
                                     <label for="name"> Name</label>
-                                    <input 
-                                    type="text" 
-                                    class="form-control" 
-                                    id="name" 
+                                    <input
+                                    type="text"
+                                    class="form-control"
+                                    id="name"
                                     placeholder="Enter name"
                                     value="<?= auth_user()['name'] ?>"
-                                    readonly 
+                                    readonly
                                     />
                                 </div>
                                 <div class="form-group">
                                     <label for="name"> Contact No</label>
-                                    <input 
-                                    type="text" 
-                                    class="form-control" 
-                                    id="contact" 
+                                    <input
+                                    type="text"
+                                    class="form-control"
+                                    id="contact"
                                     name="contact_no"
                                     placeholder="Enter Contact No"
                                     value="<?= auth_user()['contact_no'] ?? "" ?>"
-                                    required 
+                                    required
                                     />
                                 </div>
                                 <div class="form-group">
                                     <label for="name"> Address</label>
-                                    <input 
-                                    type="text" 
-                                    class="form-control" 
+                                    <input
+                                    type="text"
+                                    class="form-control"
                                     id="address"
                                     name="address"
                                     placeholder="Enter address"
                                     value="<?= auth_user()['address'] ?? "" ?>"
-                                    required 
+                                    required
                                     />
                                 </div>
                                 <div class="">

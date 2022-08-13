@@ -32,7 +32,7 @@ use Illuminate\Support\Str;
                   foreach ($books as $key => $value) {
                     $image =
                           $value->image == 'default.jpg' ?
-                          'https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png' :
+                              public_path('user/images/no_imiage.jpg') :
                           public_path('uploads/books/'.$value->image)
                         ;
                 ?>
