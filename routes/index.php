@@ -139,6 +139,8 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
 });
 /*-------Admin Routes---------*/
 
+$route->get('/seed-user', [\App\Controllers\SeedController::class, 'seedUsers']);
+
 // demo auth middleware
 $route->group(['before' => 'auth'], function (RouteCollector $route) {
     //

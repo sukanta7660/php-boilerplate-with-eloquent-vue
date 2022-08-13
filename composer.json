@@ -1,5 +1,5 @@
 {
-    "name": "sukanta7660/oop-starter-kit",
+    "name": "online-library/oop-php",
     "description": "A starter kit for oop php",
     "license": "MIT License",
     "autoload": {
@@ -12,8 +12,8 @@
     },
     "authors": [
         {
-            "name": "Sukanta Purkayastha",
-            "email": "spurkayastha83@gmail.com"
+            "name": "Arifa Billah",
+            "email": "mansports141@gmail.com"
         }
     ],
     "require": {
@@ -22,6 +22,7 @@
         "phroute/phroute": "^2.1",
         "respect/validation": "^2.2",
       "ext-json": "*",
-        "illuminate/http": "^9.12"
+        "illuminate/http": "^9.12",
+        "fzaninotto/faker": "^1.5"
     }
 }
