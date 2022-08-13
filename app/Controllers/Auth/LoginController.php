@@ -28,6 +28,11 @@ class LoginController extends Controller
             return redirect('/login');
         }
 
+        if ($user->is_approved == 0) {
+          $_SESSION['warning'] = 'Your account is not active. Please contact with our support team.';
+          return redirect('/login');
+        }
+
         $_SESSION['user'] = $user;
 
         $userRole = $_SESSION['user']['role'];
