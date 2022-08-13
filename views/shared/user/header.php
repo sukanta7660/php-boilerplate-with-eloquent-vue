@@ -57,6 +57,9 @@
             <li class="nav-item">
               <a class="nav-link btn btn-sm btn-danger mr-1" href="<?= URI('/profile') ?>">Profile</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-sm btn-danger mr-1" href="<?= URI('/logout') ?>">Logout</a>
+            </li>
             <?php } ?>
           </ul>
         </div>
