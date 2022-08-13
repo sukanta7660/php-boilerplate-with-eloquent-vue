@@ -44,7 +44,7 @@
               <a class="nav-link" href="<?= URI('/books') ?>">Books</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact Us</a>
+              <a class="nav-link" href="#">Contact Us</a>
             </li>
             <?php if(!auth_user()) { ?>
             <li class="nav-item">
@@ -55,7 +55,7 @@
             </li>
             <?php } else { ?>
             <li class="nav-item">
-              <a class="nav-link btn btn-sm btn-danger mr-1" href="#">Profile</a>
+              <a class="nav-link btn btn-sm btn-danger mr-1" href="<?= URI('/profile') ?>">Profile</a>
             </li>
             <?php } ?>
           </ul>

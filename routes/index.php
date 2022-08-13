@@ -4,6 +4,7 @@ use App\Controllers\Admin\BookRequestController;
 use App\Controllers\Admin\NotificationController;
 use App\Controllers\Admin\UserController;
 use App\Controllers\HomeController;
+use App\Controllers\ProfileController;
 use Phroute\Phroute\RouteCollector;
 use App\Controllers\ContactController;
 use App\Controllers\Admin\BookController;
@@ -39,11 +40,15 @@ $route->post('/store-messages', [ContactController::class, 'storeContactMessage'
 $route->get('/books', [UserBookController::class, 'index']);
 $route->get('/category/{id}/books/{slug}', [UserBookController::class, 'categoryWiseBooks']);
 
-$route->post('/send-request', [UserBookController::class, 'sendRequest']);
+
 
 $route->group(['before' => 'auth'], function (RouteCollector $route) {
+  $route->get('/book/{id}/send-request/{slug}', [UserBookController::class, 'checkBookPage']);
+  $route->post('/send-request', [UserBookController::class, 'sendRequest']);
 
-    $route->get('/book/{id}/send-request/{slug}', [UserBookController::class, 'checkBookPage']);
+  /*---------- Profile ----------*/
+  $route->get('/profile', [ProfileController::class, 'index']);
+  /*---------- Profile ----------*/
 
 });
 
@@ -97,6 +102,8 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
   $route->group(['prefix' => 'users'], function (RouteCollector $route) {
     $route->get('/', [UserController::class, 'index']);
     $route->get('/admins', [UserController::class, 'admin']);
+    $route->get('/admin/create', [UserController::class, 'create']);
+    $route->post('/admin/store', [UserController::class, 'store']);
     $route->get('/status-change/{id}', [UserController::class, 'activeInactive']);
   });
   /*---------- Users ----------*/

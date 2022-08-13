@@ -60,7 +60,7 @@
                       <?= $value->address ?>
                     </td>
                     <td>
-                      <?= $value->contact ?>
+                      <?= $value->contact_no ?>
                     </td>
                     <?php
                       $class = $value->is_approved ? 'warning' : 'success';

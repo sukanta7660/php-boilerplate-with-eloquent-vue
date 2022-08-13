@@ -13,6 +13,7 @@
       <div class="container-fluid">
 
         <h1 class="h3 mb-2 text-gray-800">All Admins</h1>
+          <a href="<?= URI('/admin/users/admin/create') ?>" class="btn btn-primary btn-sm mb-2">Add a new admin</a>
         <?php if(isset($_SESSION['warning'])) { ?>
             <p class="alert alert-warning text-center p-2">
                 <small><?= $_SESSION['warning'] ?></small>
@@ -60,7 +61,7 @@
                       <?= $value->address ?>
                     </td>
                     <td>
-                      <?= $value->contact ?>
+                      <?= $value->contact_no ?>
                     </td>
                     <?php
                     $class = $value->is_approved ? 'warning' : 'success';

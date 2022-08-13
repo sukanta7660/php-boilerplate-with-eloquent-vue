@@ -8,6 +8,7 @@
 <script src="<?= public_path('admin/vendor/datatables/jquery.dataTables.min.js') ?>"></script>
 <script src="<?= public_path('admin/vendor/datatables/dataTables.bootstrap4.min.js') ?>"></script>
 <script src="<?= public_path('admin/js/notify.js') ?>"></script>
+<script src="<?= public_path('admin/js/validation/register.js') ?>"></script>
     <script>
         $(document).ready(function() {
             $('#dataTable').DataTable();
