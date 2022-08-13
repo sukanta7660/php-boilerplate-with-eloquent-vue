@@ -8,6 +8,7 @@ use App\Controllers\OwnProfileController;
 use App\Controllers\ProfileController;
 use Phroute\Phroute\RouteCollector;
 use App\Controllers\ContactController;
+use App\Controllers\Admin\ContactController as AdminContactController;
 use App\Controllers\Admin\BookController;
 use App\Controllers\Auth\LoginController;
 use App\Controllers\Auth\LogoutController;
@@ -126,6 +127,13 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
             $route->get('/status-change/{id}', [UserController::class, 'activeInactive']);
         });
         /*---------- Users ----------*/
+    
+        /*---------- Contact ----------*/
+        $route->group(['prefix' => 'contact'], function (RouteCollector $route) {
+            $route->get('/', [AdminContactController::class, 'index']);
+            $route->get('/delete/{id}', [AdminContactController::class, 'delete']);
+        });
+        /*---------- Contact ----------*/
     });
 
 });

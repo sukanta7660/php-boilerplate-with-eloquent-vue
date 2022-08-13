@@ -97,6 +97,12 @@
       </div>
     </div>
   </li>
+  <li class="nav-item">
+      <a class="nav-link" href="<?= URI('/admin/contact') ?>">
+        <i class="fas fa-fw fa-envelope"></i>
+        <span>Message From User</span>
+      </a>
+    </li>
   <?php } else { ?>
     <li class="nav-item">
       <a class="nav-link" href="<?= URI('/my-records') ?>">
