@@ -11,13 +11,21 @@
         <?= include_page('shared/admin/header') ?>
         <div class="container-fluid">
           <h1 class="h3 mb-2 text-gray-800">My Profile</h1>
-          <?php if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) {?>
-
-            <small class="text-success"><?php echo $_SESSION['success_message']; ?></small>
-
+          <?php if(isset($_SESSION['warning'])) { ?>
+              <p class="alert alert-warning text-center p-2">
+                  <small><?= $_SESSION['warning'] ?></small>
+              </p>
             <?php
-            unset($_SESSION['success_message']);
           }
+          unset($_SESSION['warning']);
+          ?>
+          <?php if(isset($_SESSION['success'])) { ?>
+              <p class="alert alert-success text-center p-2">
+                  <small><?= $_SESSION['success'] ?></small>
+              </p>
+            <?php
+          }
+          unset($_SESSION['success']);
           ?>
           <div class="row">
             <div class="col-md-12">
@@ -55,7 +63,7 @@
                       <!-- Tab panes -->
                       <div class="tab-content">
                         <div class="tab-pane container active" id="profileUpdate">
-                          <form class="form mt-2" method="post" name="profile_update">
+                          <form class="form mt-2" method="post" action="<?= URI('/profile-update') ?>">
                             <input type="hidden" name="id" value="<?= auth_user()['id'] ?>">
                             <div class="row">
                               <div class="col-md-6 col-lg-6 col-sm-12">
@@ -87,11 +95,23 @@
                                   <input
                                     type="text"
                                     required
-                                    name="phone_no"
+                                    name="contact_no"
                                     class="form-control"
                                     value="<?= auth_user()['contact_no'] ?>">
                                 </div>
                               </div>
+                                <div class="col-md-6 col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label class="">Address: </label>
+                                        <input
+                                                type="text"
+                                                required
+                                                placeholder="address"
+                                                name="address"
+                                                class="form-control"
+                                                value="<?= auth_user()['address'] ?>">
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-12 col-lg-12 col-sm-12">
                               <button
