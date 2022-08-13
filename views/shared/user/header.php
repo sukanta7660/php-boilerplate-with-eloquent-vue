@@ -38,13 +38,13 @@
               <a class="nav-link pl-lg-0" href="<?= URI('/') ?>">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html"> About</a>
+              <a class="nav-link" href="<?= URI('/about') ?>"> About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<?= URI('/books') ?>">Books</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
+              <a class="nav-link" href="<?= URI('/contact') ?>">Contact Us</a>
             </li>
             <?php if(!auth_user()) { ?>
             <li class="nav-item">
@@ -65,7 +65,7 @@
   </header>
   <!-- end header section -->
   <!-- slider section -->
-  <?php 
+  <?php
     if ($_SERVER['REQUEST_URI'] == '/') {
   ?>
     <section class="slider_section ">
@@ -86,9 +86,6 @@
                   <p>
                     about your book store
                   </p>
-                  <a href="">
-                    Read More
-                  </a>
                 </div>
               </div>
               <div class="col-md-6">
@@ -116,9 +113,6 @@
                   <p>
                     About your book store
                   </p>
-                  <a href="">
-                    Read More
-                  </a>
                 </div>
               </div>
               <div class="col-md-6">
@@ -144,9 +138,6 @@
                   <p>
                     About book store
                   </p>
-                  <a href="">
-                    Read More
-                  </a>
                 </div>
               </div>
               <div class="col-md-6">

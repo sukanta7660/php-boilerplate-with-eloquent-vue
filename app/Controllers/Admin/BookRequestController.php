@@ -95,6 +95,22 @@ class BookRequestController extends Controller
     $_SESSION['success'] = 'Notification sent';
     return redirect('/admin/requests/issued');
   }
+    
+    public function returnBook($id = null)
+    {
+        if ($id == null) {
+            return false;
+        }
+        $request = BookIssue::find($id);
+        
+        $request->update([
+            'status' => 'returned',
+            'actual_return_date' => date('Y-m-d H:i:s')
+        ]);
+    
+        $_SESSION['success'] = 'Status changed as Returned';
+        return redirect('/admin/requests/issued');
+    }
 
   public function returned()
   {

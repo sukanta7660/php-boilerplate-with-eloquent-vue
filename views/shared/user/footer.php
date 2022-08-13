@@ -3,13 +3,13 @@
 <section class="info_section layout_padding2">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-lg-4 info-col">
+      <div class="col-md-6 col-lg-6 info-col">
         <div class="info_detail">
           <h4>
             About Us
           </h4>
           <p>
-            It is one of the oldest and largest libraries of Bangladesh and,
+            It is one of the oldest and largest libraries and
             since its inception, has been providing library support to students, teachers,
             researchers and general readers for more than six decades.
           </p>
@@ -29,7 +29,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4 info-col">
+      <div class="col-md-6 col-lg-6 info-col">
         <div class="info_contact">
           <h4>
             Address
@@ -53,13 +53,6 @@
                   demo@gmail.com
                 </span>
             </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 info-col">
-        <div class="map_container">
-          <div class="map">
-            <div id="googleMap"></div>
           </div>
         </div>
       </div>

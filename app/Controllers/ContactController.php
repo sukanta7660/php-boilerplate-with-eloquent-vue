@@ -16,7 +16,7 @@ class ContactController extends Controller
             'subject' => $request->subject,
             'messages' => $request->messages,
         ]);
-
+        $_SESSION['success'] = 'Message successfully sent';
         return redirect('/');
     }
 }

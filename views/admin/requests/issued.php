@@ -100,7 +100,7 @@
                           ?>
                           <a
                               onclick="return confirm('Do you want to change the status as Return ?')"
-                              href=""
+                              href="<?= URI('admin/requests/return-book/'.$value->id) ?>"
                               title="Accept"
                               class="btn btn-sm btn-success">
                               <i class="fa fa-undo-alt"></i>

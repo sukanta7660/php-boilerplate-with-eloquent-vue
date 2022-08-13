@@ -41,6 +41,8 @@ $route->filter('admin', function(){
 
 // welcome page
 $route->get('/', [HomeController::class, 'index']);
+$route->get('/about', [HomeController::class, 'about']);
+$route->get('/contact', [HomeController::class, 'contact']);
 
 // Store user message
 $route->post('/store-messages', [ContactController::class, 'storeContactMessage']);
@@ -102,6 +104,7 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
             $route->get('/cancel-book/{id}', [BookRequestController::class, 'cancelRequest']);
             $route->post('/notify-user', [BookRequestController::class, 'notifyUser']);
             $route->get('/issued', [BookRequestController::class, 'issued']);
+            $route->get('/return-book/{id}', [BookRequestController::class, 'returnBook']);
             $route->get('/cancelled', [BookRequestController::class, 'cancelled']);
             $route->get('/returned', [BookRequestController::class, 'returned']);
         });
