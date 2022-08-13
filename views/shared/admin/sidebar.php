@@ -17,8 +17,9 @@
 
   <hr class="sidebar-divider" />
 
+  <?php if (auth_user()['role'] == 'admin') { ?>
   <div class="sidebar-heading">
-    Interface
+    Functionalities
   </div>
 
   <li class="nav-item">
@@ -66,7 +67,7 @@
 
   <hr class="sidebar-divider" />
   <div class="sidebar-heading">
-    Inputs
+    Basic Inputs
   </div>
 
   <li class="nav-item">
@@ -96,6 +97,21 @@
       </div>
     </div>
   </li>
+  <?php } else { ?>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>My Records</span>
+      </a>
+    </li>
+    <hr class="sidebar-divider my-0" />
+    <li class="nav-item">
+      <a class="nav-link" href="<?= URI('/admin/notifications') ?>">
+        <i class="fas fa-fw fa-bell"></i>
+        <span>Notification</span>
+      </a>
+    </li>
+  <?php } ?>
 
   <div class="text-center d-none d-md-inline">
     <button class="rounded-circle border-0" id="sidebarToggle"></button>
