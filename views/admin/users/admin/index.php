@@ -73,6 +73,11 @@
                              class="btn btn-sm btn-<?= $class ?>">
                             <?= $value->is_approved ? 'Inactive' : 'Active' ?>
                           </a>
+                          <a onclick="return confirm('Are you sure to delete this Admin ?')"
+                             href="/admin/users/delete-user/<?= $value->id ?>"
+                             class="btn btn-sm btn-danger">
+                              Delete
+                          </a>
                       <?php } ?>
                     </td>
                   </tr>

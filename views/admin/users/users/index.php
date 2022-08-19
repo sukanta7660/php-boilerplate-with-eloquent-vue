@@ -66,11 +66,16 @@
                       $class = $value->is_approved ? 'warning' : 'success';
                     ?>
                     <td class="text-right">
-                      <a onclick="return confirm('Are you sure to delete this notification ?')"
+                      <a onclick="return confirm('Are you sure to delete this user ?')"
                          href="/admin/users/status-change/<?= $value->id ?>"
                          class="btn btn-sm btn-<?= $class ?>">
                         <?= $value->is_approved ? 'Inactive' : 'Active' ?>
                       </a>
+                        <a onclick="return confirm('Are you sure to delete this user ?')"
+                           href="/admin/users/delete-user/<?= $value->id ?>"
+                           class="btn btn-sm btn-danger">
+                          Delete
+                        </a>
                     </td>
                   </tr>
                 <?php } ?>

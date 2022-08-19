@@ -125,6 +125,7 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
             $route->get('/admin/create', [UserController::class, 'create']);
             $route->post('/admin/store', [UserController::class, 'store']);
             $route->get('/status-change/{id}', [UserController::class, 'activeInactive']);
+            $route->get('/delete-user/{id}', [UserController::class, 'deleteUser']);
         });
         /*---------- Users ----------*/
     

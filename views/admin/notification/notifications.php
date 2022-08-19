@@ -27,7 +27,7 @@
                     <th>Name</th>
                     <th>Date</th>
                     <th>Message</th>
-                    <th>Fine (TK)</th>
+                    <th>Fine</th>
                     <th class="text-right">Action</th>
                   </tr>
                   </thead>

@@ -90,4 +90,23 @@ class UserController extends Controller
     $_SESSION['success'] = 'A new Admin is created';
     return redirect('/admin/users/admins');
   }
+
+  public function deleteUser($id = null)
+  {
+    if ($id == null) {
+      return false;
+    }
+    $user = User::find($id);
+//    return $user->requests;
+    $roleText = $user->role == 'admin' ? 'Admin' : 'User';
+    $path = $user->role == 'admin' ? '/admin/users/admins' : '/admin/users';
+    if (count($user->requests) > 0 && count($user->notifications) > 0) {
+      $_SESSION['warning'] = $roleText.' has so many requests or notification so can not deleted';
+      return redirect($path);
+    }
+
+    $user->delete();
+    $_SESSION['success'] = $roleText.' deleted Successfully';
+    return redirect($path);
+  }
 }

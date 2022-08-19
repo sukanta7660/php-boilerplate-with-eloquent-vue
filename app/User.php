@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 class User extends Model
 {
     protected $fillable = [
@@ -11,4 +13,14 @@ class User extends Model
     protected $hidden = [
         'password', 'remember_token'
     ];
+
+  public function requests() :HasMany
+  {
+    return $this->hasMany(BookIssue::class);
+  }
+
+  public function notifications() :HasMany
+  {
+    return $this->hasMany(Notification::class);
+  }
 }
