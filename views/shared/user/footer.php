@@ -13,20 +13,20 @@
             since its inception, has been providing library support to students, teachers,
             researchers and general readers for more than six decades.
           </p>
-          <div class="info_social">
-            <a href="">
-              <i class="fa fa-facebook" aria-hidden="true"></i>
-            </a>
-            <a href="">
-              <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-            <a href="">
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-            <a href="">
-              <i class="fa fa-instagram" aria-hidden="true"></i>
-            </a>
-          </div>
+<!--          <div class="info_social">-->
+<!--            <a href="">-->
+<!--              <i class="fa fa-facebook" aria-hidden="true"></i>-->
+<!--            </a>-->
+<!--            <a href="">-->
+<!--              <i class="fa fa-twitter" aria-hidden="true"></i>-->
+<!--            </a>-->
+<!--            <a href="">-->
+<!--              <i class="fa fa-linkedin" aria-hidden="true"></i>-->
+<!--            </a>-->
+<!--            <a href="">-->
+<!--              <i class="fa fa-instagram" aria-hidden="true"></i>-->
+<!--            </a>-->
+<!--          </div>-->
         </div>
       </div>
       <div class="col-md-6 col-lg-6 info-col">
@@ -67,7 +67,7 @@
   <div class="container">
     <p>
       &copy; <span id="displayYear"></span> All Rights Reserved
-      <a href="#">Book Store</a>
+      <a href="#">Online Library</a>
     </p>
   </div>
 </footer>

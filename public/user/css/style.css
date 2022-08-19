@@ -791,9 +791,6 @@ a:focus {
 .footer_section p a {
   color: inherit;
 }
-.hero_area {
-  min-height: 50vh !important;
-}
 .category-title {
   border-bottom: 1px solid #2e59d9;
 }

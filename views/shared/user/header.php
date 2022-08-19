@@ -20,13 +20,13 @@
 
 <body class="<?= $_SERVER['REQUEST_URI'] == '/' ? '' : 'sub_page' ?>">
 
-<div class="hero_area">
+<div class="hero_area" <?php if ($_SERVER['REQUEST_URI'] == '/') {?> style="min-height: 50vh !important;" <?php } ?> >
   <header class="header_section">
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
         <a class="navbar-brand" href="<?= URI('/') ?>">
             <span>
-              Book Store
+              Online Library
             </span>
         </a>
 

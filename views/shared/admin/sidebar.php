@@ -3,7 +3,7 @@
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-home"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">Book Store</div>
+    <div class="sidebar-brand-text mx-3">Online Library</div>
   </a>
 
   <hr class="sidebar-divider my-0" />
