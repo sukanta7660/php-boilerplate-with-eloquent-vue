@@ -36,7 +36,7 @@ use Illuminate\Support\Str;
                           public_path('uploads/books/'.$value->image)
                         ;
                 ?>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3">
                   <div class="card h-100 shadow-sm">
                   <img src="<?= $image ?>" class="card-img-top" alt="..." />
                   <div class="card-body">

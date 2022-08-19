@@ -797,4 +797,11 @@ a:focus {
 .category-title {
   border-bottom: 1px solid #2e59d9;
 }
+.card-img-top {
+  height: 200px;
+}
+
+.card {
+  margin-bottom: 10px !important;
+}
 /*# sourceMappingURL=style.css.map */

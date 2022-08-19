@@ -14,11 +14,20 @@
                 <div class="detail-box">
                     <div class="heading_container">
                         <h2>
-                            About Our Bookstore
+                            About Our Online Library
                         </h2>
                     </div>
-                    <p>
-                        At cumque tenetur iste molestiae, vel eum reiciendis assumenda! Numquam, repudiandae. Consequuntur obcaecati recusandae aliquam, amet doloribus eius dolores officiis cumque? Quibusdam praesentium pariatur sapiente mollitia, amet hic iusto voluptas! Iusto quo earum vitae excepturi, ipsam aliquid deleniti assumenda culpa deserunt.
+                    <p class="text-justify">
+                        The ultimate goal of the Library is to make all the published works of humankind available
+                        to everyone in the world. While large in scope and ambition, this goal is within our grasp.
+                        Achieving it will require the participation of librarians, authors,
+                        government officials and technologists.
+                        Imagine what a comprehensive, open library could be! A talented math whiz who lives in a rural
+                        community can explore the works of high math. An elderly person can have a large print edition
+                        of any book ever published. An innovative young scholar can publish a book directly to this great
+                        library on subjects that might not otherwise make it through the long and difficult publication process.
+                        Our hope is that libraries and individual book readers will join this project and together
+                        we can build towards universal access to all knowledge.
                     </p>
                 </div>
             </div>
