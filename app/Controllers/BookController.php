@@ -93,4 +93,18 @@ class BookController extends Controller
       'address' => $request->address,
     ]);
   }
+
+  public function bookDetails($id = null, $slug = null)
+  {
+    if ($id == null && $slug == null) {
+      return false;
+    }
+
+    $book = Book::where('id', $id)
+      ->with('category')
+      ->first()
+    ;
+
+    return view('users/book-details', ['book' => $book]);
+  }
 }

@@ -53,6 +53,8 @@ $route->get('/category/{id}/books/{slug}', [UserBookController::class, 'category
 
 
 
+$route->get('/book/{id}/book-details/{slug}', [UserBookController::class, 'bookDetails']);
+
 $route->group(['before' => 'auth'], function (RouteCollector $route) {
   $route->get('/book/{id}/send-request/{slug}', [UserBookController::class, 'checkBookPage']);
   $route->post('/send-request', [UserBookController::class, 'sendRequest']);

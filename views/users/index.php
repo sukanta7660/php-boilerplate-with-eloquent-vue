@@ -31,7 +31,7 @@ unset($_SESSION['success']);
                             <div style="background-image: url(<?= public_path('user/images/demoImg.jpg') ?>)">
                             </div>
                             <h3><?= $item->name ?></h3>
-                            <a href="" class="btn btn-info btn-sm mb-2">See more</a>
+                            <a href="<?= URI('/book/'.$item->id.'/book-details/'.Str::slug($item->name)) ?>" class="btn btn-info btn-sm mb-2">See more</a>
                         </div>
                     </div>
                 <?php } ?>
