@@ -791,4 +791,7 @@ a:focus {
 .footer_section p a {
   color: inherit;
 }
+.hero_area {
+  min-height: 50vh !important;
+}
 /*# sourceMappingURL=style.css.map */

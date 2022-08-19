@@ -14,6 +14,8 @@
   <link href="<?= public_path('user/css/font-awesome.min.css') ?>" rel="stylesheet" />
   <link href="<?= public_path('user/css/style.css') ?>" rel="stylesheet" />
   <link href="<?= public_path('user/css/responsive.css') ?>" rel="stylesheet" />
+  <link href="<?= public_path('user/css/resCarousel.css') ?>" rel="stylesheet" />
+  <link href="<?= public_path('user/css/caraosel.css') ?>" rel="stylesheet" />
 </head>
 
 <body class="<?= $_SERVER['REQUEST_URI'] == '/' ? '' : 'sub_page' ?>">
@@ -80,21 +82,18 @@
               <div class="col-md-6">
                 <div class="detail-box">
                   <h5>
-                    Bookstore
+                    Book Library
                   </h5>
                   <h1>
                     For All Your <br>
                     Reading Needs
                   </h1>
-                  <p>
-                    about your book store
-                  </p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="img-box">
                   <img
-                    src="<?= public_path('user/images/slider-img.png') ?>"
+                    src="<?= public_path('user/images/LF_Wide_Back_Stacks.jpg') ?>"
                     alt="">
                 </div>
               </div>
@@ -107,20 +106,17 @@
               <div class="col-md-6">
                 <div class="detail-box">
                   <h5>
-                    Bookstore
+                    Book Library
                   </h5>
                   <h1>
                     For All Your <br>
                     Reading Needs
                   </h1>
-                  <p>
-                    About your book store
-                  </p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="img-box">
-                  <img src="<?= public_path('user/images/slider-img.png') ?>" alt="">
+                  <img src="<?= public_path('user/images/Reading_rm.jpg') ?>" alt="">
                 </div>
               </div>
             </div>
@@ -132,25 +128,32 @@
               <div class="col-md-6">
                 <div class="detail-box">
                   <h5>
-                    Bostorek Bookstore
+                    Book Library
                   </h5>
                   <h1>
                     For All Your <br>
                     Reading Needs
                   </h1>
-                  <p>
-                    About book store
-                  </p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="img-box">
-                  <img src="<?= public_path('user/images/slider-img.png') ?>" alt="">
+                  <img src="<?= public_path('user/images/EE4A4716-London_Library_.jpg') ?>" alt="">
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="carousel_btn_box">
+        <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
     </div>
   </section>

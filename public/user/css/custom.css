@@ -49,20 +49,20 @@
 }
 
 .mini-submenu{
-    display:none;  
-    background-color: rgba(0, 0, 0, 0);  
+    display:none;
+    background-color: rgba(0, 0, 0, 0);
     border: 1px solid rgba(0, 0, 0, 0.9);
     border-radius: 4px;
-    padding: 9px;  
+    padding: 9px;
     /*position: relative;*/
     width: 42px;
-  
+
   }
-  
+
   .mini-submenu:hover{
     cursor: pointer;
   }
-  
+
   .mini-submenu .icon-bar {
     border-radius: 1px;
     display: block;
@@ -70,11 +70,11 @@
     width: 22px;
     margin-top: 3px;
   }
-  
+
   .mini-submenu .icon-bar {
     background-color: #000;
   }
-  
+
   #slide-submenu{
     background: rgba(0, 0, 0, 0.45);
     display: inline-block;
@@ -87,11 +87,11 @@
     height: 100%;
     padding: 5% 0;
   }
-  
+
   h1 {
     color: #FCFBFA;
   }
-  
+
   .container_foto {
     background-color: rgba(57, 62, 93, 0.7);
     padding: 0;
@@ -99,7 +99,7 @@
     max-width: 350px;
     margin: 5px;
   }
-  
+
   .container_foto article {
     padding: 10%;
     position: absolute;
@@ -111,20 +111,20 @@
     -ms-transition: all 0.5s ease;
     transition: all 0.5s ease;
   }
-  
+
   .container_foto h2 {
     color: #fff;
     font-weight: 800;
     font-size: 25px;
     border-bottom: #fff solid 1px;
   }
-  
+
   .container_foto h4 {
     font-weight: 300;
     color: #fff;
     font-size: 16px;
   }
-  
+
   .container_foto img {
     width: 100%;
     top: 0;
@@ -136,7 +136,7 @@
     -ms-transition: all 4s ease;
     transition: all 4s ease;
   }
-  
+
   .ver_mas {
     background-color: #FEB66C;
     position: absolute;
@@ -156,7 +156,7 @@
     -ms-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
   }
-  
+
   .ver_mas span {
     font-size: 40px;
     color: #fff;
@@ -165,19 +165,19 @@
     width: 100%;
     top: 13px;
   }
-  
-  
+
+
   /*hovers*/
-  
+
   .container_foto:hover {
     cursor: pointer;
   }
-  
+
   .container_foto:hover img {
     opacity: 0.1;
     transform: scale(1.5);
   }
-  
+
   .container_foto:hover article {
     transform: translate(2px, -69px);
     -webkit-transform: translate(2px, -69px);
@@ -185,7 +185,7 @@
     -o-transform: translate(2px, -69px);
     -ms-transform: translate(2px, -69px);
   }
-  
+
   .container_foto:hover .ver_mas {
     transform: translate(0px, 0px);
     -webkit-transform: translate(0px, 0px);
@@ -373,4 +373,16 @@ footer {
     background: #212529;
     height: 80px;
     color: #fff;
+}
+/*Custom CSS*/
+.hero_area {
+    position: relative;
+    min-height: 50vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }

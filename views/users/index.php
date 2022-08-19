@@ -18,114 +18,307 @@ unset($_SESSION['warning']);
 unset($_SESSION['success']);
 ?>
 <?= include_page('shared/user/header') ?>
-  <!-- category section -->
-  <section class="catagory_section layout_padding">
-    <div class="catagory_container">
-      <div class="container ">
-        <div class="heading_container heading_center">
-          <h2>
-            Book Lists
-          </h2>
-        </div>
-        <div class="row">
-          <div class="col-sm-4 col-md-3 sidebar">
-            <div class="list-group">
-                <span href="#" class="list-group-item active">
-                    Categories
-                </span>
-                <?php foreach ($categories as $key => $value) { ?>
-                  <a href="<?= URI('/category/'.$value->id.'/books/'.Str::slug($value->name)) ?>" class="list-group-item">
-                    <i class="fa fa-folder"></i> <?= $value->name ?> <span class="badge pull-right"><?= count($value->books) ?></span>
-                  </a>
-                <?php } ?>
-            </div>
-          </div>
-          <div class="col-md-9 col-sm-8">
-            <div class="row">
-                <?php
-                  foreach ($books as $key => $value) {
-                    $image =
-                          $value->image == 'default.jpg' ?
-                              public_path('user/images/no_imiage.jpg') :
-                          public_path('uploads/books/'.$value->image)
-                        ;
-                ?>
-                <div class="col-md-4">
-                  <div class="card h-100 shadow-sm">
-                  <img src="<?= $image ?>" class="card-img-top" alt="..." />
-                  <div class="card-body">
-                      <div class="clearfix mb-3">
-                        <span class="float-start badge rounded-pill bg-primary text-white">
-                          Available Book:
-                          <?= $value->availability ?>
-                        </span>
-                        <!-- <span class="float-right price-hp">12354.00&euro;</span> -->
-                      </div>
-                      <h5 class="card-title">
-                          <small><b class="text-bold">Title:</b> <?= $value->name ?></small><br>
-                          <small><b>Category:</b> <?= $value->category->name ?></small><br>
-                        <small><b>Author:</b> <?= $value->author ?></small>
-                      </h5>
-                      <div class="text-center my-4">
-                        <a
-                          href="<?= URI('/book/'.$value->id.'/send-request/'.Str::slug($value->name)) ?>"
-                          class="btn btn-primary btn-sm" style="<?= $value->availability > 0 ? '' : 'pointer-events: none; cursor: default;' ?>">
-                          Send a book request
-                        </a>
-                      </div>
-                  </div>
-                </div>
-              </div>
-              <?php } ?>
-            </div>
-          </div>
-	      </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- end catagory section -->
+<div class="container-fluid p-5">
+  <h2 class="p-3">Horror</h2>
+  <div class="resCarousel" data-items="2-3-4-5" data-slide="5" data-speed="900" data-interval="4000" data-load="3" data-animator="lazy">
+    <div class="resCarousel-inner" id="eventLoad">
 
-  <!-- contact section -->
-
-  <section class="contact_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 ">
-          <div class="heading_container ">
-            <h2 class="">
-              Contact Us
-            </h2>
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>1</h1>
           </div>
-          <form action="<?= URI('/store-messages') ?>" method="post">
-            <div>
-              <input type="text" placeholder="Name" name="name"/>
-            </div>
-            <div>
-              <input type="email" placeholder="Email" name="email"/>
-            </div>
-            <div>
-              <input type="text" placeholder="subject" name="subject"/>
-            </div>
-            <div>
-              <input type="text" class="message-box" placeholder="Message" name="messages"/>
-            </div>
-            <div class="btn-box">
-              <button type="submit">
-                SEND
-              </button>
-            </div>
-          </form>
-        </div>
-        <div class="col-md-6">
-          <div class="img-box">
-            <img src="<?= public_path('user/images/contact-img.png') ?>" alt="">
-          </div>
+          <h3>Title</h3>
+          <p>content</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- end contact section -->
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>2</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>3</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>4</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>5</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>6</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>7</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>8</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>9</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>10</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>11</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>12</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>13</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>14</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+    </div>
+    <button class='btn btn-secondary leftRs'><</button>
+    <button class='btn btn-secondary rightRs'>></button>
+  </div>
+</div>
+<div class="container-fluid p-5 bg-even">
+  <h2 class="p-3">Science</h2>
+  <div class="resCarousel" data-items="2-3-4-5" data-slide="5" data-speed="600" data-interval="4000" data-load="3" data-animator="lazy">
+    <div class="resCarousel-inner" id="eventLoad">
+
+      <div class="item">
+        <div class="tile">
+          <div style="background-image: url(<?= public_path('user/images/demoImg.jpg') ?>)">
+            <h1>1</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>2</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>3</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>4</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>5</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>6</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>7</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>8</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>9</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>10</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>11</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>12</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>13</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tile">
+          <div>
+            <h1>14</h1>
+          </div>
+          <h3>Title</h3>
+          <p>content</p>
+        </div>
+      </div>
+
+    </div>
+    <button class='btn btn-secondary leftRs'><</button>
+    <button class='btn btn-secondary rightRs'>></button>
+  </div>
+</div>
 
 <?= include_page('shared/user/footer') ?>
+
