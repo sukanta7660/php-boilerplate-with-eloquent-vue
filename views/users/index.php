@@ -20,19 +20,21 @@ unset($_SESSION['success']);
 <?= include_page('shared/user/header') ?>
 
 <div class="container-fluid p-5">
-  <h2 class="p-3">Horror</h2>
+  <a class="text-uppercase text-primary" href=""><h3 class="p-3"><u>horror</u></h3></a>
   <div class="resCarousel" data-items="2-3-4-5" data-slide="5" data-speed="900" data-interval="4000" data-load="3" data-animator="lazy">
     <div class="resCarousel-inner" id="eventLoad">
 
-      <div class="item">
-        <div class="tile">
-          <div>
-            <h1>1</h1>
+      <a href="">
+        <div class="item">
+          <div class="tile">
+            <div>
+              <h1>1</h1>
+            </div>
+            <h3>Title</h3>
+            <p>content</p>
           </div>
-          <h3>Title</h3>
-          <p>content</p>
         </div>
-      </div>
+      </a>
 
       <div class="item">
         <div class="tile">
@@ -170,7 +172,7 @@ unset($_SESSION['success']);
   </div>
 </div>
 <div class="container-fluid p-5 bg-even">
-  <h2 class="p-3">Science</h2>
+  <a class="text-uppercase text-primary" href=""><h3 class="p-3"><u>Science</u></h3></a>
   <div class="resCarousel" data-items="2-3-4-5" data-slide="5" data-speed="600" data-interval="4000" data-load="3" data-animator="lazy">
     <div class="resCarousel-inner" id="eventLoad">
 

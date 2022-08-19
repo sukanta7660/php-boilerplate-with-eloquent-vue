@@ -794,4 +794,7 @@ a:focus {
 .hero_area {
   min-height: 50vh !important;
 }
+.category-title {
+  border-bottom: 1px solid #2e59d9;
+}
 /*# sourceMappingURL=style.css.map */
