@@ -72,6 +72,7 @@
               </button>
             </form>
             <div class="">
+              <a href="<?= URI('/') ?>" class="text-decoration-none btn btn-sm btn-danger">Back To Home</a>
               <a class="text-decoration-none" href="<?= URI('/admin-register') ?>">Don't have an account? Register!</a>
             </div>
           </div>
