@@ -11,7 +11,10 @@ class RegisterController extends Controller
     public function index() {
         return view('auth/register');
     }
-
+    
+    /**
+     * @throws \Exception
+     */
     public function register()
     {
         session_start();
@@ -48,11 +51,13 @@ class RegisterController extends Controller
             return redirect('/register');
 
         }
+        
+        $token = bin2hex(random_bytes(15));
 
         User::create([
             'name' => $name,
             'email' => $email,
-            'contact_no' => $request->contact_no,
+            'token' => $token,
             'password' => md5($password)
         ]);
         
@@ -85,18 +90,23 @@ class RegisterController extends Controller
   {
     return view('auth/admin-register');
   }
-
-  public function adminRegister()
+    
+    /**
+     * @throws \Exception
+     */
+    public function adminRegister()
   {
     $request = user_inputs();
     $name = $request->name;
     $email = $request->email;
     $password = $request->password;
+    $token = bin2hex(random_bytes(15));
 
     $isCreated = User::create([
       'name' => $name,
       'email' => $email,
       'role' => 'admin',
+      'token' => $token,
       'password' => md5($password)
     ]);
 
