@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class User extends Model
 {
     protected $fillable = [
-        'name', 'email', 'is_approved', 'contact_no', 'address', 'role', 'password'
+        'name', 'email', 'is_approved', 'contact_no', 'address', 'role', 'password', 'token', 'email_verified_at'
     ];
 
     protected $hidden = [
