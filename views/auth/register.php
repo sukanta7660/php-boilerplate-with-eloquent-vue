@@ -27,28 +27,17 @@
           </div>
           <form
               action="<?= URI('/register') ?>"
-              id="registrationForm"
-              method="post"
-              onsubmit="return validateForm()">
+              id="signup"
+              method="post">
             <div>
-              <small class="text-danger" id="nameError"></small>
                <input
                    type="text"
                    placeholder="Name"
                    id="name"
                    name="name"/>
+                <small class="text-danger"></small>
             </div>
             <div>
-              <small class="text-danger" id="contactError"></small>
-               <input
-                   type="text"
-                   placeholder="Contact No"
-                   id="contactNo"
-                   name="contact_no"/>
-            </div>
-            <div>
-              <small class="text-danger" id="emailError"></small>
-              <span id="user-availability-status" style="font-size: 12px;"></span>
               <input
                   type="email"
                   id="email"
@@ -56,26 +45,28 @@
                   onblur="checkAvailability()"
                   name="email"
                   placeholder="Email" />
+                <small class="text-danger"></small> <br>
+                <span id="user-availability-status" style="font-size: 12px;"></span>
             </div>
             <div>
-              <small class="text-danger" id="passwordError"></small>
               <input
                   type="password"
                   id="password"
                   name="password"
                   placeholder="password"/>
+                <small class="text-danger"></small>
             </div>
             <div>
-              <small class="text-danger" id="confirmPasswordError"></small>
               <input
                   type="password"
                   class="form-control"
                   name="confirm_password"
-                  id="confirmPassword"
+                  id="confirmed_password"
                   placeholder="Confirm password"/>
+                <small class="text-danger"></small>
             </div>
             <div class="btn-box">
-              <button id="submit" type="submit">
+              <button type="submit">
                 Register
               </button>
             </div>

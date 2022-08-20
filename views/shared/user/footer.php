@@ -74,7 +74,7 @@
 <!-- footer section -->
 
 <!-- jQery -->
-<script src="<?= public_path('user/js/jquery-3.4.1.min.js') ?>"></script>
+<script src="<?= public_path('admin/vendor/jquery/jquery.min.js') ?>"></script>
 <script src="<?= public_path('user/js/bootstrap.js') ?>"></script>
 <script src="<?= public_path('user/js/custom.js') ?>"></script>
 <script src="<?= public_path('user/js/validation/register.js') ?>"></script>

@@ -31,7 +31,11 @@
     <div class="card-body p-0">
 
       <div class="row">
-        <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+        <div
+                class="col-lg-5 d-none d-lg-block bg-register-image"
+                style="background-image: url(<?= public_path('admin/img/library-bg1.png') ?>) !important;">
+
+        </div>
         <div class="col-lg-7">
           <div class="p-5">
             <div class="text-center">

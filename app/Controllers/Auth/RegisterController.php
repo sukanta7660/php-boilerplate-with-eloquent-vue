@@ -66,21 +66,18 @@ class RegisterController extends Controller
 
         $email = $request->email;
 
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)===false) {
-
-            echo "error : You did not enter a valid email.";
-        }
-
+      if ($email == "") {
+        echo "error : Enter an email";
+      } else {
         $isExist = User::where('email', $email)->first();
-
         if ($isExist) {
-            echo "<span style='color:red'> Email already exists .</span>";
-            echo "<script>$('#submit').prop('disabled',true);</script>";
+          echo "<span style='color:red'> Email already exists .</span>";
+          echo "<script>$('#submit').prop('disabled',true);</script>";
         } else{
-
-            echo "<span style='color:green'> Email available for Registration .</span>";
-            echo "<script>$('#submit').prop('disabled',false);</script>";
+          echo "<span style='color:green'> Email available for Registration .</span>";
+          echo "<script>$('#submit').prop('disabled',false);</script>";
         }
+      }
     }
 
 //    Admin

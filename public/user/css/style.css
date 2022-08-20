@@ -1178,3 +1178,7 @@ input:checked ~ label:hover ~ label {
 .message img.online {
   border-radius: 50%;
 }
+
+.contact_section input {
+  margin-bottom: 9px;
+}

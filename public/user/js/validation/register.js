@@ -1,81 +1,174 @@
-printError = (elementId, message) => {
-    document.getElementById(elementId).innerHTML = message;
-}
+const usernameEl = document.querySelector('#name');
+const emailEl = document.querySelector('#email');
+const passwordEl = document.querySelector('#password');
+const confirmPasswordEl = document.querySelector('#confirmed_password');
 
-validateForm = (e) => {
-    let name = document.getElementById('name').value
-    let email = document.getElementById('email').value
-    let contact = document.getElementById('contactNo').value
-    let password = document.getElementById('password').value
-    let confirmPassword = document.getElementById('confirmPassword').value
+const form = document.querySelector('#signup');
 
-    let {nameError, emailError, contactError, passwordError, confirmPasswordError} = true;
 
-    if (name === '') {
-        printError('nameError', 'Please enter your name');
-    }else {
-        let regex = /^[a-zA-Z\s]+$/;
-        if (regex.test(name) === false) {
-            printError('nameError', 'Please enter a valid name');
-        }else {
-            printError('nameError', '');
-            nameError = false;
-        }
-    }
+const checkUsername = () => {
 
-    if (email === '') {
-        printError('emailError', 'Please enter your email');
-    }else {
-        let regex = /^\S+@\S+\.\S+$/;
-        if (regex.test(email) === false) {
-            printError('emailError', 'Please enter a valid email address');
-        }else {
-            printError('emailErr', '');
-            emailError = false;
-        }
-    }
+    let valid = false;
 
-    if(contact === '') {
-        printError('contactError', 'Please enter your mobile number');
+    const min = 3,
+        max = 25;
+
+    const username = usernameEl.value.trim();
+
+    if (!isRequired(username)) {
+        showError(usernameEl, 'Username cannot be blank.');
+    } else if (!isBetween(username.length, min, max)) {
+        showError(usernameEl, `Username must be between ${min} and ${max} characters.`)
     } else {
-        let regex = /^[1-9]\d{9}$/;
-        if(regex.test(contact) === false) {
-            printError("contactError", 'Please enter a valid 10 digit mobile number');
-        } else{
-            printError('contactError', '');
-            contactError = false;
-        }
+        showSuccess(usernameEl);
+        valid = true;
+    }
+    return valid;
+};
+
+
+const checkEmail = () => {
+    let valid = false;
+    const email = emailEl.value.trim();
+    if (!isRequired(email)) {
+        showError(emailEl, 'Email cannot be blank.');
+    } else if (!isEmailValid(email)) {
+        showError(emailEl, 'Email is not valid.')
+    } else {
+        showSuccess(emailEl);
+        valid = true;
+    }
+    return valid;
+};
+
+const checkPassword = () => {
+    let valid = false;
+
+
+    const password = passwordEl.value.trim();
+
+    if (!isRequired(password)) {
+        showError(passwordEl, 'Password cannot be blank.');
+    } else if (!isPasswordSecure(password)) {
+        showError(passwordEl, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
+    } else {
+        showSuccess(passwordEl);
+        valid = true;
     }
 
-    if (password === '') {
-        printError('passwordError', 'Please enter a password');
-    }else {
-        let regex = /^.{5,15}$/;
-        if (regex.test(password) === false) {
-            printError('passwordError', 'Password length must be between 5-15 characters');
-        }else {
-            printError('passwordError', '');
-            passwordError = false;
-        }
+    return valid;
+};
+
+const checkConfirmPassword = () => {
+    let valid = false;
+    // check confirm password
+    const confirmPassword = confirmPasswordEl.value.trim();
+    const password = passwordEl.value.trim();
+
+    if (!isRequired(confirmPassword)) {
+        showError(confirmPasswordEl, 'Please enter the password again');
+    } else if (password !== confirmPassword) {
+        showError(confirmPasswordEl, 'The password does not match');
+    } else {
+        showSuccess(confirmPasswordEl);
+        valid = true;
     }
 
-    if (confirmPassword === '') {
-        printError('confirmPasswordError', 'Confirm password must');
-    }else {
-        if (password !== confirmPassword) {
-            printError('confirmPasswordError', 'Password and confirm password must be same');
-        }else {
-            printError('confirmPasswordError', '');
-            confirmPasswordError = false;
-        }
-    }
+    return valid;
+};
 
-    if((nameError || emailError || contactError || passwordError || confirmPasswordError) === true) {
-        return false;
-    }else {
-        return false;
-    }
+const isEmailValid = (email) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+};
+
+const isPasswordSecure = (password) => {
+    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+    return re.test(password);
+};
+
+const isRequired = value => value !== '';
+const isBetween = (length, min, max) => !(length < min || length > max);
+
+
+const showError = (input, message) => {
+    // get the form-field element
+    const formField = input.parentElement;
+    // add the error class
+    formField.classList.remove('success');
+    formField.classList.add('error');
+
+    // show the error message
+    const error = formField.querySelector('small');
+    error.textContent = message;
+};
+
+const showSuccess = (input) => {
+    // get the form-field element
+    const formField = input.parentElement;
+
+    // remove the error class
+    formField.classList.remove('error');
+    formField.classList.add('success');
+
+    // hide the error message
+    const error = formField.querySelector('small');
+    error.textContent = '';
 }
+
+
+form.addEventListener('submit', function (e) {
+    // prevent the form from submitting
+    e.preventDefault();
+
+    // validate fields
+    let isUsernameValid = checkUsername(),
+        isEmailValid = checkEmail(),
+        isPasswordValid = checkPassword(),
+        isConfirmPasswordValid = checkConfirmPassword();
+
+    let isFormValid = isUsernameValid &&
+        isEmailValid &&
+        isPasswordValid &&
+        isConfirmPasswordValid;
+
+    // submit to the server if the form is valid
+    if (isFormValid) {
+        document.getElementById("signup").submit();
+    }
+});
+
+
+const debounce = (fn, delay = 500) => {
+    let timeoutId;
+    return (...args) => {
+        // cancel the previous timer
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        // setup a new timer
+        timeoutId = setTimeout(() => {
+            fn.apply(null, args)
+        }, delay);
+    };
+};
+
+form.addEventListener('input', debounce(function (e) {
+    switch (e.target.id) {
+        case 'username':
+            checkUsername();
+            break;
+        case 'email':
+            checkEmail();
+            break;
+        case 'password':
+            checkPassword();
+            break;
+        case 'confirm-password':
+            checkConfirmPassword();
+            break;
+    }
+}));
 
 
 checkAvailability = () => {
