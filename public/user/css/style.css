@@ -1124,3 +1124,53 @@ a:focus {
   width:40px;
   height:40px;
 }
+ul#myTab li {
+  padding: 10px;
+  border: 1px solid;
+  margin-right: 10px;
+}
+
+.chat-body.no-padding.profile-message {
+  margin-top: 50px;
+}
+li.message {
+  margin-bottom: 39px;
+}
+
+.rate {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.rate-point {
+  display: none;
+}
+label {
+  float: right;
+  font-size: 0;
+  color: #d9d9d9;
+  height:32px;
+  margin-bottom:0;
+}
+label:before {
+  content: "\f005";
+  font-family: FontAwesome;
+  font-size: 25px;
+}
+label:hover,
+label:hover ~ label {
+  color: #fcd000;
+  transition: 0.2s;
+}
+input:checked ~ label {
+  color: #ccac00;
+}
+input:checked ~ label:hover,
+input:checked ~ label:hover ~ label {
+  color: #fcd000;
+  transition: 0.2s;
+}
+.checked {
+  color: orange;
+}

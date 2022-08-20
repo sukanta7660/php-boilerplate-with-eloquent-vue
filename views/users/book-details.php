@@ -10,7 +10,6 @@ use Illuminate\Support\Str;
           <?php
           $image =
             $book->image == 'default.jpg' ? public_path('user/images/no_imiage.jpg') : public_path('uploads/books/'.$book->image) ; ?>
-            ?>
             <div class="col-md-5 col-sm-12 col-xs-12">
                 <div class="product-image">
                     <img src="<?= $image ?>" style="max-width: 100%">
@@ -36,12 +35,11 @@ use Illuminate\Support\Str;
                 <hr />
                 <div class="description description-tabs">
                     <ul id="myTab" class="nav nav-pills">
-                        <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin">Product Description </a></li>
-                        <li class=""><a href="#specifications" data-toggle="tab">Specifications</a></li>
+                        <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin">Book Details </a></li>
                         <li class=""><a href="#reviews" data-toggle="tab">Reviews</a></li>
                     </ul>
                     <div id="myTabContent" class="tab-content">
-                        <div class="tab-pane fade active in" id="more-information">
+                        <div class="tab-pane active in" id="more-information">
                             <br />
                             <strong>Description Title</strong>
                             <p>
@@ -49,37 +47,41 @@ use Illuminate\Support\Str;
                                 sodales porta. Etiam aliquet rutrum turpis, feugiat sodales ipsum consectetur nec.
                             </p>
                         </div>
-                        <div class="tab-pane fade" id="specifications">
-                            <br />
-                            <dl class="">
-                                <dt>Gravina</dt>
-                                <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-                                <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-                                <dd>Eget lacinia odio sem nec elit.</dd>
-                                <br />
-
-                                <dt>Test lists</dt>
-                                <dd>A description list is perfect for defining terms.</dd>
-                                <br />
-
-                                <dt>Altra porta</dt>
-                                <dd>Vestibulum id ligula porta felis euismod semper</dd>
-                            </dl>
-                        </div>
                         <div class="tab-pane fade" id="reviews">
                             <br />
-                            <form method="post" class="well padding-bottom-10" onsubmit="return false;">
-                                <textarea rows="2" class="form-control" placeholder="Write a review"></textarea>
+                            <?php if (isset($_SESSION['user'])) { ?>
+                            <form method="post" class="well padding-bottom-10">
+                                <input type="hidden" name="id" value="<?= $book->id ?>">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <fieldset class="rate">
+                                            <input class="rate-point" id="rate1-star5" type="radio" name="rate" value="5" />
+                                            <label  for="rate1-star5" title="Excellent">5</label>
+
+                                            <input class="rate-point" id="rate1-star4" type="radio" name="rate" value="4" />
+                                            <label for="rate1-star4" title="Good">4</label>
+
+                                            <input class="rate-point" id="rate1-star3" type="radio" name="rate" value="3" />
+                                            <label for="rate1-star3" title="Satisfactory">3</label>
+
+                                            <input class="rate-point" id="rate1-star2" type="radio" name="rate" value="2" />
+                                            <label for="rate1-star2" title="Bad">2</label>
+
+                                            <input class="rate-point" id="rate1-star1" type="radio" name="rate" value="1" />
+                                            <label for="rate1-star1" title="Very bad">1</label>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <textarea rows="2" class="form-control" placeholder="Write a review" name="review"></textarea>
                                 <div class="margin-top-10">
-                                    <button type="submit" class="btn btn-sm btn-primary pull-right">
+                                    <button type="submit" class="btn btn-sm btn-primary pull-right mt-2">
                                         Submit Review
                                     </button>
-                                    <a href="javascript:void(0);" class="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Location"><i class="fa fa-location-arrow"></i></a>
-                                    <a href="javascript:void(0);" class="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Voice"><i class="fa fa-microphone"></i></a>
-                                    <a href="javascript:void(0);" class="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Photo"><i class="fa fa-camera"></i></a>
-                                    <a href="javascript:void(0);" class="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add File"><i class="fa fa-file"></i></a>
                                 </div>
                             </form>
+                          <?php } else { ?>
+                            <h1>First you have to log in to give review</h1>
+                            <?php } ?>
 
                             <div class="chat-body no-padding profile-message">
                                 <ul>
@@ -88,7 +90,6 @@ use Illuminate\Support\Str;
                                         <span class="message-text">
                                             <a href="javascript:void(0);" class="username">
                                                 Alisha Molly
-                                                <span class="badge">Purchase Verified</span>
                                                 <span class="pull-right">
                                                     <i class="fa fa-star fa-2x text-primary"></i>
                                                     <i class="fa fa-star fa-2x text-primary"></i>
@@ -96,13 +97,10 @@ use Illuminate\Support\Str;
                                                     <i class="fa fa-star fa-2x text-primary"></i>
                                                     <i class="fa fa-star fa-2x text-muted"></i>
                                                 </span>
-                                            </a>
+                                            </a> <br>
                                             Can't divide were divide fish forth fish to. Was can't form the, living life grass darkness very image let unto fowl isn't in blessed fill life yielding above all moved
                                         </span>
                                         <ul class="list-inline font-xs">
-                                            <li>
-                                                <a href="javascript:void(0);" class="text-info"><i class="fa fa-thumbs-up"></i> This was helpful (22)</a>
-                                            </li>
                                             <li class="pull-right">
                                                 <small class="text-muted pull-right ultra-light"> Posted 1 year ago </small>
                                             </li>
