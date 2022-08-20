@@ -102,34 +102,38 @@ use Illuminate\Support\Str;
 
                             <div class="chat-body no-padding profile-message">
                                 <ul>
+                                    <?php if (count($book->reviews) > 0) {?>
                                     <?php foreach ($book->reviews as $row) { ?>
-                                        <li class="message">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="online" />
-                                            <span class="message-text">
+                                      <li class="message">
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="online" />
+                                        <span class="message-text">
                                             <a href="javascript:void(0);" class="username">
                                                 <?= $row->user->name ?>
                                                 <?php
-//                                                    $rateClass = '';
-//                                                    if ($row->points == 1)
+                                                //                                                    $rateClass = '';
+                                                //                                                    if ($row->points == 1)
                                                 ?>
 <!--                                                <span class="pull-right">-->
-<!--                                                    <i class="fa fa-star fa-2x text-primary"></i>-->
-<!--                                                    <i class="fa fa-star fa-2x text-primary"></i>-->
-<!--                                                    <i class="fa fa-star fa-2x text-primary"></i>-->
-<!--                                                    <i class="fa fa-star fa-2x text-primary"></i>-->
-<!--                                                    <i class="fa fa-star fa-2x text-muted"></i>-->
-<!--                                                </span>-->
+                                              <!--                                                    <i class="fa fa-star fa-2x text-primary"></i>-->
+                                              <!--                                                    <i class="fa fa-star fa-2x text-primary"></i>-->
+                                              <!--                                                    <i class="fa fa-star fa-2x text-primary"></i>-->
+                                              <!--                                                    <i class="fa fa-star fa-2x text-primary"></i>-->
+                                              <!--                                                    <i class="fa fa-star fa-2x text-muted"></i>-->
+                                              <!--                                                </span>-->
                                             </a> <br>
                                             <?= $row->review ?>
                                         </span>
-                                            <ul class="list-inline font-xs">
-                                                <li class="pull-right">
-                                                    <small class="text-muted pull-right ultra-light"> <?= get_time_ago(strtotime($row->created_at)) ?> </small>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <hr>
+                                        <ul class="list-inline font-xs">
+                                          <li class="pull-right">
+                                            <small class="text-muted pull-right ultra-light"> <?= get_time_ago(strtotime($row->created_at)) ?> </small>
+                                          </li>
+                                        </ul>
+                                      </li>
+                                      <hr>
                                     <?php } ?>
+                                    <?php } else { ?>
+                                  <li>No Reviews</li>
+                                  <?php } ?>
                                 </ul>
                             </div>
                         </div>
