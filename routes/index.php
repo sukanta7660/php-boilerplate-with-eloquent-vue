@@ -17,14 +17,25 @@ use App\Controllers\Admin\CategoryController;
 use App\Controllers\Admin\DashboardController;
 use App\Controllers\BookController as UserBookController;
 
-$route->get('/login', [LoginController::class, 'index']);
-$route->get('/admin-login', [LoginController::class, 'adminLoginPage']);
-$route->post('/login', [LoginController::class, 'loginAction']);
-$route->post('/admin-login', [LoginController::class, 'adminLoginAction']);
-$route->get('/register', [RegisterController::class, 'index']);
-$route->get('/admin-register', [RegisterController::class, 'adminRegisterPage']);
-$route->post('/admin-register', [RegisterController::class, 'adminRegister']);
-$route->post('/register', [RegisterController::class, 'register']);
+$route->filter('logged_in', function () {
+  if(isset($_SESSION['user']))
+  {
+    header('Location: /profile');
+    return false;
+  }
+});
+
+$route->group(['before' => 'logged_in'], function (RouteCollector $route) {
+  $route->get('/login', [LoginController::class, 'index']);
+  $route->get('/admin-login', [LoginController::class, 'adminLoginPage']);
+  $route->post('/login', [LoginController::class, 'loginAction']);
+  $route->post('/admin-login', [LoginController::class, 'adminLoginAction']);
+  $route->get('/register', [RegisterController::class, 'index']);
+  $route->get('/admin-register', [RegisterController::class, 'adminRegisterPage']);
+  $route->post('/admin-register', [RegisterController::class, 'adminRegister']);
+  $route->post('/register', [RegisterController::class, 'register']);
+});
+
 $route->post('/email-availability', [RegisterController::class, 'checkEligibility']);
 $route->get('/logout', [LogoutController::class, 'logout']);
 

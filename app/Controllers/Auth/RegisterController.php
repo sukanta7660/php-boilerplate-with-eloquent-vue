@@ -110,6 +110,6 @@ class RegisterController extends Controller
     }
 
     $_SESSION['success'] = 'Registration successful. Please Login';
-    return redirect('/admin-login');;
+    return redirect('/admin-login');
   }
 }
