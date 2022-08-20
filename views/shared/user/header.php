@@ -9,7 +9,7 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <title>Book Store</title>
+  <title>Online Library</title>
   <link rel="stylesheet" type="text/css" href="<?= public_path('user/css/bootstrap.css') ?>" />
   <link href="<?= public_path('user/css/font-awesome.min.css') ?>" rel="stylesheet" />
   <link href="<?= public_path('user/css/style.css') ?>" rel="stylesheet" />
@@ -50,11 +50,11 @@
             </li>
             <?php if(!auth_user()) { ?>
             <li class="nav-item">
-              <a class="nav-link btn btn-sm btn-danger mr-1" href="<?= URI('/login') ?>">Login</a>
+              <a class="nav-link btn btn-sm btn-danger mr-1" href="<?= URI('/login') ?>">User Login</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link btn btn-sm btn-danger" href="<?= URI('/register') ?>">Registration</a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-sm btn-info mr-1" href="<?= URI('/admin-login') ?>">Admin Login</a>
+              </li>
             <?php } else { ?>
             <li class="nav-item">
               <a class="nav-link btn btn-sm btn-danger mr-1" href="<?= URI('/profile') ?>">Profile</a>
