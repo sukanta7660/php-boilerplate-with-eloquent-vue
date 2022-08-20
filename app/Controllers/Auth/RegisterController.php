@@ -82,4 +82,34 @@ class RegisterController extends Controller
             echo "<script>$('#submit').prop('disabled',false);</script>";
         }
     }
+
+//    Admin
+  public function adminRegisterPage()
+  {
+    return view('auth/admin-register');
+  }
+
+  public function adminRegister()
+  {
+    $request = user_inputs();
+    $name = $request->name;
+    $email = $request->email;
+    $password = $request->password;
+
+    $isCreated = User::create([
+      'name' => $name,
+      'email' => $email,
+      'role' => 'admin',
+      'password' => md5($password)
+    ]);
+
+    if (!$isCreated) {
+      $_SESSION['warning'] = 'Something went wrong';
+      return redirect('/admin-register');
+
+    }
+
+    $_SESSION['success'] = 'Registration successful. Please Login';
+    return redirect('/admin-login');;
+  }
 }

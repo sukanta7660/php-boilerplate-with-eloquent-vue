@@ -20,6 +20,8 @@ use App\Controllers\BookController as UserBookController;
 $route->get('/login', [LoginController::class, 'index']);
 $route->post('/login', [LoginController::class, 'loginAction']);
 $route->get('/register', [RegisterController::class, 'index']);
+$route->get('/admin-register', [RegisterController::class, 'adminRegisterPage']);
+$route->post('/admin-register', [RegisterController::class, 'adminRegister']);
 $route->post('/register', [RegisterController::class, 'register']);
 $route->post('/email-availability', [RegisterController::class, 'checkEligibility']);
 $route->get('/logout', [LogoutController::class, 'logout']);
