@@ -18,7 +18,9 @@ use App\Controllers\Admin\DashboardController;
 use App\Controllers\BookController as UserBookController;
 
 $route->get('/login', [LoginController::class, 'index']);
+$route->get('/admin-login', [LoginController::class, 'adminLoginPage']);
 $route->post('/login', [LoginController::class, 'loginAction']);
+$route->post('/admin-login', [LoginController::class, 'adminLoginAction']);
 $route->get('/register', [RegisterController::class, 'index']);
 $route->get('/admin-register', [RegisterController::class, 'adminRegisterPage']);
 $route->post('/admin-register', [RegisterController::class, 'adminRegister']);
