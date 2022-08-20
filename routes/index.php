@@ -58,6 +58,7 @@ $route->get('/book/{id}/book-details/{slug}', [UserBookController::class, 'bookD
 $route->group(['before' => 'auth'], function (RouteCollector $route) {
   $route->get('/book/{id}/send-request/{slug}', [UserBookController::class, 'checkBookPage']);
   $route->post('/send-request', [UserBookController::class, 'sendRequest']);
+  $route->post('/give-review', [UserBookController::class, 'giveReview']);
 
   /*---------- Profile ----------*/
   $route->get('/profile', [ProfileController::class, 'index']);

@@ -9,7 +9,8 @@ use Illuminate\Support\Str;
         <div class="row">
           <?php
           $image =
-            $book->image == 'default.jpg' ? public_path('user/images/no_imiage.jpg') : public_path('uploads/books/'.$book->image) ; ?>
+            $book->image == 'default.jpg' ? public_path('user/images/no_imiage.jpg') : public_path('uploads/books/'.$book->image) ;
+          ?>
             <div class="col-md-5 col-sm-12 col-xs-12">
                 <div class="product-image">
                     <img src="<?= $image ?>" style="max-width: 100%">
@@ -17,15 +18,29 @@ use Illuminate\Support\Str;
             </div>
 
             <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
+              <?php if(isset($_SESSION['warning'])) { ?>
+                  <p class="alert alert-warning text-center p-1">
+                      <small><?= $_SESSION['warning'] ?></small>
+                  </p>
+                <?php
+              }
+              unset($_SESSION['warning']);
+              ?>
+              <?php if(isset($_SESSION['success'])) { ?>
+                  <p class="alert alert-success text-center p-1">
+                      <small><?= $_SESSION['success'] ?></small>
+                  </p>
+                <?php
+              }
+              unset($_SESSION['success']);
+              ?>
                 <h2 class="name">
                     <?= $book->name ?><br>
-                    <i class="fa fa-star fa-2x text-primary"></i>
-                    <i class="fa fa-star fa-2x text-primary"></i>
-                    <i class="fa fa-star fa-2x text-primary"></i>
-                    <i class="fa fa-star fa-2x text-primary"></i>
-                    <i class="fa fa-star fa-2x text-muted"></i>
-                    <span class="fa fa-2x"><h5>(4.5/5)</h5></span>
-                    <a href="javascript:void(0);">109 reviews</a>
+                    <?php
+                        $avarageRating = $book->reviews->sum('points') / $book->reviews->count();
+                    ?>
+                    <span class="fa fa-2x"><h5>(<?= number_format($avarageRating, 1) ?>/5)</h5></span>
+                    <a href="javascript:void(0);"><?= count($book->reviews) ?> reviews</a>
                 </h2>
                 <hr />
                 <h3 class="price-container">
@@ -41,16 +56,14 @@ use Illuminate\Support\Str;
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane active in" id="more-information">
                             <br />
-                            <strong>Description Title</strong>
-                            <p>
-                                Integer egestas, orci id condimentum eleifend, nibh nisi pulvinar eros, vitae ornare massa neque ut orci. Nam aliquet lectus sed odio eleifend, at iaculis dolor egestas. Nunc elementum pellentesque augue
-                                sodales porta. Etiam aliquet rutrum turpis, feugiat sodales ipsum consectetur nec.
-                            </p>
+                            <strong><?= $book->name ?></strong>
+                            <p>Author: <?= $book->author ?></p>
+                            <p>Available Books: <?= $book->availability ?></p>
                         </div>
                         <div class="tab-pane fade" id="reviews">
                             <br />
                             <?php if (isset($_SESSION['user'])) { ?>
-                            <form method="post" class="well padding-bottom-10">
+                            <form method="post" class="well padding-bottom-10" action="<?= URI('/give-review') ?>">
                                 <input type="hidden" name="id" value="<?= $book->id ?>">
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -72,7 +85,7 @@ use Illuminate\Support\Str;
                                         </fieldset>
                                     </div>
                                 </div>
-                                <textarea rows="2" class="form-control" placeholder="Write a review" name="review"></textarea>
+                                <textarea rows="2" class="form-control" placeholder="Write a review" name="review" required></textarea>
                                 <div class="margin-top-10">
                                     <button type="submit" class="btn btn-sm btn-primary pull-right mt-2">
                                         Submit Review
@@ -85,52 +98,34 @@ use Illuminate\Support\Str;
 
                             <div class="chat-body no-padding profile-message">
                                 <ul>
-                                    <li class="message">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="online" />
-                                        <span class="message-text">
+                                    <?php foreach ($book->reviews as $row) { ?>
+                                        <li class="message">
+                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="online" />
+                                            <span class="message-text">
                                             <a href="javascript:void(0);" class="username">
-                                                Alisha Molly
-                                                <span class="pull-right">
-                                                    <i class="fa fa-star fa-2x text-primary"></i>
-                                                    <i class="fa fa-star fa-2x text-primary"></i>
-                                                    <i class="fa fa-star fa-2x text-primary"></i>
-                                                    <i class="fa fa-star fa-2x text-primary"></i>
-                                                    <i class="fa fa-star fa-2x text-muted"></i>
-                                                </span>
+                                                <?= $row->user->name ?>
+                                                <?php
+//                                                    $rateClass = '';
+//                                                    if ($row->points == 1)
+                                                ?>
+<!--                                                <span class="pull-right">-->
+<!--                                                    <i class="fa fa-star fa-2x text-primary"></i>-->
+<!--                                                    <i class="fa fa-star fa-2x text-primary"></i>-->
+<!--                                                    <i class="fa fa-star fa-2x text-primary"></i>-->
+<!--                                                    <i class="fa fa-star fa-2x text-primary"></i>-->
+<!--                                                    <i class="fa fa-star fa-2x text-muted"></i>-->
+<!--                                                </span>-->
                                             </a> <br>
-                                            Can't divide were divide fish forth fish to. Was can't form the, living life grass darkness very image let unto fowl isn't in blessed fill life yielding above all moved
+                                            <?= $row->review ?>
                                         </span>
-                                        <ul class="list-inline font-xs">
-                                            <li class="pull-right">
-                                                <small class="text-muted pull-right ultra-light"> Posted 1 year ago </small>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="message">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="online" />
-                                        <span class="message-text">
-                                            <a href="javascript:void(0);" class="username">
-                                                Aragon Zarko
-                                                <span class="badge">Purchase Verified</span>
-                                                <span class="pull-right">
-                                                    <i class="fa fa-star fa-2x text-primary"></i>
-                                                    <i class="fa fa-star fa-2x text-primary"></i>
-                                                    <i class="fa fa-star fa-2x text-primary"></i>
-                                                    <i class="fa fa-star fa-2x text-primary"></i>
-                                                    <i class="fa fa-star fa-2x text-primary"></i>
-                                                </span>
-                                            </a>
-                                            Excellent product, love it!
-                                        </span>
-                                        <ul class="list-inline font-xs">
-                                            <li>
-                                                <a href="javascript:void(0);" class="text-info"><i class="fa fa-thumbs-up"></i> This was helpful (22)</a>
-                                            </li>
-                                            <li class="pull-right">
-                                                <small class="text-muted pull-right ultra-light"> Posted 1 year ago </small>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                            <ul class="list-inline font-xs">
+                                                <li class="pull-right">
+                                                    <small class="text-muted pull-right ultra-light"> <?= get_time_ago(strtotime($row->created_at)) ?> </small>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <hr>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>
@@ -139,7 +134,7 @@ use Illuminate\Support\Str;
                 <hr />
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                        <a href="javascript:void(0);" class="btn btn-success btn-sm">Request for this book</a>
+                        <a href="<?= URI('/book/'.$book->id.'/send-request/'.Str::slug($book->name)) ?>" class="btn btn-success btn-sm">Request for this book</a>
                     </div>
                 </div>
             </div>

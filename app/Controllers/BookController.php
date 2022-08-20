@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Book;
 use App\BookIssue;
+use App\BookReview;
 use App\Category;
 use App\User;
 use Illuminate\Support\Str;
@@ -106,5 +107,23 @@ class BookController extends Controller
     ;
 
     return view('users/book-details', ['book' => $book]);
+  }
+
+  public function giveReview(){
+    $request = user_inputs();
+    $book = Book::find($request->id);
+
+    $review = BookReview::create([
+      'book_id' => $request->id,
+      'user_id' => auth_user()['id'],
+      'points' => $request->rate,
+      'review' => $request->review
+    ]);
+    if (!$review) {
+      $_SESSION['warning'] = 'Something went wrong';
+      return redirect('book/'.$book->id.'/book-details/'.Str::slug($book->name));
+    }
+    $_SESSION['success'] = 'Successfully submitted your review';
+    return redirect('book/'.$book->id.'/book-details/'.Str::slug($book->name));
   }
 }

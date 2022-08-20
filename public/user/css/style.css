@@ -1174,3 +1174,7 @@ input:checked ~ label:hover ~ label {
 .checked {
   color: orange;
 }
+
+.message img.online {
+  border-radius: 50%;
+}
