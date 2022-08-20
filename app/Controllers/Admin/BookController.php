@@ -28,14 +28,6 @@ class BookController extends Controller
     $errors = [];
     $request = user_inputs();
 
-    if ($validate::alpha(' ')->validate($request->name) === false) {
-      $errors['name'] = 'Book Name can only contains alphabets or space.';
-    }
-
-    if ($validate::alpha(' ')->validate($request->author) === false) {
-      $errors['author'] = 'Author Name can only contains alphabets or space.';
-    }
-
     if ($validate::intVal()->validate($request->quantity) === false) {
       $errors['quantity'] = 'Quantity must be an integer';
     }
@@ -63,7 +55,7 @@ class BookController extends Controller
       'image' => $image
     ]);
 
-    redirect('/admin/book');
+    redirect('/admin/book/create');
     return true;
   }
 
@@ -77,7 +69,7 @@ class BookController extends Controller
     $categories = Category::where('status', 1)->get();
     
     return view('admin/book/edit', [
-      'book' => $book, 
+      'book' => $book,
       'categories' => $categories
     ]);
   }
@@ -149,6 +141,11 @@ class BookController extends Controller
     if (file_exists($localImagePath)) {
       unlink($localImagePath);
     }
+    
+      if (count($book->requests) > 0) {
+          $_SESSION['warning'] = 'this book has many requests';
+          redirect('/admin/book');
+      }
 
     $book->delete();
 

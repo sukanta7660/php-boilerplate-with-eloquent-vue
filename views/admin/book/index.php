@@ -17,6 +17,22 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">All Books</h6>
+                        <?php if(isset($_SESSION['warning'])) { ?>
+                          <p class="alert alert-warning text-center p-2">
+                            <small><?= $_SESSION['warning'] ?></small>
+                          </p>
+                            <?php
+                        }
+                        unset($_SESSION['warning']);
+                        ?>
+                        <?php if(isset($_SESSION['success'])) { ?>
+                          <p class="alert alert-success text-center p-2">
+                            <small><?= $_SESSION['success'] ?></small>
+                          </p>
+                            <?php
+                        }
+                        unset($_SESSION['success']);
+                        ?>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive text-nowrap">
@@ -38,7 +54,7 @@
                                     foreach ($books as $key => $value) {
                                       $image =
                                         $value->image == 'default.jpg' ?
-                                          'https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png' :
+                                            public_path('user/images/no_imiage.jpg') :
                                           public_path('uploads/books/'.$value->image)
                                       ;
                                     ?>
@@ -70,7 +86,7 @@
                                                 class="btn btn-sm btn-success">
                                                 Edit
                                             </a>
-                                            <a onclick="return confirm('Are you sure to delete this category ?')"
+                                            <a onclick="return confirm('Are you sure to delete this book ?')"
                                                 href="/admin/book/delete/<?= $value->id ?>"
                                                 class="btn btn-sm btn-danger">
                                                 Delete

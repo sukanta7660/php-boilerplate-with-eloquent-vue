@@ -26,9 +26,13 @@ unset($_SESSION['success']);
             <div class="resCarousel-inner" id="eventLoad">
 
                 <?php foreach ($value->books as $index => $item) { ?>
+                    <?php
+                    $image =
+                        $item->image == 'default.jpg' ? public_path('user/images/no_imiage.jpg') : public_path('uploads/books/'.$item->image) ;
+                    ?>
                     <div class="item">
                         <div class="tile">
-                            <div style="background-image: url(<?= public_path('user/images/demoImg.jpg') ?>)">
+                            <div style="background-image: url(<?= $image ?>)">
                             </div>
                             <h3><?= $item->name ?></h3>
                             <a href="<?= URI('/book/'.$item->id.'/book-details/'.Str::slug($item->name)) ?>" class="btn btn-info btn-sm mb-2">See more</a>

@@ -28,4 +28,9 @@ class Book extends Model
   {
     return $this->hasMany(BookReview::class);
   }
+    
+    public function requests(): HasMany
+    {
+        return $this->hasMany(BookIssue::class);
+    }
 }

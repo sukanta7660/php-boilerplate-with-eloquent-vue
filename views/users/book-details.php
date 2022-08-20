@@ -37,7 +37,11 @@ use Illuminate\Support\Str;
                 <h2 class="name">
                     <?= $book->name ?><br>
                     <?php
-                        $avarageRating = $book->reviews->sum('points') / $book->reviews->count();
+                        $avarageRating =
+                            count($book->reviews) > 0 ?
+                            $book->reviews->sum('points') / $book->reviews->count()
+                           : 0
+                        ;
                     ?>
                     <span class="fa fa-2x"><h5>(<?= number_format($avarageRating, 1) ?>/5)</h5></span>
                     <a href="javascript:void(0);"><?= count($book->reviews) ?> reviews</a>
