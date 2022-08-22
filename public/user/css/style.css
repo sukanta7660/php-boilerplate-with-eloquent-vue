@@ -806,8 +806,6 @@ a:focus {
 /*Book Details*/
 .product-content {
   border: 1px solid #dfe5e9;
-  margin-bottom: 20px;
-  margin-top: 12px;
   background: #fff
 }
 
@@ -825,12 +823,16 @@ a:focus {
 
 .product-content .product-deatil {
   border-bottom: 1px solid #dfe5e9;
-  padding-bottom: 17px;
   padding-left: 16px;
   padding-top: 16px;
   position: relative;
   background: #fff
 }
+.product-deatil {
+  padding: 0 !important;
+}
+
+
 
 .product-content .product-deatil h5 a {
   color: #2f383d;
@@ -878,6 +880,7 @@ a:focus {
   padding: 10px 14px 16px 19px;
   background: #fff
 }
+
 
 .product-content .product-info {
   padding: 11px 19px 10px 20px
@@ -998,8 +1001,15 @@ a:focus {
   padding: 30px 30px 50px
 }
 
-.product-deatil hr+.description-tabs {
-  padding: 0 0 5px!important
+.description.description-tabs {
+  padding: 23px !important;
+  background: #ffffffc2;
+}
+
+.details-top {
+  background: #ccccccc9;
+  padding: 10px;
+  /* color: #111 !important; */
 }
 
 .product-deatil .carousel-control.left,

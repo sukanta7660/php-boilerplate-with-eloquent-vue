@@ -18,10 +18,13 @@ unset($_SESSION['warning']);
 unset($_SESSION['success']);
 ?>
 <?= include_page('shared/user/header') ?>
-
 <?php foreach ($categories as $key => $value) { ?>
     <div class="container-fluid p-5 <?= ($key+1)%2 == 0 ? 'bg-even' : '' ?>">
-        <a class="text-uppercase text-primary" href=""><h3 class="p-3"><u><?= $value->name ?> : <?= count($value->books) ?></u></h3></a>
+        <a class="text-uppercase text-primary" href="">
+            <h3 class="p-3">
+                <span style="border: 1px solid; padding: 10px; <?= ($key+1)%2 == 0 ? 'background: #fff;' : 'background: #d1d1d1;' ?> color: #111;"><?= $value->name ?> : <?= count($value->books) ?></span>
+            </h3>
+        </a>
         <div class="resCarousel" data-items="2-3-4-5" data-slide="5" data-speed="600" data-interval="6000" data-load="3" data-animator="lazy">
             <div class="resCarousel-inner" id="eventLoad">
 

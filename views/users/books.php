@@ -16,11 +16,11 @@ use Illuminate\Support\Str;
         <div class="row">
           <div class="col-sm-4 col-md-3 sidebar">
             <div class="list-group">
-                <span href="#" class="list-group-item active">
+                <span href="#" class="list-group-item active bg-dark">
                     Categories
                 </span>
                 <?php foreach ($categories as $key => $value) { ?>
-                  <a href="<?= URI('/category/'.$value->id.'/books/'.Str::slug($value->name)) ?>" class="list-group-item">
+                  <a href="<?= URI('/category/'.$value->id.'/books/'.Str::slug($value->name)) ?>" class="list-group-item bg-dark text-white">
                     <i class="fa fa-folder"></i> <?= $value->name ?> <span class="badge pull-right"><?= count($value->books) ?></span>
                   </a>
                 <?php } ?>
@@ -53,7 +53,8 @@ use Illuminate\Support\Str;
                         <small><b>Author:</b> <?= $value->author ?></small>
                       </h5>
                       <div class="text-center my-4">
-                        <a href="<?= URI('/book/'.$value->id.'/send-request/'.Str::slug($value->name)) ?>" class="btn btn-primary btn-sm" style="<?= $value->availability > 0 ? '' : 'pointer-events: none; cursor: default;' ?>">Send a book request</a>
+                          <a href="<?= URI('/book/'.$value->id.'/book-details/'.Str::slug($value->name)) ?>" class="btn btn-info btn-sm mb-1">Read more in Details</a>
+                          <a href="<?= URI('/book/'.$value->id.'/send-request/'.Str::slug($value->name)) ?>" class="btn btn-primary btn-sm" style="<?= $value->availability > 0 ? '' : 'pointer-events: none; cursor: default;' ?>">Send a book request</a>
                       </div>
                   </div>
                 </div>

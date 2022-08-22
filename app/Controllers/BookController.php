@@ -54,7 +54,7 @@ class BookController extends Controller
             ->first()
         ;
 
-        $books = Book::where('status', 1)->get();
+        $books = Book::where('status', 1)->take(5)->get();
 
         return view('users/send-request', ['book' => $book, 'books' => $books]);
     }

@@ -5,15 +5,22 @@ use Illuminate\Support\Str;
 
 <!-- product -->
 <div class="container-fluid">
-    <div class="product-content product-wrap clearfix product-deatil">
-        <div class="row">
-          <?php
-          $image =
-            $book->image == 'default.jpg' ? public_path('user/images/no_imiage.jpg') : public_path('uploads/books/'.$book->image) ;
-          ?>
+  <?php
+  $image =
+    $book->image == 'default.jpg' ? public_path('user/images/no_imiage.jpg') : public_path('uploads/books/'.$book->image) ;
+  ?>
+    <div
+            style="
+                    background-image: url(<?= $image ?>);
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    "
+            class="product-content product-wrap clearfix product-deatil">
+        <div class="row p-2">
             <div class="col-md-5 col-sm-12 col-xs-12">
                 <div class="product-image">
-                    <img src="<?= $image ?>" style="max-width: 100%">
+                    <img src="<?= $image ?>" style="max-width: 100%; width: 100%;">
                 </div>
             </div>
 
@@ -34,34 +41,37 @@ use Illuminate\Support\Str;
               }
               unset($_SESSION['success']);
               ?>
-                <h2 class="name">
-                    <?= $book->name ?><br>
-                    <?php
-                        $avarageRating =
-                            count($book->reviews) > 0 ?
-                            $book->reviews->sum('points') / $book->reviews->count()
-                           : 0
-                        ;
-                    ?>
-                    <span class="fa fa-2x"><h5>(<?= number_format($avarageRating, 1) ?>/5)</h5></span>
-                    <a href="javascript:void(0);"><?= count($book->reviews) ?> reviews</a>
-                </h2>
-                <hr />
-                <h3 class="price-container">
-                    <?= $book->availability ?>
-                    <small>*available</small>
-                </h3>
+                <div class="details-top">
+                    <h2 class="name">
+                      <?= $book->name ?><br>
+                      <?php
+                      $avarageRating =
+                        count($book->reviews) > 0 ?
+                          $book->reviews->sum('points') / $book->reviews->count()
+                          : 0
+                      ;
+                      ?>
+                        <span class="fa fa-2x"><h5>(<?= number_format($avarageRating, 1) ?>/5)</h5></span>
+                        <a href="javascript:void(0);" class="text-dark"><?= count($book->reviews) ?> reviews</a>
+                    </h2>
+                    <hr />
+                    <h3 class="price-container">
+                      <?= $book->availability ?>
+                        <small>*available</small>
+                    </h3>
+                </div>
                 <hr />
                 <div class="description description-tabs">
                     <ul id="myTab" class="nav nav-pills">
-                        <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin">Book Details </a></li>
-                        <li class=""><a href="#reviews" data-toggle="tab">Reviews</a></li>
+                        <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin text-dark">Book Details </a></li>
+                        <li class=""><a href="#reviews" class="text-dark" data-toggle="tab">Reviews</a></li>
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane active in" id="more-information">
                             <br />
                             <strong><?= $book->name ?></strong>
                             <p>Author: <?= $book->author ?></p>
+                            <p>This book is ...</p>
                             <p>Available Books: <?= $book->availability ?></p>
                         </div>
                         <div class="tab-pane fade" id="reviews">

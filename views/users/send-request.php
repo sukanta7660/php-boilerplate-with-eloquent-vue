@@ -116,12 +116,12 @@ use Illuminate\Support\Str;
                 </div>
                 <div class="col-sm-4 col-md-3 sidebar">
                     <div class="list-group">
-                        <span href="#" class="list-group-item active">
+                        <span href="#" class="list-group-item active bg-dark">
                             You Can also try this
                         </span>
                         <?php foreach ($books as $key =>
                         $value) { ?>
-                        <a href="<?= URI('/book/'.$value->id.'/send-request/'.Str::slug($value->name)) ?>" class="list-group-item">
+                        <a href="<?= URI('/book/'.$value->id.'/send-request/'.Str::slug($value->name)) ?>" class="list-group-item bg-dark text-white">
                             <i class="fa fa-folder"></i>
                             <?= $value->name ?> <span class="badge pull-right"><?= $value->availability ?></span>
                         </a>

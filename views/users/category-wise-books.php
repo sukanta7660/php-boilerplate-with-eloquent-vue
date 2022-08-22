@@ -16,11 +16,11 @@ use Illuminate\Support\Str;
         <div class="row">
           <div class="col-sm-4 col-md-3 sidebar">
             <div class="list-group">
-                <span href="#" class="list-group-item active">
+                <span href="#" class="list-group-item active bg-dark">
                     Categories
                 </span>
                 <?php foreach ($categories as $key => $value) { ?>
-                  <a href="<?= URI('/category/'.$value->id.'/books/'.Str::slug($value->name)) ?>" class="list-group-item">
+                  <a href="<?= URI('/category/'.$value->id.'/books/'.Str::slug($value->name)) ?>" class="list-group-item bg-dark text-white">
                     <i class="fa fa-folder"></i> <?= $value->name ?> <span class="badge pull-right"><?= count($value->books) ?></span>
                   </a>
                 <?php } ?>
