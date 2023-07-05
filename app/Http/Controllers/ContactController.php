@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
-use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function storeContactMessage()
+    public function store()
     {
         $request = user_inputs();
 

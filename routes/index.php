@@ -65,7 +65,7 @@ $route->get('/about', [HomeController::class, 'about']);
 $route->get('/contact', [HomeController::class, 'contact']);
 
 // Store user message
-$route->post('/store-messages', [ContactController::class, 'storeContactMessage']);
+$route->post('/store-messages', [ContactController::class, 'store']);
 
 $route->get('/books', [UserBookController::class, 'index']);
 $route->get('/category/{id}/books/{slug}', [UserBookController::class, 'categoryWiseBooks']);
