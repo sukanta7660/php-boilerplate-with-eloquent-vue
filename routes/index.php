@@ -1,21 +1,25 @@
 <?php
 
-use App\Controllers\Admin\BookRequestController;
-use App\Controllers\Admin\NotificationController;
-use App\Controllers\Admin\UserController;
-use App\Controllers\HomeController;
-use App\Controllers\OwnProfileController;
-use App\Controllers\ProfileController;
+use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\Admin\BookRequestController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BookController as UserBookController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OwnProfileController;
+use App\Http\Controllers\ProfileController;
 use Phroute\Phroute\RouteCollector;
-use App\Controllers\ContactController;
-use App\Controllers\Admin\ContactController as AdminContactController;
-use App\Controllers\Admin\BookController;
-use App\Controllers\Auth\LoginController;
-use App\Controllers\Auth\LogoutController;
-use App\Controllers\Auth\RegisterController;
-use App\Controllers\Admin\CategoryController;
-use App\Controllers\Admin\DashboardController;
-use App\Controllers\BookController as UserBookController;
+
+/**
+ * @var $route
+ */
 
 $route->filter('logged_in', function () {
   if(isset($_SESSION['user']))
@@ -80,7 +84,7 @@ $route->group(['before' => 'auth'], function (RouteCollector $route) {
   $route->post('/profile-update', [ProfileController::class, 'profileUpdate']);
   $route->post('/password-change', [ProfileController::class, 'passwordChange']);
   /*---------- Profile ----------*/
-  
+
   /*---------- Requests ----------*/
     $route->get('/my-records', [OwnProfileController::class, 'bookList']);
     $route->get('/notifications', [OwnProfileController::class, 'notifications']);
@@ -90,10 +94,10 @@ $route->group(['before' => 'auth'], function (RouteCollector $route) {
 
 /*-------Admin Routes---------*/
 $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollector $route) {
-    
+
     $route->group(['before' => 'admin'], function ($route) {
         $route->get('dashboard', [DashboardController::class, 'index']);
-    
+
         /*---------- Category ----------*/
         $route->group(['prefix' => 'category'], function (RouteCollector $route) {
             $route->get('/', [CategoryController::class, 'index']);
@@ -104,7 +108,7 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
             $route->get('/delete/{id}', [CategoryController::class, 'delete']);
         });
         /*---------- Category ----------*/
-    
+
         /*---------- Book ----------*/
         $route->group(['prefix' => 'book'], function (RouteCollector $route) {
             $route->get('/', [BookController::class, 'index']);
@@ -115,7 +119,7 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
             $route->get('/delete/{id}', [BookController::class, 'delete']);
         });
         /*---------- Book ----------*/
-    
+
         /*---------- Requests ----------*/
         $route->group(['prefix' => 'requests'], function (RouteCollector $route) {
             $route->get('/new', [BookRequestController::class, 'index']);
@@ -128,14 +132,14 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
             $route->get('/returned', [BookRequestController::class, 'returned']);
         });
         /*---------- Requests ----------*/
-    
+
         /*---------- Requests ----------*/
         $route->group(['prefix' => 'notifications'], function (RouteCollector $route) {
             $route->get('/', [NotificationController::class, 'index']);
             $route->get('/delete/{id}', [NotificationController::class, 'delete']);
         });
         /*---------- Requests ----------*/
-    
+
         /*---------- Users ----------*/
         $route->group(['prefix' => 'users'], function (RouteCollector $route) {
             $route->get('/', [UserController::class, 'index']);
@@ -146,7 +150,7 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
             $route->get('/delete-user/{id}', [UserController::class, 'deleteUser']);
         });
         /*---------- Users ----------*/
-    
+
         /*---------- Contact ----------*/
         $route->group(['prefix' => 'contact'], function (RouteCollector $route) {
             $route->get('/', [AdminContactController::class, 'index']);
@@ -158,7 +162,7 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
 });
 /*-------Admin Routes---------*/
 
-$route->get('/seed-user', [\App\Controllers\SeedController::class, 'seedUsers']);
+$route->get('/seed-user', [\App\Http\Controllers\SeedController::class, 'seedUsers']);
 
 // demo auth middleware
 $route->group(['before' => 'auth'], function (RouteCollector $route) {

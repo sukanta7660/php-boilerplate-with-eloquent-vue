@@ -6,7 +6,6 @@ use Phroute\Phroute\Exception\HttpMethodNotAllowedException;
 use Phroute\Phroute\Exception\HttpRouteNotFoundException;
 use Phroute\Phroute\RouteCollector;
 use Phroute\Phroute\RouteParser;
-use App\User;
 
 require_once __DIR__ .'/bootstrap.php';
 

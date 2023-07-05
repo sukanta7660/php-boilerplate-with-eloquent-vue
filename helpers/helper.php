@@ -76,7 +76,7 @@ if(!function_exists('auth_user')) {
         }
 
         $sessionUserId = $_SESSION['user']['id'];
-        $user = \App\User::where('id', $sessionUserId)->first();
+        $user = \App\Models\User::where('id', $sessionUserId)->first();
 
         if(!$user) {
             unset($_SESSION['user']);
