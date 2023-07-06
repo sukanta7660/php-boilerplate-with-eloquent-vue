@@ -23,6 +23,6 @@ $route->filter('auth', function(){
 $route->filter('admin', function(){
     if (auth_user()['role'] != 'admin') {
         $_SESSION['warning'] = 'You are not authorized for this page';
-        return redirect('/');
+        redirect('/');
     }
 });
