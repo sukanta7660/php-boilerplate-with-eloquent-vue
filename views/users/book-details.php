@@ -1,13 +1,13 @@
 <?php
 use Illuminate\Support\Str;
 ?>
-<?= include_page('shared/user/header') ?>
+<?= includePage('shared/user/header') ?>
 
 <!-- product -->
 <div class="container-fluid">
   <?php
   $image =
-    $book->image == 'default.jpg' ? public_path('user/images/no_imiage.jpg') : public_path('uploads/books/'.$book->image) ;
+    $book->image == 'default.jpg' ? publicPath('user/images/no_imiage.jpg') : publicPath('uploads/books/'.$book->image) ;
   ?>
     <div
             style="
@@ -161,4 +161,4 @@ use Illuminate\Support\Str;
 </div>
 <!-- end product -->
 
-<?= include_page('shared/user/footer') ?>
+<?= includePage('shared/user/footer') ?>

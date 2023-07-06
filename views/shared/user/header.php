@@ -10,12 +10,12 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <title>Online Library</title>
-  <link rel="stylesheet" type="text/css" href="<?= public_path('user/css/bootstrap.css') ?>" />
-  <link href="<?= public_path('user/css/font-awesome.min.css') ?>" rel="stylesheet" />
-  <link href="<?= public_path('user/css/style.css') ?>" rel="stylesheet" />
-  <link href="<?= public_path('user/css/responsive.css') ?>" rel="stylesheet" />
-  <link href="<?= public_path('user/css/resCarousel.css') ?>" rel="stylesheet" />
-  <link href="<?= public_path('user/css/caraosel.css') ?>" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="<?= publicPath('user/css/bootstrap.css') ?>" />
+  <link href="<?= publicPath('user/css/font-awesome.min.css') ?>" rel="stylesheet" />
+  <link href="<?= publicPath('user/css/style.css') ?>" rel="stylesheet" />
+  <link href="<?= publicPath('user/css/responsive.css') ?>" rel="stylesheet" />
+  <link href="<?= publicPath('user/css/resCarousel.css') ?>" rel="stylesheet" />
+  <link href="<?= publicPath('user/css/caraosel.css') ?>" rel="stylesheet" />
 </head>
 
 <body class="<?= $_SERVER['REQUEST_URI'] == '/' ? '' : 'sub_page' ?>">
@@ -93,7 +93,7 @@
               <div class="col-md-6">
                 <div class="img-box">
                   <img
-                    src="<?= public_path('user/images/LF_Wide_Back_Stacks.jpg') ?>"
+                    src="<?= publicPath('user/images/LF_Wide_Back_Stacks.jpg') ?>"
                     alt="">
                 </div>
               </div>
@@ -116,7 +116,7 @@
               </div>
               <div class="col-md-6">
                 <div class="img-box">
-                  <img src="<?= public_path('user/images/Reading_rm.jpg') ?>" alt="">
+                  <img src="<?= publicPath('user/images/Reading_rm.jpg') ?>" alt="">
                 </div>
               </div>
             </div>
@@ -138,7 +138,7 @@
               </div>
               <div class="col-md-6">
                 <div class="img-box">
-                  <img src="<?= public_path('user/images/EE4A4716-London_Library_.jpg') ?>" alt="">
+                  <img src="<?= publicPath('user/images/EE4A4716-London_Library_.jpg') ?>" alt="">
                 </div>
               </div>
             </div>

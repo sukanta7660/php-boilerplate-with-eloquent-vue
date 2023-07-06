@@ -73,7 +73,7 @@ class BookRequestController extends Controller
 
   public function notifyUser()
   {
-    $request = user_inputs();
+    $request = requests();
     $requestedBook = BookIssue::where('id', $request->id)->first();
 
     $notify = Notification::create([

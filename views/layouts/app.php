@@ -6,13 +6,13 @@
     <meta name="description" content="Online library">
     <meta name="author" content="Online Library">
     <title>OOP STARTER KIT</title>
-    <link href="<?= public_path('css/bootstrap.min.css') ?>" rel="stylesheet">
-    <link href="<?= public_path('css/pricing.css') ?>" rel="stylesheet">
+    <link href="<?= publicPath('css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?= publicPath('css/pricing.css') ?>" rel="stylesheet">
 </head>
 
 <body>
 <!--header-->
-<?= include_page('shared/header') ?>
+<?= includePage('shared/header') ?>
 <!--header-->
 
 <div class="pricing-header px-1 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -41,10 +41,10 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="<?= public_path('js/popper.min.js') ?>"></script>
-<script src="<?= public_path('js/popper.min.js') ?>"></script>
-<script src="<?= public_path('js/bootstrap.min.js') ?>"></script>
-<script src="<?= public_path('js/holder.min.js') ?>"></script>
+<script src="<?= publicPath('js/popper.min.js') ?>"></script>
+<script src="<?= publicPath('js/popper.min.js') ?>"></script>
+<script src="<?= publicPath('js/bootstrap.min.js') ?>"></script>
+<script src="<?= publicPath('js/holder.min.js') ?>"></script>
 <script>
     Holder.addTheme('thumb', {
         bg: '#55595c',

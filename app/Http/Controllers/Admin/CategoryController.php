@@ -23,7 +23,7 @@ class CategoryController extends Controller
     $validate = new Validator();
 
     $errors = [];
-    $request = user_inputs();
+    $request = requests();
 
     if ($validate::alpha(' ')->validate($request->name) === false) {
       $errors['name'] = 'Name can only contains alphabets or space.';
@@ -58,7 +58,7 @@ class CategoryController extends Controller
     $validate = new Validator();
 
     $errors = [];
-    $request = user_inputs();
+    $request = requests();
 
     Category::where('id', $request->id)->update([
       'name' => $request->name,

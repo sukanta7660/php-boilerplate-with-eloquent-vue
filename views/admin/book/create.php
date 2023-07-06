@@ -1,14 +1,14 @@
-<?= include_page('shared/admin/head') ?>
+<?= includePage('shared/admin/head') ?>
 
 <div id="wrapper">
 
-    <?= include_page('shared/admin/sidebar') ?>
+    <?= includePage('shared/admin/sidebar') ?>
 
     <div id="content-wrapper" class="d-flex flex-column">
 
         <div id="content">
 
-            <?= include_page('shared/admin/header') ?>
+            <?= includePage('shared/admin/header') ?>
 
             <div class="container-fluid">
 
@@ -51,16 +51,16 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Quantity</label>
-                                        <input type="number" 
-                                            name="quantity" 
-                                            class="form-control" 
-                                            placeholder="Book quantity" 
+                                        <input type="number"
+                                            name="quantity"
+                                            class="form-control"
+                                            placeholder="Book quantity"
                                             value="0" min="0">
                                     </div>
                                     <div class="form-group">
                                         <label>Image</label>
-                                        <input type="file" 
-                                            name="image" 
+                                        <input type="file"
+                                            name="image"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
@@ -90,10 +90,10 @@
 
         </div>
 
-        <?= include_page('shared/admin/footer') ?>
+        <?= includePage('shared/admin/footer') ?>
 
     </div>
 
 </div>
 
-<?= include_page('shared/admin/foot') ?>
+<?= includePage('shared/admin/foot') ?>

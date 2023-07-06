@@ -61,7 +61,7 @@ class BookController extends Controller
 
   public function sendRequest()
   {
-    $request = user_inputs();
+    $request = requests();
     $user = auth_user();
 
     $book = Book::where('id', $request->book_id)->first();
@@ -110,7 +110,7 @@ class BookController extends Controller
   }
 
   public function giveReview(){
-    $request = user_inputs();
+    $request = requests();
     $book = Book::find($request->id);
 
     $review = BookReview::create([

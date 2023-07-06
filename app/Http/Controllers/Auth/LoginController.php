@@ -11,15 +11,14 @@ class LoginController extends Controller
         return view('auth/login');
     }
 
-    public function loginAction()
+    public function login()
     {
-        $request = user_inputs();
+        $request = requests();
 
         $password = md5($request->password);
 
         $user = User::where('email', $request->email)
             ->where('password', $password)
-          ->where('role', 'user')
             ->first()
         ;
         session_start();
@@ -54,7 +53,7 @@ class LoginController extends Controller
 
   public function adminLoginAction()
   {
-    $request = user_inputs();
+    $request = requests();
 
     $password = md5($request->password);
 

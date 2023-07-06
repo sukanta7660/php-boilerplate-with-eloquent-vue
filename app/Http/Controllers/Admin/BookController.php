@@ -22,11 +22,11 @@ class BookController extends Controller
 
   public function store()
   {
-    // dd(user_inputs());
+    // dd(requests());
     $validate = new Validator();
 
     $errors = [];
-    $request = user_inputs();
+    $request = requests();
 
     if ($validate::intVal()->validate($request->quantity) === false) {
       $errors['quantity'] = 'Quantity must be an integer';
@@ -79,7 +79,7 @@ class BookController extends Controller
     $validate = new Validator();
 
     $errors = [];
-    $request = user_inputs();
+    $request = requests();
 
     $book = Book::find($request->id);
 

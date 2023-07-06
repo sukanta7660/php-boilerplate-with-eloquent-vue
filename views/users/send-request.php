@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Str;
 ?>
-<?= include_page('shared/user/header') ?>
+<?= includePage('shared/user/header') ?>
 
 <!-- category section -->
 <section class="catagory_section layout_padding">
@@ -33,7 +33,7 @@ use Illuminate\Support\Str;
                     <div class="row">
                         <?php
                     $image =
-                          $book->image == 'default.jpg' ? public_path('user/images/no_imiage.jpg') : public_path('uploads/books/'.$book->image) ; ?>
+                          $book->image == 'default.jpg' ? publicPath('user/images/no_imiage.jpg') : publicPath('uploads/books/'.$book->image) ; ?>
                         <div class="col-md-3">
                             <div class="card h-100 shadow-sm">
                                 <img src="<?= $image ?>" class="card-img-top" alt="..." />
@@ -135,4 +135,4 @@ use Illuminate\Support\Str;
 
 <!-- end catagory section -->
 
-<?= include_page('shared/user/footer') ?>
+<?= includePage('shared/user/footer') ?>

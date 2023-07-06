@@ -23,6 +23,7 @@
         "respect/validation": "^2.2",
       "ext-json": "*",
         "illuminate/http": "^9.12",
-        "fzaninotto/faker": "^1.5"
+        "fzaninotto/faker": "^1.5",
+        "ext-http": "*"
     }
 }

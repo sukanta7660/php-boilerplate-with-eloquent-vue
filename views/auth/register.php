@@ -1,4 +1,4 @@
-<?= include_page('shared/user/header') ?>
+<?= includePage('shared/user/header') ?>
 
 <section class="contact_section layout_padding">
     <div class="container">
@@ -77,11 +77,11 @@
         </div>
         <div class="col-md-6">
           <div class="img-box">
-            <img src="<?= public_path('user/images/contact-img.png') ?>" alt="">
+            <img src="<?= publicPath('user/images/contact-img.png') ?>" alt="">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-<?= include_page('shared/user/footer') ?>
+<?= includePage('shared/user/footer') ?>

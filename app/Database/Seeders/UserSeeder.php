@@ -2,6 +2,7 @@
 
 namespace App\Database\Seeders;
 
+use App\Database\Factories\UserFactory;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -22,12 +23,11 @@ class UserSeeder extends Seeder
                 'name'        => 'Admin User',
                 'email'       => 'admin@gmail.com',
                 'password'    => md5(123456),
-                'is_approved' => true,
                 'role'        => 'admin',
             ]);
         }
 
-        User::factory()->count(10)->create();
+        UserFactory::create(10);
     }
 
 }

@@ -14,9 +14,9 @@ if (!function_exists('view')) {
 
 }
 
-if (!function_exists('include_page')) {
+if (!function_exists('includePage')) {
 
-    function include_page($path)
+    function includePage($path)
     {
         require_once __DIR__ . '/../views/' . $path . '.php';
 
@@ -32,22 +32,13 @@ if (!function_exists('URI')) {
     }
 }
 
-if (!function_exists('public_path')) {
-    function public_path($filePath) {
+if (!function_exists('publicPath')) {
+    function publicPath($filePath) {
         $server = $_SERVER['SERVER_NAME'];
         $port = $_SERVER['SERVER_PORT'];
         return "http://".$server.':'.$port.'/public/'.$filePath;
     }
 }
-
-  if(!function_exists('request')){
-    function request()
-    {
-      $data = http_get_request_body();
-      return $data;
-
-    }
-  }
 
   if (!function_exists('redirect')) {
       function redirect($location = '/')
@@ -87,8 +78,8 @@ if(!function_exists('auth_user')) {
     }
 }
 
-if(!function_exists('user_inputs')) {
-    function user_inputs()
+if(!function_exists('requests')) {
+    function requests(): Request
     {
         return Request::capture();
     }

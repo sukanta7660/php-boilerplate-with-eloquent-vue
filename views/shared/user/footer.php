@@ -74,34 +74,34 @@
 <!-- footer section -->
 
 <!-- jQery -->
-<script src="<?= public_path('admin/vendor/jquery/jquery.min.js') ?>"></script>
-<script src="<?= public_path('user/js/bootstrap.js') ?>"></script>
-<script src="<?= public_path('user/js/custom.js') ?>"></script>
-<script src="<?= public_path('user/js/validation/register.js') ?>"></script>
+<script src="<?= publicPath('admin/vendor/jquery/jquery.min.js') ?>"></script>
+<script src="<?= publicPath('user/js/bootstrap.js') ?>"></script>
+<script src="<?= publicPath('user/js/custom.js') ?>"></script>
+<script src="<?= publicPath('user/js/validation/register.js') ?>"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
 </script>
 <script>
   //ResCarouselCustom();
   var pageRefresh = true;
-  
+
   function ResCarouselCustom() {
     var items = $("#dItems").val(),
       slide = $("#dSlide").val(),
       speed = $("#dSpeed").val(),
       interval = $("#dInterval").val()
-    
+
     var itemsD = "data-items=\"" + items + "\"",
       slideD = "data-slide=\"" + slide + "\"",
       speedD = "data-speed=\"" + speed + "\"",
       intervalD = "data-interval=\"" + interval + "\"";
-    
-    
+
+
     var atts = "";
     atts += items != "" ? itemsD + " " : "";
     atts += slide != "" ? slideD + " " : "";
     atts += speed != "" ? speedD + " " : "";
     atts += interval != "" ? intervalD + " " : ""
-    
+
     if (!pageRefresh) {
       ResCarouselSize();
     } else {
@@ -109,7 +109,7 @@
     }
   }
 </script>
-<script src="<?= public_path('user/js/resCarousel.js') ?>"></script>
+<script src="<?= publicPath('user/js/resCarousel.js') ?>"></script>
 </body>
 
 </html>

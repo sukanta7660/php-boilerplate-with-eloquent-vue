@@ -54,7 +54,7 @@ class UserController extends Controller
   {$validate = new Validator();
 
     $errors = [];
-    $request = user_inputs();
+    $request = requests();
     $name = $request->name;
     $email = $request->email;
     $password = $request->password;

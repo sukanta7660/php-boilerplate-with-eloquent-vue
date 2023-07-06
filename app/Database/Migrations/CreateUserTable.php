@@ -16,10 +16,14 @@ class CreateUserTable
     {
         if (!Capsule::schema()->hasTable(static::$tableName)) {
             Capsule::schema()->create(static::$tableName, function (Blueprint $table) {
-                $table->id();
+                $table->increments('id');
                 $table->string('name');
-                $table->string('username')->unique();
                 $table->string('email')->unique();
+                $table->string('password');
+                $table->string('token')->nullable();
+                $table->dateTime('email_verified_at')->nullable();
+                $table->enum('role', ['admin', 'user'])->default('user');
+                $table->rememberToken();
                 $table->timestamps();
             });
         }

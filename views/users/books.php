@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Str;
 ?>
-<?= include_page('shared/user/header') ?>
+<?= includePage('shared/user/header') ?>
 
 
   <!-- category section -->
@@ -32,8 +32,8 @@ use Illuminate\Support\Str;
                   foreach ($books as $key => $value) {
                     $image =
                           $value->image == 'default.jpg' ?
-                          public_path('user/images/no_imiage.jpg') :
-                          public_path('uploads/books/'.$value->image)
+                          publicPath('user/images/no_imiage.jpg') :
+                          publicPath('uploads/books/'.$value->image)
                         ;
                 ?>
                 <div class="col-md-4 mb-3">
@@ -69,4 +69,4 @@ use Illuminate\Support\Str;
 
   <!-- end catagory section -->
 
-<?= include_page('shared/user/footer') ?>
+<?= includePage('shared/user/footer') ?>

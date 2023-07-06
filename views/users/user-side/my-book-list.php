@@ -1,17 +1,17 @@
-<?= include_page('shared/admin/head') ?>
-    
+<?= includePage('shared/admin/head') ?>
+
     <div id="wrapper">
-        
-        <?= include_page('shared/admin/sidebar') ?>
-        
+
+        <?= includePage('shared/admin/sidebar') ?>
+
         <div id="content-wrapper" class="d-flex flex-column">
-            
+
             <div id="content">
-                
-                <?= include_page('shared/admin/header') ?>
-                
+
+                <?= includePage('shared/admin/header') ?>
+
                 <div class="container-fluid">
-                    
+
                     <h1 class="h3 mb-2 text-gray-800">My Records</h1>
                     <?php if(isset($_SESSION['warning'])) { ?>
                         <p class="alert alert-warning text-center p-2">
@@ -80,14 +80,14 @@
                             </div>
                         </div>
                     </div>
-                
+
                 </div>
-            
-            
+
+
             </div>
-            
-            <?= include_page('shared/admin/footer') ?>
-            
+
+            <?= includePage('shared/admin/footer') ?>
+
             <!-- Details View -->
             <div class="modal fade" id="notify" tabindex="-1" role="dialog"
                  aria-hidden="true">
@@ -172,9 +172,9 @@
                 </div>
             </div>
             <!-- Details View -->
-        
+
         </div>
-    
+
     </div>
 
-<?= include_page('shared/admin/foot') ?>
+<?= includePage('shared/admin/foot') ?>

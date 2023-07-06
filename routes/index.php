@@ -1,5 +1,6 @@
 <?php
 
+use App\Database\Seeders\DatabaseSeeder;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\BookRequestController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -32,7 +33,7 @@ $route->filter('logged_in', function () {
 $route->group(['before' => 'logged_in'], function (RouteCollector $route) {
   $route->get('/login', [LoginController::class, 'index']);
   $route->get('/admin-login', [LoginController::class, 'adminLoginPage']);
-  $route->post('/login', [LoginController::class, 'loginAction']);
+  $route->post('/login', [LoginController::class, 'login']);
   $route->post('/admin-login', [LoginController::class, 'adminLoginAction']);
   $route->get('/register', [RegisterController::class, 'index']);
   $route->get('/admin-register', [RegisterController::class, 'adminRegisterPage']);
@@ -162,7 +163,17 @@ $route->group(['prefix' => 'admin', 'before' => 'auth'], function (RouteCollecto
 });
 /*-------Admin Routes---------*/
 
-$route->get('/seed-user', [\App\Http\Controllers\SeedController::class, 'seedUsers']);
+$route->get('/migrate', function () {
+    (new \App\Database\DbMigrator())->run();
+});
+
+$route->get('/drop', function () {
+    (new \App\Database\DbMigrator())->down();
+});
+
+$route->get('/seed', function () {
+    (new DatabaseSeeder())->run();
+});
 
 // demo auth middleware
 $route->group(['before' => 'auth'], function (RouteCollector $route) {

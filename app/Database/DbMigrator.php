@@ -2,6 +2,8 @@
 
 namespace App\Database;
 
+use App\Database\Migrations\CreateUserTable;
+
 class DbMigrator
 {
     /**
@@ -9,7 +11,7 @@ class DbMigrator
      * Register all migrations
      */
     private static $migrations = [
-        // register here all of your migrations
+        CreateUserTable::class
     ];
 
     public static function run()

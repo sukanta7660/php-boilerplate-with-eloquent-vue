@@ -7,11 +7,11 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Admin Register || Online Library</title>
-  <link href="<?= public_path('admin/vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet" type="text/css">
+  <link href="<?= publicPath('admin/vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-  <link href="<?= public_path('admin/css/sb-admin-2.min.css') ?>" rel="stylesheet">
-  <link href="<?= public_path('admin/css/custom.css') ?>" rel="stylesheet">
+  <link href="<?= publicPath('admin/css/sb-admin-2.min.css') ?>" rel="stylesheet">
+  <link href="<?= publicPath('admin/css/custom.css') ?>" rel="stylesheet">
     <style>
         .error {
             color: red;
@@ -33,7 +33,7 @@
       <div class="row">
         <div
                 class="col-lg-5 d-none d-lg-block bg-register-image"
-                style="background-image: url(<?= public_path('admin/img/library-bg1.png') ?>) !important;">
+                style="background-image: url(<?= publicPath('admin/img/library-bg1.png') ?>) !important;">
 
         </div>
         <div class="col-lg-7">
@@ -104,10 +104,10 @@
 
 </div>
 
-<script src="<?= public_path('admin/vendor/jquery/jquery.min.js') ?>"></script>
-<script src="<?= public_path('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-<script src="<?= public_path('admin/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
-<script src="<?= public_path('admin/js/sb-admin-2.min.js') ?>"></script>
+<script src="<?= publicPath('admin/vendor/jquery/jquery.min.js') ?>"></script>
+<script src="<?= publicPath('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+<script src="<?= publicPath('admin/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
+<script src="<?= publicPath('admin/js/sb-admin-2.min.js') ?>"></script>
 
 <script type="text/javascript">
     const usernameEl = document.querySelector('#name');

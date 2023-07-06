@@ -13,7 +13,7 @@ class ProfileController extends Controller
 
   public function profileUpdate()
   {
-    $request = user_inputs();
+    $request = requests();
     $auth = User::where('id', $request->id)->first();
     $auth->update([
       'name' => $request->name,
@@ -28,7 +28,7 @@ class ProfileController extends Controller
 
   public function passwordChange()
   {
-    $request = user_inputs();
+    $request = requests();
     $auth = User::where('id', $request->id)->first();
     $oldPassword = $auth->password;
     $oldPasswordFromUser = md5($request->current_password);

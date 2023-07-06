@@ -1,14 +1,14 @@
-<?= include_page('shared/admin/head') ?>
+<?= includePage('shared/admin/head') ?>
 
   <div id="wrapper">
 
-    <?= include_page('shared/admin/sidebar') ?>
+    <?= includePage('shared/admin/sidebar') ?>
 
     <div id="content-wrapper" class="d-flex flex-column">
 
       <div id="content">
 
-        <?= include_page('shared/admin/header') ?>
+        <?= includePage('shared/admin/header') ?>
 
         <div class="container-fluid">
           <h1 class="h3 mb-2 text-gray-800 text-center">Add a new admin</h1>
@@ -78,10 +78,10 @@
 
       </div>
 
-      <?= include_page('shared/admin/footer') ?>
+      <?= includePage('shared/admin/footer') ?>
 
     </div>
 
   </div>
 
-<?= include_page('shared/admin/foot') ?>
+<?= includePage('shared/admin/foot') ?>

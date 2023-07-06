@@ -17,7 +17,7 @@ unset($_SESSION['warning']);
 }
 unset($_SESSION['success']);
 ?>
-<?= include_page('shared/user/header') ?>
+<?= includePage('shared/user/header') ?>
 <?php foreach ($categories as $key => $value) { ?>
     <div class="container-fluid p-5 <?= ($key+1)%2 == 0 ? 'bg-even' : '' ?>">
         <a class="text-uppercase text-primary" href="">
@@ -31,7 +31,7 @@ unset($_SESSION['success']);
                 <?php foreach ($value->books as $index => $item) { ?>
                     <?php
                     $image =
-                        $item->image == 'default.jpg' ? public_path('user/images/no_imiage.jpg') : public_path('uploads/books/'.$item->image) ;
+                        $item->image == 'default.jpg' ? publicPath('user/images/no_imiage.jpg') : publicPath('uploads/books/'.$item->image) ;
                     ?>
                     <div class="item">
                         <div class="tile">
@@ -50,5 +50,5 @@ unset($_SESSION['success']);
     </div>
 <?php } ?>
 
-<?= include_page('shared/user/footer') ?>
+<?= includePage('shared/user/footer') ?>
 

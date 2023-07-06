@@ -1,19 +1,19 @@
-<?= include_page('shared/admin/head') ?>
-    
+<?= includePage('shared/admin/head') ?>
+
     <div id="wrapper">
-        
-        <?= include_page('shared/admin/sidebar') ?>
-        
+
+        <?= includePage('shared/admin/sidebar') ?>
+
         <div id="content-wrapper" class="d-flex flex-column">
-            
+
             <div id="content">
-                
-                <?= include_page('shared/admin/header') ?>
-                
+
+                <?= includePage('shared/admin/header') ?>
+
                 <div class="container-fluid">
-                    
+
                     <h1 class="h3 mb-2 text-gray-800">Message From User</h1>
-    
+
                     <?php if(isset($_SESSION['warning'])) { ?>
                         <p class="alert alert-warning text-center p-2">
                             <small><?= $_SESSION['warning'] ?></small>
@@ -30,7 +30,7 @@
                     }
                     unset($_SESSION['success']);
                     ?>
-                    
+
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">All Message From User</h6>
@@ -78,16 +78,16 @@
                             </div>
                         </div>
                     </div>
-                
+
                 </div>
-            
-            
+
+
             </div>
-            
-            <?= include_page('shared/admin/footer') ?>
-        
+
+            <?= includePage('shared/admin/footer') ?>
+
         </div>
-    
+
     </div>
 
-<?= include_page('shared/admin/foot') ?>
+<?= includePage('shared/admin/foot') ?>

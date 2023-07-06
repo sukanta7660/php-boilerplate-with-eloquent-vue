@@ -8,7 +8,7 @@ class ContactController extends Controller
 {
     public function store()
     {
-        $request = user_inputs();
+        $request = requests();
 
         Contact::create([
             'name' => $request->name,

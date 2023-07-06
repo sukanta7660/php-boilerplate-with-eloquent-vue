@@ -22,7 +22,7 @@ class RegisterController extends Controller
         $validate = new Validator();
 
         $errors = [];
-        $request = user_inputs();
+        $request = requests();
         $name = $request->name;
         $email = $request->email;
         $password = $request->password;
@@ -67,7 +67,7 @@ class RegisterController extends Controller
 
     public function checkEligibility()
     {
-        $request = user_inputs();
+        $request = requests();
 
         $email = $request->email;
 
@@ -96,7 +96,7 @@ class RegisterController extends Controller
      */
     public function adminRegister()
   {
-    $request = user_inputs();
+    $request = requests();
     $name = $request->name;
     $email = $request->email;
     $password = $request->password;

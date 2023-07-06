@@ -1,4 +1,4 @@
-<?= include_page('shared/user/header') ?>
+<?= includePage('shared/user/header') ?>
 
 <!-- contact section -->
 
@@ -33,7 +33,7 @@
             </div>
             <div class="col-md-6">
                 <div class="img-box">
-                    <img src="<?= public_path('user/images/contact-img.png') ?>" alt="">
+                    <img src="<?= publicPath('user/images/contact-img.png') ?>" alt="">
                 </div>
             </div>
         </div>
@@ -43,4 +43,4 @@
 <!-- end contact section -->
 
 
-<?= include_page('shared/user/footer') ?>
+<?= includePage('shared/user/footer') ?>

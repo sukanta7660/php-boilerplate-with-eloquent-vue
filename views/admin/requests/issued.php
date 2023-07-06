@@ -1,14 +1,14 @@
-<?= include_page('shared/admin/head') ?>
+<?= includePage('shared/admin/head') ?>
 
   <div id="wrapper">
 
-    <?= include_page('shared/admin/sidebar') ?>
+    <?= includePage('shared/admin/sidebar') ?>
 
     <div id="content-wrapper" class="d-flex flex-column">
 
       <div id="content">
 
-        <?= include_page('shared/admin/header') ?>
+        <?= includePage('shared/admin/header') ?>
 
         <div class="container-fluid">
 
@@ -120,7 +120,7 @@
 
       </div>
 
-      <?= include_page('shared/admin/footer') ?>
+      <?= includePage('shared/admin/footer') ?>
 
         <!-- Details View -->
         <div class="modal fade" id="notify" tabindex="-1" role="dialog"
@@ -211,4 +211,4 @@
 
   </div>
 
-<?= include_page('shared/admin/foot') ?>
+<?= includePage('shared/admin/foot') ?>

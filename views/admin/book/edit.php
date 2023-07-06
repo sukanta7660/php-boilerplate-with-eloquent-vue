@@ -1,14 +1,14 @@
-<?= include_page('shared/admin/head') ?>
+<?= includePage('shared/admin/head') ?>
 
 <div id="wrapper">
 
-    <?= include_page('shared/admin/sidebar') ?>
+    <?= includePage('shared/admin/sidebar') ?>
 
     <div id="content-wrapper" class="d-flex flex-column">
 
         <div id="content">
 
-            <?= include_page('shared/admin/header') ?>
+            <?= includePage('shared/admin/header') ?>
 
             <div class="container-fluid">
 
@@ -30,7 +30,7 @@
                                         <select name="category_id" class="form-control" required>
                                             <option value="">Select a category</option>
                                             <?php foreach ($categories as $key => $value) { ?>
-                                            <option 
+                                            <option
                                                 value="<?= $value->id ?>"
                                                 <?= $value->id == $book->category_id ? 'selected' : '' ?>>
                                                 <?= $value->name ?>
@@ -40,32 +40,32 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Book Name</label>
-                                        <input type="text" 
+                                        <input type="text"
                                             name="name"
-                                            value="<?= $book->name ?>"  
-                                            class="form-control" 
+                                            value="<?= $book->name ?>"
+                                            class="form-control"
                                             placeholder="Book Name">
                                     </div>
                                     <div class="form-group">
                                         <label>Author</label>
-                                        <input type="text" 
+                                        <input type="text"
                                             name="author"
-                                            value="<?= $book->author ?>"  
-                                            class="form-control" 
+                                            value="<?= $book->author ?>"
+                                            class="form-control"
                                             placeholder="Book Author">
                                     </div>
                                     <div class="form-group">
                                         <label>Quantity</label>
-                                        <input type="number" 
-                                            name="quantity" 
-                                            class="form-control" 
-                                            placeholder="Book quantity" 
-                                            value="<?= $book->quantity ?>"  
+                                        <input type="number"
+                                            name="quantity"
+                                            class="form-control"
+                                            placeholder="Book quantity"
+                                            value="<?= $book->quantity ?>"
                                             min="0">
                                     </div>
                                     <div class="form-group">
                                         <label>Image</label>
-                                        <input type="file" 
+                                        <input type="file"
                                             name="image"
                                             class="form-control">
                                     </div>
@@ -97,10 +97,10 @@
 
         </div>
 
-        <?= include_page('shared/admin/footer') ?>
+        <?= includePage('shared/admin/footer') ?>
 
     </div>
 
 </div>
 
-<?= include_page('shared/admin/foot') ?>
+<?= includePage('shared/admin/foot') ?>

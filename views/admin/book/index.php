@@ -1,14 +1,14 @@
-<?= include_page('shared/admin/head') ?>
+<?= includePage('shared/admin/head') ?>
 
 <div id="wrapper">
 
-    <?= include_page('shared/admin/sidebar') ?>
+    <?= includePage('shared/admin/sidebar') ?>
 
     <div id="content-wrapper" class="d-flex flex-column">
 
         <div id="content">
 
-            <?= include_page('shared/admin/header') ?>
+            <?= includePage('shared/admin/header') ?>
 
             <div class="container-fluid">
 
@@ -54,8 +54,8 @@
                                     foreach ($books as $key => $value) {
                                       $image =
                                         $value->image == 'default.jpg' ?
-                                            public_path('user/images/no_imiage.jpg') :
-                                          public_path('uploads/books/'.$value->image)
+                                            publicPath('user/images/no_imiage.jpg') :
+                                          publicPath('uploads/books/'.$value->image)
                                       ;
                                     ?>
                                     <tr>
@@ -105,10 +105,10 @@
 
         </div>
 
-        <?= include_page('shared/admin/footer') ?>
+        <?= includePage('shared/admin/footer') ?>
 
     </div>
 
 </div>
 
-<?= include_page('shared/admin/foot') ?>
+<?= includePage('shared/admin/foot') ?>
