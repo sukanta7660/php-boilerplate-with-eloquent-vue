@@ -11,6 +11,6 @@ class LogoutController extends Controller
 
         session_destroy();
 
-        return redirect('/login');
+        redirect('/login');
     }
 }

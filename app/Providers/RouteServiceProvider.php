@@ -19,8 +19,20 @@ class RouteServiceProvider
     {
         $route = new RouteCollector(new RouteParser());
 
-        if (file_exists(__DIR__.'/../../routes/index.php')) {
-            require_once __DIR__.'/../../routes/index.php';
+        if (file_exists(__DIR__.'/../../routes/setting.php')) {
+            require_once __DIR__.'/../../routes/setting.php';
+        }
+
+        if (file_exists(__DIR__.'/../../routes/middleware.php')) {
+            require_once __DIR__.'/../../routes/middleware.php';
+        }
+
+        if (file_exists(__DIR__ . '/../../routes/web.php')) {
+            require_once __DIR__ . '/../../routes/web.php';
+        }
+
+        if (file_exists(__DIR__.'/../../routes/setting.php')) {
+            require_once __DIR__.'/../../routes/setting.php';
         }
 
         $dispatcher = new Dispatcher($route->getData());

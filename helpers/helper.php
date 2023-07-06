@@ -8,7 +8,7 @@ if (!function_exists('view')) {
     {
         extract($data, EXTR_SKIP);
         ob_start();
-        require_once __DIR__ . '/../views/' . $view . '.php';
+        require_once __DIR__ . '/../resources/views/' . $view . '.php';
 
     }
 

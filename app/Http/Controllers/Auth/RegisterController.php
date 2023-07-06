@@ -4,18 +4,20 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Exception;
 use Respect\Validation\Validator;
 
 class RegisterController extends Controller
 {
-    public function index() {
-        return view('auth/register');
+    public function index(): void
+    {
+        view('auth/register');
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function register()
+    public function register(): void
     {
         session_start();
 
@@ -41,14 +43,14 @@ class RegisterController extends Controller
 
         if(!empty($errors)) {
             $_SESSION['warning'] = 'Please fill the form with proper information';
-            return redirect('/register');
+            redirect('/register');
         }
 
         $exists = User::where('email', $email)->first();
 
         if ($exists) {
             $_SESSION['warning'] = 'User already exists';
-            return redirect('/register');
+            redirect('/register');
 
         }
 
@@ -62,10 +64,10 @@ class RegisterController extends Controller
         ]);
 
         $_SESSION['success'] = 'Registration successful. Please Login';
-        return redirect('/login');
+        redirect('/login');
     }
 
-    public function checkEligibility()
+    public function checkEligibility(): void
     {
         $request = requests();
 
@@ -84,39 +86,4 @@ class RegisterController extends Controller
         }
       }
     }
-
-//    Admin
-  public function adminRegisterPage()
-  {
-    return view('auth/admin-register');
-  }
-
-    /**
-     * @throws \Exception
-     */
-    public function adminRegister()
-  {
-    $request = requests();
-    $name = $request->name;
-    $email = $request->email;
-    $password = $request->password;
-    $token = bin2hex(random_bytes(15));
-
-    $isCreated = User::create([
-      'name' => $name,
-      'email' => $email,
-      'role' => 'admin',
-      'token' => $token,
-      'password' => md5($password)
-    ]);
-
-    if (!$isCreated) {
-      $_SESSION['warning'] = 'Something went wrong';
-      return redirect('/admin-register');
-
-    }
-
-    $_SESSION['success'] = 'Registration successful. Please Login';
-    return redirect('/admin-login');
-  }
 }
