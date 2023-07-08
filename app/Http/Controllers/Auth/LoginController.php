@@ -8,6 +8,8 @@ class LoginController extends Controller
 {
     public function index()
     {
+        $data = ['user' => auth_user(), 'users' => User::all()];
+        return $this->sendResponse($data,'Welcome to home page', true, 200);
         view('auth/login');
     }
 
