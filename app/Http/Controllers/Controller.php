@@ -12,7 +12,7 @@ abstract class Controller
         ];
     }
 
-    public static function sendResponse($data=null, $message=null, $status=true, $statusCode=200)
+    public static function sendResponse($data=null, $message='', $status=true, $statusCode=200)
     {
         header('Content-Type: application/json');
         http_response_code($statusCode);

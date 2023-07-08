@@ -31,6 +31,12 @@ class RouteServiceProvider
             require_once __DIR__ . '/../../routes/web.php';
         }
 
+        if (file_exists(__DIR__ . '/../../routes/api.php')) {
+            $route->group(['prefix' => 'api'], function ($route) {
+                require_once __DIR__ . '/../../routes/api.php';
+            });
+        }
+
         if (file_exists(__DIR__.'/../../routes/setting.php')) {
             require_once __DIR__.'/../../routes/setting.php';
         }
