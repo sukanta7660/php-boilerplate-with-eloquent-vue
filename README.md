@@ -1,24 +1,27 @@
-# PHP Boilerplate With Eloquent ORM
+# PHP Boilerplate With Eloquent-Vue
 
+#
 
-## How to run project
+### How to use:
 
-- 1 install php latest version
-  ``https://www.apachefriends.org/download.html``
-- 2 Install `composer` from `https://getcomposer.org/download/` (You have to add your php path while installing composer. Composer Install: `https://www.youtube.com/watch?v=6sbkXfIyFF8&ab_channel=StackDevelopers`)
-- 3 Put Your project in the htdocs folder. and run command prompt inside project folder.
-- 4 Create a database named `example` or as you want to   in `localhost/phpmyadmin`
-- 5 run php built in server or any server in port 3000
-```
-php -S localhost:3000
-```
+* Just clone the repository and keep on your server directory (htdocs) or anything else.
+* run command $` npm i` to install node
+* run command $` composer install` to install composer
+* run command $` cp .env.example .env`
+* Set you database credentials in .env file
+* run command $` composer dump-autoload` for refresh autoload files
+* run command $` npx mix watch` for compile vue files
+* Run command $` php -S localhost:3000` to start server
 
 ### Migrate Database
 ```
 localhost:3000/migrate
 ```
 
-### Drop Database Table
+[//]: # (355841112680663/67,)
+
+[//]: # (8947007212624302483)
+### Drop Database Tables
 ```
 localhost:3000/drop
 ```
