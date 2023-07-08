@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PHP Boilerplate With Eloquent</title>
 <link rel="stylesheet" href="<?= publicPath('css/app.css') ?>">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 </head>
 <body>
 

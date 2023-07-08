@@ -1,30 +1,15 @@
 <template>
-    <div>
-        <code>{{state.data}}</code>
-    </div>
+    <el-row gutter="0" style="width: 100%" class="home-content">
+      <el-col :span="12" class="content">
+          <h1 class="title">PHP Boilerplate With Eloquent ORM & Js Framework Support</h1>
+      </el-col>
+    </el-row>
 </template>
 
 <script setup>
-import {onMounted, reactive} from 'vue';
-import {api} from "../../api";
-import {API_TEST_URL} from '../../utils/constants';
-
-const state = reactive({
-    data: null,
-});
-
-const fetchData = async () => {
-  const response = await api.get(API_TEST_URL);
-  state.data = response.data.data;
-  console.log(response);
-}
-
-onMounted(() => {
-    fetchData();
-});
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

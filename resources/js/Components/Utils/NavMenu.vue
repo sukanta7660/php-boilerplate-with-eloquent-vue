@@ -63,6 +63,7 @@ onMounted(() => {
 .nav-menu {
   border-bottom: none !important;
   box-shadow: 0 0 7px rgb(0 0 0 / 0.2);
+  height: 70px;
 }
 .flex-grow {
   flex-grow: 1;

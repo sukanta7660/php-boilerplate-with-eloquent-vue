@@ -1,1 +1,31 @@
+html, body {
+  background-color: #fff;
+  color: #636b6f;
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+}
 
+#app {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+}
+
+.body-container {
+  min-height: calc(100vh - 90px);
+  overflow: auto;
+}
+
+.home-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+.home-content .content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.home-content .content .title {
+  font-size: 70px;
+  text-align: center;
+}
