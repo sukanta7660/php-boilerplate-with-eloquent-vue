@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-abstract class Controller
+class Controller
 {
     public static function formatResponse($data = [], $message = '', $status = true): array
     {

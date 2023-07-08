@@ -1,13 +1,13 @@
 <template>
   <el-menu
       :default-active="activeIndex"
-      class="el-menu-demo"
+      class="nav-menu"
       mode="horizontal"
       :router="true"
       :ellipsis="false"
   >
     <el-menu-item
-        :class="currentRoutePath === '/' ? 'is-active' : ''"
+        class="app-logo"
         index="/"
     >
       PHP Boilerplate With Eloquent ORM
@@ -59,6 +59,16 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.nav-menu {
+  border-bottom: none !important;
+  box-shadow: 0 0 7px rgb(0 0 0 / 0.2);
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.app-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 </style>
