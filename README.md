@@ -1,4 +1,4 @@
-# OOP Starter PHP
+# PHP Boilerplate With Eloquent ORM
 
 
 ## How to run project
